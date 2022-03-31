@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Show Finder</title>
+	<link rel="stylesheet" href="/public/main_style.css" />
+</head>
+
+<body>
+	
+	<!-- page content -->
+	<h2 class="jk1">:(</h2>
+	<h2 class="jk2">Your PC ran into a problem and needs to restart. We're</h2>
+	<h2 class="jk2">just collecting some error info, and then we'll restart for</h2>
+	<h2 class="jk2">you.</h2>
+	
+	<br></br>
+	
+	<h2 class="jk2">Just Kidding</h2>
+	
+	<br></br>
+	
+	<h1>Show Finder</h1>
+	<main>
+		<article>
+			<p>
+				This website can find shows by their id. 
+				It can also find shows by keyword.
+			</p>
+			<form action="/searchshows" method="POST" id="theForm" class="new-post-form">
+				<div>
+				<label for="string">
+					Search Shows:
+					<input type="text" id="string" name="showSearchTerm" value="{{search.string}}">
+				</label>
+				</div>
+				<br></br>
+				<div>
+				<button type="submit" value="Submit">Submit</button>
+				</div>
+			</form>
+		</article>
+	</main>
+	
+</body>
+</html>

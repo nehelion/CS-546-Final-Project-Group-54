@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{htmlShow.name}}</title>
+	<link rel="stylesheet" href="/public/main_style.css" />
+</head>
+
+<body>
+	
+	<!-- page content -->
+	<main>
+		<article>
+			<h1>{{htmlShow.name}}</h1>
+			<img src="{{htmlShow.image.medium}}" alt="{{htmlShow.name}}">
+			<dl> 
+				<dt>Language</dt> 
+				<dd>{{htmlShow.language}}</dd> 
+				<dt>Genres</dt> 
+				<dd> 
+					<ul class="normal">
+					{{#each htmlShow.genres}}  
+						<li>{{this}}</li>
+					{{/each}}
+					</ul>
+				</dd> 
+				<dt>Average Rating</dt> 
+				<dd>
+					{{#check htmlShow.rating.average null}}
+						{{this}}
+					{{/check}}
+				</dd> 
+				<dt>Network</dt> 
+				<dd>
+					{{#check htmlShow.network.name null}}
+						{{this}}
+					{{/check}}
+				</dd> 
+				<dt>Summary</dt> 
+				<dd>{{{htmlShow.summary}}}</dd> 
+			</dl> 
+		</article>
+	</main>
+	
+</body>
+</html>
