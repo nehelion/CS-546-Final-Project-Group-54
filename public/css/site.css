@@ -44,6 +44,10 @@ h3 {
   color: #fff;
 }
 
+a {
+  text-decoration:none;
+}
+
 .label {
   text-align: center;
   font-weight: bold;
