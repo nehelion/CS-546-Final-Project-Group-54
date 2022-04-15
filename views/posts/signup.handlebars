@@ -1,0 +1,26 @@
+<header>
+    <h1>{{title}}</h1>
+</header>
+<form method="POST" id="signup-form" action="/signup">
+    <label class="label">Let's get you signed up!</label>
+    <br />
+    <br />
+    <br />
+    <br />
+    <label class="label" for="username">Create Username
+        <input class="form-control" type="text" id="username" name="username" />
+    </label>
+    <br /><br />
+    <label class="label" for="password">Create Password
+        <input class="form-control" type="password" id="password" name="password" />
+    </label>
+    <br /><br />
+    <p id="error" class="error">{{error}}</p>
+    <br /><br />
+    <button class="submit-button" type="submit">Submit</button>
+</form>
+<br />
+<br />
+<footer class="footer">
+    <a href="/"> Already have an account? Click here to log-in</a>
+</footer>

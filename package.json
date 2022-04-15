@@ -1,17 +1,19 @@
 {
-  "name": "cs-546-lab-8",
+  "name": "lab10",
   "version": "1.0.0",
-  "description": "Lab 8",
+  "description": "\"This is our lab 10\"",
   "main": "app.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "author": "Alexander Kulpin 20007252",
+  "author": "Anusha Suresh 10473608",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.26.1",
-    "express": "^4.17.1",
-    "express-handlebars": "^6.0.3",
-    "path": "^0.12.7"
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.3",
+    "express-handlebars": "^5.3.5",
+    "express-session": "^1.17.2",
+    "mongodb": "^4.5.0"
   }
 }
