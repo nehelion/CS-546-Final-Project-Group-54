@@ -3,14 +3,17 @@ const users = mongoCollections.users;
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-async function createUser(username, password) {
+async function createUser(username, password, email) {
     const usersCollection = await users();
-    let dupUser = await usersCollection.findOne({ username: username.toLowerCase() });
+    let dupUser = await usersCollection.findOne({ username: username.toLowerCase()});
     if (dupUser !== null) throw "There is already a user with that username.";
+    let dupEmail = await usersCollection.findOne({ email: email.toLowerCase()});
+    if (dupEmail !== null) throw "There is already a user with that email.";
     const hashedPassword = bcrypt.hashSync(password, saltRounds);
     let newUser = {
         username: username.toLowerCase(),
-        password: hashedPassword
+        password: hashedPassword,
+        email: email.toLowerCase()
     }
     const insertDetails = await usersCollection.insertOne(newUser);
     if (insertDetails.insertedCount === 0) throw "Could not create user, try again!"

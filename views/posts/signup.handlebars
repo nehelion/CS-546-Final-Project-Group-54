@@ -1,26 +1,35 @@
 <header>
-    <h1>{{title}}</h1>
+    <a href="/">
+        <h1>FILM FORAY</h1>
+    </a>
 </header>
-<form method="POST" id="signup-form" action="/signup">
-    <label class="label">Let's get you signed up!</label>
+<div class="signup-container">
+    <label class="login-label">Sign Up</label>
     <br />
     <br />
     <br />
-    <br />
-    <label class="label" for="username">Create Username
-        <input class="form-control" type="text" id="username" name="username" />
-    </label>
-    <br /><br />
-    <label class="label" for="password">Create Password
-        <input class="form-control" type="password" id="password" name="password" />
-    </label>
-    <br /><br />
+    <form method="POST" id="signup-form" action="/signup">
+        {{!
+        <label class="label" for="password">First Name-->
+            <input type="text" id="username" name="username" />
+        </label>
+        <label class="label" for="username">Last Name
+            <input type="text" id="username" name="username" />
+        </label>-->}}
+        <label class="label" for="email">Enter Email
+            <input type="text" id="email" name="email" />
+        </label>
+        <label class="label" for="username">Create Username
+            <input type="text" id="username" name="username" />
+        </label>
+        <label class="label" for="password">Create Password
+            <input type="password" id="password" name="password" />
+        </label>
+    </form>
     <p id="error" class="error">{{error}}</p>
-    <br /><br />
-    <button class="submit-button" type="submit">Submit</button>
-</form>
-<br />
-<br />
-<footer class="footer">
-    <a href="/"> Already have an account? Click here to log-in</a>
-</footer>
+    <div class="div">
+        <button class="submit-button" type="submit">Submit</button>
+        <br>
+        <a href="/"> Already have an account? Click here to log-in</a>
+    </div>
+</div>

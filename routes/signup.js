@@ -74,9 +74,28 @@ router.post('/', async (req, res) => {
             })
             return;
         }
-        const { username, password } = req.body;
+        if (!req.body.email) {
+            res.status(400);
+            res.render('posts/signup', {
+                error: "Email cannot be blank.",
+                title: "Sign Up",
+                notFound: false
+            })
+            return;
+        }
 
-        let addUser = await usersData.createUser(username, password);
+        if (!req.body.email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
+            res.status(400);
+            res.render('posts/signup', {
+                error: "Email entered is invalid",
+                title: "Sign Up",
+                notFound: false
+            })
+            return;
+        }
+        const { username, password, email } = req.body;
+
+        let addUser = await usersData.createUser(username, password, email);
         if (addUser.userInserted) {
             req.session.user = { userName: username }
             res.redirect('/private');

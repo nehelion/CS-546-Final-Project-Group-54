@@ -1,8 +1,11 @@
 html {
-  height: 100%;
   scroll-behavior: smooth;
-}
+  height: 100%;
 
+}
+.div{
+  text-align: center;
+}
 .main-body {
   background-color: #000000;
   background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
@@ -20,6 +23,10 @@ input[type=password] {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
 }
 
 h1 {
@@ -29,35 +36,78 @@ h1 {
   text-align: center;
   color: #fff;
   letter-spacing: 6px;
+  text-decoration: none;
+}
+h2 {
+  font-family: Helvetica, sans-serif;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: 25px;
 }
 
-h2 {
+h3 {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: smaller;
   font-weight: lighter;
   text-align: center;
-  color: rgb(137, 137, 137);
+  color: rgb(177, 177, 177);
 }
-h3 {
+
+.h2search {
+  font-size: 20px;
+}
+
+.sub-head {
+  font-size: 15px;
+  color: #d0eaff;
+}
+
+h4 {
   font-family: Helvetica, sans-serif;
   text-align: left;
   color: #fff;
 }
 
-a {
-  text-decoration:none;
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 250px;
 }
 
-.label {
+.item {
+  text-align: left;
+
+}
+.login-label {
   text-align: center;
   font-weight: bold;
   color: #ffffff;
   border-color: #2c383f;
-  font-size: 25px;
+  font-size: 24px;
+
+}
+.label {
+  text-align: left;
+  color: #ffffff;
+  border-color: #2c383f;
+  font-size: 16px;
 
 }
 
-.container {
+.signup-container {
+  background-color: #00000059;
+  padding: 80px;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.login-container {
   text-align: center;
   background-color: #00000059;
   padding: 80px;
@@ -77,9 +127,7 @@ a {
 }
 
 #signup-form {
-  text-align: center;
-  background-color: #00000059;
-  padding: 80px;
+  text-align: left;
 }
 
 .submit-button {
@@ -90,7 +138,6 @@ a {
   border-radius: 6.5px;
   border-color: #2c383f;
   background-color: #04619f;
-  margin-top: 30.25px;
   letter-spacing: 1px;
   color: #ffffff;
   font-size: 18px;
@@ -103,6 +150,58 @@ a {
 
 }
 
+.signup-button {
+  padding: 12px 30px;
+  border-style: initial;
+  text-decoration: currentColor;
+  border-radius: 6.5px;
+  border-color: #2c383f;
+  background-color: rgba(117, 117, 117, 0.852);
+  color: #ffffff;
+  font-size: 14px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.signup-button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+
+}
+
+.genre-button {
+  margin: 25px;
+  padding: 50px 85px;
+  border-style: initial;
+  text-decoration: currentColor;
+  border-radius: 6.5px;
+  border-color: #2c383f;
+  background: linear-gradient(#e43c3c, #3e4df5cd);
+  letter-spacing: 1px;
+  color: #ffffff;
+  font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.genre-button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+
+}
+
+.searchForm {
+  padding: 6px;
+  text-align: center;
+  font-size: 20px;
+  background-color: #ffffff;
+  color: #2e2e2e;
+  border-style: solid;
+  text-shadow: rgba(66, 66, 66, 0.75);
+}
+
+p {
+  color: rgb(176, 176, 176);
+}
+
 #error {
   color: rgb(255, 0, 0);
   font-size: 18px;
@@ -110,39 +209,43 @@ a {
   text-decoration: none;
 }
 
-.footer {
+footer {
   text-align: center;
   font-family: "Times New Roman", Times, serif;
   color: rgb(156, 156, 156);
   background-color: rgba(0, 0, 0, 0.351);
-  padding: 12px;
-  position: absolute;
+  position: fixed;
+  left: 0;
   bottom: 0;
   width: 100%;
 }
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 100%);
+  grid-template-columns: repeat(4, 100%);
   overflow: hidden;
   scroll-behavior: smooth;
 }
+
 .wrapper section {
   width: 100%;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(5, auto);
+  grid-template-columns: repeat(6, auto);
   margin: 20px 0;
 }
+
 .wrapper section .item {
   position: relative;
   padding: 0 2px;
   transition: 250ms all;
 }
+
 .wrapper section .item:hover {
   margin: 0 40px;
   transform: scale(1.2);
 }
+
 .wrapper section .item .heading {
   position: absolute;
   bottom: 15px;
@@ -151,12 +254,14 @@ a {
   background-color: #00000086;
   border-radius: 25px;
 }
+
 .wrapper section .item .duration {
   position: absolute;
   bottom: 0;
   left: 20px;
   color: #fff;
 }
+
 .wrapper section .arrow__btn {
   position: absolute;
   color: #fff;
@@ -168,32 +273,41 @@ a {
   text-align: center;
   z-index: 1;
 }
+
 .wrapper section .left-arrow {
   top: 0;
   bottom: 0;
   left: 0;
   background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, black 100%);
 }
+
 .wrapper section .right-arrow {
   top: 0;
   bottom: 0;
   right: 0;
   background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, black 100%);
 }
+
 .topnav {
-  overflow: hidden;  
+  overflow: hidden;
   margin-top: -70px;
   margin-right: 50px;
   width: 20%;
   float: right;
 }
-a{
-  color:white
+
+a {
+  color: white
 }
+
+a:link {
+  text-decoration: none;
+}
+
 /* Style the links inside the navigation bar */
 .topnav a {
   float: right;
-  background-color: #04619f ;
+  background-color: #04619f;
   display: block;
   color: rgb(255, 255, 255);
   text-align: center;
@@ -216,17 +330,19 @@ a{
 
 /* Style the search box inside the navigation bar */
 .topnav input[type=text] {
-  float: right;
   padding: 6px;
   border: none;
   margin-top: 8px;
   margin-right: 16px;
   font-size: 17px;
+  width: 60%;
 }
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
 @media screen and (max-width: 600px) {
-  .topnav a, .topnav input[type=text] {
+
+  .topnav a,
+  .topnav input[type=text] {
     float: none;
     display: block;
     text-align: left;
@@ -234,10 +350,12 @@ a{
     margin: 0;
     padding: 14px;
   }
+
   .topnav input[type=text] {
     border: 1px solid #ccc;
   }
 }
+
 .dropdown {
   float: right;
   overflow: hidden;
@@ -251,12 +369,15 @@ a{
   color: white;
   padding: 14px 16px;
   background-color: #2196F3;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
+  font-family: inherit;
+  /* Important for vertical align on mobile phones */
+  margin: 0;
+  /* Important for vertical align on mobile phones */
 }
 
 /* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
+.navbar a:hover,
+.dropdown:hover .dropbtn {
   background-color: red;
 }
 
@@ -266,7 +387,7 @@ a{
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -288,4 +409,105 @@ a{
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+
+.search-form {
+  display: flex;
+  padding: 2px;
+  margin: 0 0 30px;
+}
+
+input[type=search] {
+  border: rgba(255, 255, 255, 0.57);
+  background: #000000b0;
+  margin: 0;
+  padding: 7px 8px;
+  font-size: 14px;
+  color: inherit;
+  border: 1px solid transparent;
+  border-radius: inherit;
+}
+
+input[type=search]::placeholder {
+  color: rgb(220, 220, 220);
+}
+
+.search-button[type=submit] {
+  text-indent: -999px;
+  overflow: hidden;
+  width: 40px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  background: #229bffc9 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+button[type=submit]:hover {
+  opacity: 1;
+}
+
+button[type=submit]:focus,
+input[type=search]:focus {
+  box-shadow: 0 0 3px 0 #1183d6;
+  border-color: #1183d6;
+  outline: none;
+}
+
+#text-form {
+  padding: 12px;
+  text-align: center;
+  font-size: 20px;
+  background-color: #ffffff;
+  color: #2e2e2e;
+  border-style: solid;
+  text-shadow: rgba(66, 66, 66, 0.75);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: rgba(52, 207, 43, 0.893);
+  color: rgb(0, 0, 0);
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: absolute;
+  top: 23px;
+  left: 28px;
+  width: 150px;
+  font-weight: bold;
+}
+
+.open-button:hover {
+  opacity: 1;
+}
+
+.open-page-button {
+  background-color: rgba(52, 207, 43, 0.893);
+  color: rgb(0, 0, 0);
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: absolute;
+bottom: 0px;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.open-page-button:hover {
+  opacity: 1;
 }

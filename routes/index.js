@@ -4,6 +4,9 @@ const signUp = require('./signup');
 const private = require('./private');
 const logOut = require('./logout');
 const movie = require('./movie');
+const searchpage = require('./searchpage');
+const gen_action = require('./action');
+const addmovie = require('./addmovie');
 
 const constructorMethod = (app) => {
   app.use('/', mainRoutes);
@@ -12,6 +15,9 @@ const constructorMethod = (app) => {
   app.use('/private',private);
   app.use('/logout',logOut);
   app.use('/movie',movie);
+  app.use('/searchpage',searchpage);
+  app.use('/action', gen_action);
+  app.use('/addmovie', addmovie);
 
   app.use('*', (req, res) => {
     res.redirect('/');
