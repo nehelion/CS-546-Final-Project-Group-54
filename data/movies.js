@@ -1,10 +1,10 @@
-const mongoCollections = require('./../config/mongoCollections';
+const mongoCollections = require('./../config/mongoCollections');
 const movies = mongoCollections.movies;
 
 async function addMovie(movieTitle, releaseYear, genre, rating, description, actors, directors, whereToWatch) {
   console.log("inside addMovie");
   const moviesCollection = await movies();
-  let dupMovie = await moviesCollection.findOne({title: title});
+  let dupMovie = await moviesCollection.findOne({movieTitle: movieTitle});
   if (dupMovie !== null) throw "There is already a movie with that title.";
   let newMovie = {
     movieTitle: movieTitle,
@@ -16,7 +16,7 @@ async function addMovie(movieTitle, releaseYear, genre, rating, description, act
     directors: directors,
     whereToWatch: whereToWatch
   }
-  const insertDetails = await usersCollection.insertOne(newMovie);
+  const insertDetails = await moviesCollection.insertOne(newMovie);
   if (insertDetails.insertedCount === 0) throw "Could not add movie, try again!"
   return {movieInserted: true};
 }
