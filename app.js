@@ -38,7 +38,7 @@ app.use('/login', (req, res, next) => {
 app.use('/logout', (req, res) => {
   res.clearCookie('session')
   req.session.destroy();
-  res.render('posts/private', { title: "Logged out", msg: "You are logged out" })
+  res.render('posts/login', { title: "Logged out", msg: "You are logged out" })
 });
 
 app.use('/signup', (req, res, next) => {
@@ -64,7 +64,7 @@ app.use(requestTime)
 
 configRoutes(app);
 
-app.listen(3017, () => {
+app.listen(3000, () => {
   console.log("We've now got a server!");
-  console.log('Your routes will be running on http://localhost:3017');
+  console.log('Your routes will be running on http://localhost:3000');
 });

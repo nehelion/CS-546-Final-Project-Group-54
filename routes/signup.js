@@ -93,9 +93,9 @@ router.post('/', async (req, res) => {
             })
             return;
         }
-        const { username, password, email } = req.body;
+        const { firstName, lastName, username, password, email } = req.body;
 
-        let addUser = await usersData.createUser(username, password, email);
+        let addUser = await usersData.createUser(firstName, lastName, username, password, email);
         if (addUser.userInserted) {
             req.session.user = { userName: username }
             res.redirect('/private');

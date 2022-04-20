@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
         let searchUser = await usersData.checkUser(username, password)
         if (!searchUser.authenticated || searchUser.authenticated != true) {
             res.status(400);
-            res.render('posts/login', { title: "Login Screen", error: "Incorrect username and/or password." })
+            res.render('posts/login', { title: "Login", error: "Incorrect username and/or password." })
             return;
         }
 
@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
         }
     } catch (e) {
         res.status(500);
-        res.render('posts/login', { title: "Login Screen", error: e })
+        res.render('posts/login', { title: "Login", error: e })
         return;
     }
 });

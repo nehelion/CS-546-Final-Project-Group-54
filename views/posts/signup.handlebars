@@ -9,13 +9,13 @@
     <br />
     <br />
     <form method="POST" id="signup-form" action="/signup">
-        {{!
-        <label class="label" for="password">First Name-->
-            <input type="text" id="username" name="username" />
+
+        <label class="label" for="firstName">First Name
+            <input type="text" id="firstName" name="firstName" />
         </label>
-        <label class="label" for="username">Last Name
-            <input type="text" id="username" name="username" />
-        </label>-->}}
+        <label class="label" for="lastName">Last Name
+            <input type="text" id="lastName" name="lastName" />
+        </label>
         <label class="label" for="email">Enter Email
             <input type="text" id="email" name="email" />
         </label>
@@ -25,12 +25,9 @@
         <label class="label" for="password">Create Password
             <input type="password" id="password" name="password" />
         </label>
-        <button class="submit-button" type="submit">Submit</button>
-    </form>
-    <p id="error" class="error">{{error}}</p>
-    <div class="div">
-
-        <br>
+        <button class="submit-button" type="submit">Sign Up</button>
+        <p id="error" class="error">{{error}}</p>
+        <br />
         <a href="/"> Already have an account? Click here to log-in</a>
-    </div>
+    </form>
 </div>

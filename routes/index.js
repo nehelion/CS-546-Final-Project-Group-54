@@ -5,7 +5,7 @@ const private = require('./private');
 const logOut = require('./logout');
 const movie = require('./movie');
 const searchpage = require('./searchpage');
-const gen_action = require('./action');
+const gen_action = require('./genres');
 const addmovie = require('./addmovie');
 
 const constructorMethod = (app) => {
