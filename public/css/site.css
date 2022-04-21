@@ -502,7 +502,7 @@ body {
   cursor: pointer;
   opacity: 0.8;
   position: absolute;
-bottom: 0px;
+	bottom: 0px;
   font-weight: bold;
   position: relative;
   margin-bottom: 10px;
@@ -510,4 +510,50 @@ bottom: 0px;
 
 .open-page-button:hover {
   opacity: 1;
+}
+
+div.boxed_comment {
+	border: 1px solid white ;
+	width: 600px;
+	margin: auto;
+}
+
+a.username_comment {
+	margin-left: 10px;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+div.post_comment {
+	margin-left: 30px;
+	color: white;
+}
+
+textarea.post_comment {
+	width: 600px;
+	height: 100px;
+	color: black;
+}
+
+hr.hr_comment {
+	width: 550px;
+}
+
+div.comment_section {
+	width: 600px;
+	margin: auto;
+}
+
+.submit-button_comment {
+  margin-left: 200px;
+  padding: 12px 60px;
+  border-style: initial;
+  text-decoration: currentColor;
+  border-radius: 6.5px;
+  border-color: #2c383f;
+  background-color: #04619f;
+  letter-spacing: 1px;
+  color: #ffffff;
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
 }
