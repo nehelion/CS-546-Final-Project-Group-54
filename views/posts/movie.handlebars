@@ -12,12 +12,21 @@
         <img src="https://occ-0-1567-1123.1.nflxso.net/dnm/api/v5/rendition/412e4119fb212e3ca9f1add558e2e7fed42f8fb4/AAAABRvngexxF8H1-OzRWFSj6ddD-aB93tTBP9kMNz3cIVfuIfLEP1E_0saiNAwOtrM6xSOXvoiSCMsihWSkW0dq808-R7_lBnr6WHbjkKBX6I3sD0uCcS8kSPbRjEDdG8CeeVXEAEV6spQ.webp"
         alt="Describe Image">
 
-        <h1 class="heading">Heading One</h1>
+        <h1 class="heading">{{allData.movieTitle}}</h1>
         </a>
 		
 		<a>
-			Info Section
-			<p class="duration">Duration: 10 min</p>
+			
+			INFO:
+			
+			<p>Release Year: {{allData.releaseYear}}</p>
+			<p>Genre: {{allData.genre}}</p>
+			<p>Rating: {{allData.rating}}</p>
+			<p>Description: {{allData.description}}</p>
+			<p>Actors: {{allData.actors}}</p>
+			<p>Directors: {{allData.directors}}</p>
+			<p>Where To Watch: {{allData.whereToWatch}}</p>
+			
 		</a>
 		
 		<br>
