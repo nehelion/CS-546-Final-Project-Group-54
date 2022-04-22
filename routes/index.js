@@ -8,6 +8,10 @@ const searchpage = require('./searchpage');
 const gen_action = require('./genres');
 const addmovie = require('./addmovie');
 
+// FOR TESTING
+const data = require('../data');
+const moviesData = data.movies;
+
 const constructorMethod = (app) => {
   app.use('/', mainRoutes);
   app.use('/login',login);
@@ -18,6 +22,12 @@ const constructorMethod = (app) => {
   app.use('/searchpage',searchpage);
   app.use('/action', gen_action);
   app.use('/addmovie', addmovie);
+  
+  // FOR TESTING
+  app.use('/sample', (req, res) => {
+	//moviesData.addMovie();
+    res.redirect('/private');
+  });
 
   app.use('*', (req, res) => {
     res.redirect('/');

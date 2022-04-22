@@ -1,12 +1,19 @@
-html{
-  height: 110%;
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+
+}
+.div{
+  text-align: center;
 }
 .main-body {
   background-color: #000000;
   background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
   font-family: "Times New Roman", Times, serif;
   text-align: center;
-  position: relative;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
 }
 
 input[type=text],
@@ -31,7 +38,6 @@ h1 {
   letter-spacing: 6px;
   text-decoration: none;
 }
-
 h2 {
   font-family: Helvetica, sans-serif;
   padding-bottom: 20px;
@@ -66,6 +72,7 @@ h4 {
   color: #fff;
 }
 
+
 img {
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -75,38 +82,48 @@ img {
 
 .item {
   text-align: left;
-}
 
+}
 .login-label {
   text-align: center;
   font-weight: bold;
   color: #ffffff;
   border-color: #2c383f;
   font-size: 24px;
-}
 
+}
 .label {
   text-align: left;
   color: #ffffff;
   border-color: #2c383f;
   font-size: 16px;
+
 }
 
 .signup-container {
   background-color: #00000059;
   padding: 80px;
-  width: 25%;
+  width: 30%;
   margin-left: auto;
   margin-right: auto;
 }
-
 .login-container {
   text-align: center;
   background-color: #00000059;
   padding: 80px;
-  width: 20%;
+  width: 30%;
   margin-left: auto;
   margin-right: auto;
+}
+
+#login-form {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.442);
+  padding: 80px;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 #signup-form {
@@ -128,11 +145,31 @@ img {
 }
 
 .submit-button:hover {
-  opacity: 0.6;
+  opacity: 0.7;
   cursor: pointer;
+
+}
+
+.signup-button {
+  padding: 12px 30px;
+  border-style: initial;
+  text-decoration: currentColor;
+  border-radius: 6.5px;
+  border-color: #2c383f;
+  background-color: rgba(117, 117, 117, 0.852);
+  color: #ffffff;
+  font-size: 14px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.signup-button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+
 }
 
 .genre-button {
+  margin: 25px;
   padding: 50px 85px;
   border-style: initial;
   text-decoration: currentColor;
@@ -143,13 +180,10 @@ img {
   color: #ffffff;
   font-size: 22px;
   font-family: "Times New Roman", Times, serif;
-  transition: 250ms all;
-  position: relative;
 }
 
 .genre-button:hover {
-  margin: 0 30px;
-  transform: scale(1.2);
+  opacity: 0.7;
   cursor: pointer;
 
 }
@@ -169,21 +203,28 @@ p {
 }
 
 #error {
-  color: rgb(203, 203, 203);
-  background-color: #ff0000e1;
+  color: rgb(255, 0, 0);
   font-size: 18px;
   text-align: center;
   text-decoration: none;
 }
 
-
+footer {
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  color: rgb(156, 156, 156);
+  background-color: rgba(0, 0, 0, 0.351);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
 
 .wrapper {
   display: grid;
   grid-template-columns: repeat(4, 100%);
   overflow: hidden;
   scroll-behavior: smooth;
-  padding-bottom: 25px;
 }
 
 .wrapper section {
@@ -205,18 +246,21 @@ p {
   transform: scale(1.2);
 }
 
-
-.title {
+.wrapper section .item .heading {
   position: absolute;
-  bottom: -42px;
-  left: 3px;
+  bottom: 15px;
+  left: 17px;
   color: #fff;
-  background-color: #00000057;
-  width: 75%;
-  padding: 3px;
-  overflow: hidden;
+  background-color: #00000086;
+  border-radius: 25px;
 }
 
+.wrapper section .item .duration {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  color: #fff;
+}
 
 .wrapper section .arrow__btn {
   position: absolute;
@@ -253,7 +297,7 @@ p {
 }
 
 a {
-  color: rgba(255, 255, 255, 0.629)
+  color: white
 }
 
 a:link {
@@ -319,12 +363,12 @@ a:link {
 
 /* Dropdown button */
 .dropdown .dropbtn {
-  font-size: 18px;
+  font-size: 16px;
   border: none;
   outline: none;
   color: white;
   padding: 14px 16px;
-  background-color: #1591f5e1;
+  background-color: #2196F3;
   font-family: inherit;
   /* Important for vertical align on mobile phones */
   margin: 0;
@@ -334,8 +378,7 @@ a:link {
 /* Add a red background color to navbar links on hover */
 .navbar a:hover,
 .dropdown:hover .dropbtn {
-  background-color: #001b2de8;
-  cursor: pointer;
+  background-color: red;
 }
 
 /* Dropdown content (hidden by default) */
@@ -343,6 +386,7 @@ a:link {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
+  min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
@@ -351,7 +395,7 @@ a:link {
 .dropdown-content a {
   float: none;
   color: rgba(255, 255, 255, 0.772);
-  padding: 8px 12px;
+  padding: 12px 16px;
   text-decoration: none;
   display: block;
   text-align: left;
@@ -370,7 +414,8 @@ a:link {
 
 .search-form {
   display: flex;
-  padding: 9px;
+  padding: 2px;
+  margin: 0 0 30px;
 }
 
 input[type=search] {
@@ -401,6 +446,9 @@ input[type=search]::placeholder {
   opacity: 0.7;
 }
 
+button[type=submit]:hover {
+  opacity: 1;
+}
 
 button[type=submit]:focus,
 input[type=search]:focus {
@@ -423,9 +471,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
-  background-color: rgb(13, 255, 0);
+  background-color: rgba(52, 207, 43, 0.893);
   color: rgb(0, 0, 0);
   padding: 16px 20px;
   border: none;
@@ -439,7 +491,7 @@ body {
 }
 
 .open-button:hover {
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .open-page-button {
@@ -450,7 +502,7 @@ body {
   cursor: pointer;
   opacity: 0.8;
   position: absolute;
-  bottom: 0px;
+	bottom: 0px;
   font-weight: bold;
   position: relative;
   margin-bottom: 10px;
@@ -458,4 +510,50 @@ body {
 
 .open-page-button:hover {
   opacity: 1;
+}
+
+div.boxed_comment {
+	border: 1px solid white ;
+	width: 600px;
+	margin: auto;
+}
+
+a.username_comment {
+	margin-left: 10px;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+div.post_comment {
+	margin-left: 30px;
+	color: white;
+}
+
+textarea.post_comment {
+	width: 600px;
+	height: 100px;
+	color: black;
+}
+
+hr.hr_comment {
+	width: 550px;
+}
+
+div.comment_section {
+	width: 600px;
+	margin: auto;
+}
+
+.submit-button_comment {
+  margin-left: 200px;
+  padding: 12px 60px;
+  border-style: initial;
+  text-decoration: currentColor;
+  border-radius: 6.5px;
+  border-color: #2c383f;
+  background-color: #04619f;
+  letter-spacing: 1px;
+  color: #ffffff;
+  font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
 }
