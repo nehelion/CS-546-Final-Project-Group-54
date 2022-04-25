@@ -11,6 +11,9 @@ router.get('/:id', async (req, res) =>
 	{
 		let searchMovie = await moviesData.getMovie(req.params.id);
 		let commentsList = await commentsData.getAllComments(searchMovie);
+		
+		
+		
 		res.render('posts/movie', { title: "Movie Page", allData: searchMovie, comments: commentsList });
 	} 
 	catch (e) 

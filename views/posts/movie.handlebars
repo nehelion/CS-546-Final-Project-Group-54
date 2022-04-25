@@ -4,6 +4,15 @@
 </a>
 </header>
 
+<script>
+	function show(shown, hidden) 
+	{
+		document.getElementById(shown).style.display='block';
+		document.getElementById(hidden).style.display='none';
+		return false;
+	}
+</script>
+
 <main>
 
     <div class="item">
@@ -69,6 +78,8 @@
 			{{#each comments}}
 				{{{comment}}}
 			{{/each}}
+			
+			
 			
 			</li>
 			

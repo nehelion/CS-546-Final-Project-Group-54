@@ -36,10 +36,51 @@ async function getAllComments(movie)
 {
 	var movieList = [];
 	
-	movie.comments.forEach((com) => 
+	for (let i = 0; i < movie.comments.length; i++) 
 	{
-		movieList.push({comment: "<div class='boxed_comment'><a class='username_comment'>" + com.username + "</a><hr class='hr_comment'><div class='post_comment'>" + com.comment + "</div></div><br>"});
-	});
+		if(i % 5 == 0 && i == 0)
+		{
+			movieList.push({comment: 
+				"<div id='Page1'>"
+			});
+		}
+		else if(i % 5 == 0 && i > 0)
+		{
+			if(i / 5 != 1)
+			{
+				movieList.push({comment: 
+				
+					"<a href='#'" + 
+					"onclick='return show("+'"Page'+((i/5)-1)+'"'+","+'"Page'+(i/5)+'"'+");" +
+					"'>Show page " + ((i/5) - 1) + "</a>" +
+					"<a href='#'"
+				});
+			}
+			movieList.push({comment: 
+				"<a href='#'" + 
+				"onclick='return show("+'"Page'+((i/5)+1)+'"'+","+'"Page'+(i/5)+'"'+");" +
+				"'>Show page " + ((i/5) + 1) + "</a></div>"
+			});
+			movieList.push({comment: 
+				"<div id='Page" + ((i/5)+1) + "' style='display:none'>"
+			});
+		}
+		movieList.push({comment: 
+			"<div class='boxed_comment'><a class='username_comment'>" + 
+			movie.comments[i].username + 
+			"</a><hr class='hr_comment'><div class='post_comment'>" + 
+			movie.comments[i].comment + 
+			"</div></div><br>"
+		});
+		if(i == movie.comments.length - 1)
+		{
+			movieList.push({comment: 
+				"<a href='#'" + 
+				"onclick='return show("+'"Page'+Math.trunc(i/5)+'"'+","+'"Page'+Math.trunc((i/5)+1)+'"'+");" +
+				"'>Show page " + Math.trunc(i/5) + "</a></div>"
+			});
+		}
+	}
 	
 	return movieList;
 }
@@ -49,3 +90,4 @@ module.exports =
 	addComment,
 	getAllComments
 }
+
