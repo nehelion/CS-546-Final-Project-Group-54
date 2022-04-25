@@ -47,6 +47,13 @@ async function getAllMovies()
 	return moviesList;
 }
 
+async function clearMovies() 
+{	
+	const moviesCollection = await movies();
+	moviesCollection.drop();
+	return true;
+}
+
 async function test() 
 {
   return {test: true};
@@ -57,14 +64,9 @@ module.exports =
   addMovie,
 	getMovie,
 	getAllMovies,
+	clearMovies,
   test
 }
 
 
 
-//<div class="item">
-//                <a href="/movie">
-//                    <img src="https://www.creativefabrica.com/wp-content/uploads/2020/01/31/filmstrip-tapes-movie-cinema-film-logo-Graphics-1.jpg"
-//                        alt="Describe Image">
-//                </a>
-//            </div>

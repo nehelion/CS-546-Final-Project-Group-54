@@ -30,14 +30,11 @@ router.post('/:id/newcomment', async (req, res) =>
 	{
 		let enteredComment = req.body.comment_post;
 		
-		console.log("GOT 0.2 : " + enteredComment);
-		
 		let searchMovie = await moviesData.getMovie(req.params.id);
 		
 		let newComment = await commentsData.addComment(
-			'625f2fc8ebf2bb999876c2c9', 
 			searchMovie, 
-			"alexkulpin", 
+			req.session.user.userName, 
 			enteredComment);
 		res.redirect('/movie/' + req.params.id);
 	} 

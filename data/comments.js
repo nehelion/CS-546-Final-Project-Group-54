@@ -3,13 +3,12 @@ const movies = mongoCollections.movies;
 const comments = mongoCollections.comments;
 const { ObjectID } = require('mongodb');
 
-async function addComment(userId, movie, username, comment)
+async function addComment(movie, username, comment)
 {
 	const moviesCollection = await movies();
 	
 	let newComment = {
 		movieId: movie._id,
-		userId: userId,
     username: username,
     comment: comment
   }

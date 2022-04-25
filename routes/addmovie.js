@@ -7,6 +7,7 @@ const moviesData = data.movies;
 router.get('/', async (req, res) => {
     res.render('posts/addmovie', { title: "Add Movie Page", allData: req.session.user })
 });
+
 router.post('/', async (req, res) => {
   //console.log('test');
   try {
@@ -34,6 +35,23 @@ router.post('/', async (req, res) => {
     res.status(500);
     res.render('posts/addmovie', { title: "Add Movie Page", allData: req.session.user, error: e });
     //return;
+  }
+})
+
+router.post('/seed', async (req, res) => 
+{
+  try 
+	{
+		moviesData.clearMovies();
+		await moviesData.addMovie("Movie One", 1997, ["Action", "Drama"], 7.0, "First Movie", ["Actor May", "Actor Van"], ["Alex", "Steven"], ["Netflix", "Hulu"]);
+		await moviesData.addMovie("Movie Two", 2001, ["Action"], 8.5, "Second Movie", ["Actor Sven"], ["Ashton"], ["Netflix"]);
+		await moviesData.addMovie("Movie Three", 2021, ["Drama"], 9.0, "Third Movie", [], ["Alex"], ["Sphinx"]);
+		res.redirect('/private');
+  } 
+	catch(e) 
+	{
+    res.status(500);
+    res.render('posts/addmovie', { title: "Add Movie Page", allData: req.session.user, error: e });
   }
 })
 

@@ -56,15 +56,9 @@
         <section id="section1">
             <a href="#section3" class="arrow__btn left-arrow">‹</a>
             
-						<ul id="all_sec1">
-						
-						<div class="item">
-                <a href="/movie/{{moviesList}}">
-                    <img src="https://www.creativefabrica.com/wp-content/uploads/2020/01/31/filmstrip-tapes-movie-cinema-film-logo-Graphics-1.jpg"
-                        alt="Describe Image">
-                </a>
-            </div>
-            </ul>
+						{{#each movies}}
+							{{{title}}}
+						{{/each}}
 			
 			<a href="#section2" class="arrow__btn right-arrow">›</a>
         </section>

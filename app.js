@@ -33,10 +33,20 @@ app.use('/private', async (req, res, next) =>
 	else 
 	{
 		let movies = await moviesData.getAllMovies();
-		console.log("GETTING MOVIES 0");
-		console.log("--string:" + JSON.stringify(movies));
-		//{ title: "Film Foray", movieList: movies[0] }
-    res.render('posts/private', { title: "Logged In", userDetails: req.session.user, moviesList: movies[0]._id })
+		
+		var movieList = [];
+		
+		for (let i = 0; i < movies.length; i++) 
+		{
+			movieList.push({title: 
+				"<div class='item'><a href='/movie/"+movies[i]._id+"'>" + 
+				"<img src='https://www.creativefabrica.com/wp-content/uploads/2020/01/31/filmstrip-tapes-movie-cinema-film-logo-Graphics-1.jpg' alt='Describe Image'>" +
+				"<h3>"+movies[i].movieTitle+"</h3>" +
+				"</a></div>"
+			});
+		}
+		
+    res.render('posts/private', { title: "Logged In", userDetails: req.session.user, movies: movieList })
   }
 });
 
