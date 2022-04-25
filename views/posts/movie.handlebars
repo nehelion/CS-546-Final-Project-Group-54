@@ -23,51 +23,39 @@
 		<a>
 			
 			<div class="row">
-				<div class="column">
-					<div class="movie_info">
-					INFO:
-					<p>Year Released: {{allData.releaseYear}}</p>
-					<p>Genre:</p>
-					<p>- {{allData.genre}}</p>
-					<p>- {{allData.genre}}</p>
-					<p>- {{allData.genre}}</p>
-					<p>Where To Watch:</p>
-					<p>- {{allData.whereToWatch}}</p>
-					<p>- {{allData.whereToWatch}}</p>
-					<p>- {{allData.whereToWatch}}</p>
-					
-					<p>Status: Watched</p>
-					</div>
+			
+			<div class="column">
+			
+				<div class="movie_info">
+				INFO:
+				<p>Year Released: {{allData.releaseYear}}</p>
+				<p>Genre:</p>
+				{{#each allData.genre}} <p>- {{{this}}} </p> {{/each}}
+				<p>Where To Watch:</p>
+				{{#each allData.whereToWatch}} <p>- {{{this}}} </p> {{/each}}
 				</div>
-				<div class="column">
-					--
-					<div class="movie_info">
-					<p>IMDB Rating: {{allData.rating}}</p>
-					<p>Actors:</p>
-					<p>- {{allData.actors}}</p>
-					<p>- {{allData.actors}}</p>
-					<p>- {{allData.actors}}</p>
-					<p>Directors:</p>
-					<p>- {{allData.directors}}</p>
-					<p>- {{allData.directors}}</p>
-					<p>- {{allData.directors}}</p>
+
+				<div class="movie_info">
+				<p>IMDB Rating: {{allData.rating}}</p>
+				<p>Actors:</p>
+				{{#each allData.actors}} <p>- {{{this}}} </p> {{/each}}
+				<p>Directors:</p>
+				{{#each allData.directors}} <p>- {{{this}}} </p> {{/each}}
 				
-					<p>User Rating: Liked</p>
-					</div>
+				<p>Status: Watched</p>
+				<p>User Rating: Liked</p>
 				</div>
-			</div>
+			
 			
 			<p class="movie_info_des">
 				Movie Description: {{allData.description}} 
-				And lets add a bit more than normal
-				This is if the description of the movie was 
-				longer than this width and how well it will work 
-				if the description is very long
 			</p>
 			
 		</a>
 		
 		<br>
+		</div>
+		<div class="column">
 		
 		<div class="comment_section">
 		<a>
@@ -90,6 +78,9 @@
         </label>
 				<button class="submit-button_comment" type="submit">POST</button>
     </form>
+		
+		
+		</div>
 		
     </div>
 		</div>

@@ -514,38 +514,38 @@ body {
 
 div.boxed_comment {
 	border: 1px solid white ;
-	width: 600px;
+	width: 400px;
 	margin: auto;
 }
 
 a.username_comment {
-	margin-left: 10px;
+	margin-left: 0px;
 	text-decoration: underline;
 	font-weight: bold;
 }
 
 div.post_comment {
-	margin-left: 30px;
+	margin-left: 0px;
 	color: white;
 }
 
 textarea.post_comment {
-	width: 600px;
+	width: 400px;
 	height: 100px;
 	color: black;
 }
 
 hr.hr_comment {
-	width: 550px;
+	width: 350px;
 }
 
 div.comment_section {
-	width: 600px;
+	width: 250px;
 	margin: auto;
 }
 
 .submit-button_comment {
-  margin-left: 200px;
+  margin-left: 120px;
   padding: 12px 60px;
   border-style: initial;
   text-decoration: currentColor;
@@ -583,6 +583,6 @@ div.movie_info {
 p.movie_info_des {
 	font-size: 18px;
   font-family: "Times New Roman", Times, serif;
-	width: 600px;
+	width: 500px;
 	margin: auto;
 }
