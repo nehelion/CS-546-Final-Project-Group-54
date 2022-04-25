@@ -557,3 +557,32 @@ div.comment_section {
   font-size: 18px;
   font-family: "Times New Roman", Times, serif;
 }
+
+div.movie_info {
+	font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+	margin: auto;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row {
+	width: 600px;
+	margin: auto;
+}
+
+p.movie_info_des {
+	font-size: 18px;
+  font-family: "Times New Roman", Times, serif;
+	width: 600px;
+	margin: auto;
+}

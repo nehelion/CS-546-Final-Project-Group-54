@@ -5,6 +5,11 @@ const configRoutes = require('./routes');
 const expressHandlebars = require('express-handlebars');
 const session = require('express-session');
 
+// move later - Alex
+const data = require('./data');
+const moviesData = data.movies;
+//
+
 app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
@@ -19,11 +24,19 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.use('/private', (req, res, next) => {
-  if (!req.session.user) {
+app.use('/private', async (req, res, next) => 
+{
+  if (!req.session.user) 
+	{
     return res.status(403).render('posts/login', { title: "Login Screen", error: "User is not logged in." })
-  } else {
-    res.render('posts/private', { title: "Logged In", userDetails: req.session.user })
+  } 
+	else 
+	{
+		let movies = await moviesData.getAllMovies();
+		console.log("GETTING MOVIES 0");
+		console.log("--string:" + JSON.stringify(movies));
+		//{ title: "Film Foray", movieList: movies[0] }
+    res.render('posts/private', { title: "Logged In", userDetails: req.session.user, moviesList: movies[0]._id })
   }
 });
 
