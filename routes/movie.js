@@ -2,16 +2,41 @@ const express = require('express');
 const router = express.Router();
 const data = require('../data');
 const moviesData = data.movies;
-const mongoose = require('mongoose');
+const commentsData = data.comments;
+const {ObjectID} = require('mongodb');
 
-router.get('/', async (req, res) => 
+router.get('/:id', async (req, res) => 
 {	
 	try 
 	{
-		var movieId = '626025afc71d571026e1ca41';
-		//var movieId = mongoose.Types.ObjectId('626025afc71d571026e1ca41');
-		let searchMovie = await moviesData.getMovie(movieId);
-		res.render('posts/movie', { title: "Movie Page", allData: searchMovie });
+		let searchMovie = await moviesData.getMovie(req.params.id);
+		let commentsList = await commentsData.getAllComments(searchMovie);
+		
+		
+		
+		res.render('posts/movie', { title: "Movie Page", allData: searchMovie, comments: commentsList });
+	} 
+	catch (e) 
+	{
+		res.status(500);
+		res.render('posts/private', { title: "Film Foray", error: e })
+		return;
+	}	
+});
+
+router.post('/:id/newcomment', async (req, res) => 
+{	
+	try 
+	{
+		let enteredComment = req.body.comment_post;
+		
+		let searchMovie = await moviesData.getMovie(req.params.id);
+		
+		let newComment = await commentsData.addComment(
+			searchMovie, 
+			req.session.user.userName, 
+			enteredComment);
+		res.redirect('/movie/' + req.params.id);
 	} 
 	catch (e) 
 	{

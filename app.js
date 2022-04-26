@@ -5,6 +5,11 @@ const configRoutes = require('./routes');
 const expressHandlebars = require('express-handlebars');
 const session = require('express-session');
 
+// move later - Alex
+const data = require('./data');
+const moviesData = data.movies;
+//
+
 app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
@@ -19,11 +24,29 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.use('/private', (req, res, next) => {
-  if (!req.session.user) {
+app.use('/private', async (req, res, next) => 
+{
+  if (!req.session.user) 
+	{
     return res.status(403).render('posts/login', { title: "Login Screen", error: "User is not logged in." })
-  } else {
-    res.render('posts/private', { title: "Logged In", userDetails: req.session.user })
+  } 
+	else 
+	{
+		let movies = await moviesData.getAllMovies();
+		
+		var movieList = [];
+		
+		for (let i = 0; i < movies.length; i++) 
+		{
+			movieList.push({title: 
+				"<div class='item'><a href='/movie/"+movies[i]._id+"'>" + 
+				"<img src='https://www.creativefabrica.com/wp-content/uploads/2020/01/31/filmstrip-tapes-movie-cinema-film-logo-Graphics-1.jpg' alt='Describe Image'>" +
+				"<h3>"+movies[i].movieTitle+"</h3>" +
+				"</a></div>"
+			});
+		}
+		
+    res.render('posts/private', { title: "Logged In", userDetails: req.session.user, movies: movieList })
   }
 });
 

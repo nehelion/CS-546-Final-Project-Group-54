@@ -9,4 +9,35 @@
     </a>
 </header>
 <h2>Add a Movie</h2>
-<button class="open-page-button" type="submit" method="post">+ Add a Movie</button>
+<p id="error" class="error">{{error}}</p>
+<form method="POST" id="add-movie-form" action="/addmovie">
+    <label class="label" for="movieTitle">Movie Title:
+        <input type="text" id="movieTitle" name="movieTitle" />
+    </label>
+    <label class="label" for="releaseYear">Year Released:
+        <input type="text" id="releaseYear" name="releaseYear" />
+    </label>
+    <label class="label" for="genre">Genre:
+        <input type="text" id="genre" name="genre" />
+    </label>
+    <label class="label" for="rating">IMDB Rating:
+        <input type="text" id="rating" name="rating" />
+    </label>
+    <label class="label" for="description">Movie Description:
+        <input type="text" id="description" name="description" />
+    </label>
+    <label class="label" for="actors">Actors:
+        <input type="text" id="actors" name="actors" />
+    </label>
+    <label class="label" for="directors">Directors:
+        <input type="text" id="directors" name="directors" />
+    </label>
+    <label class="label" for="whereToWatch">Where To Watch:
+        <input type="text" id="whereToWatch" name="whereToWatch" />
+    </label>
+    <button class="open-page-button" type="submit">+ Add a Movie</button>
+</form>
+
+<form method="POST" id="seed-form" action="/addmovie/seed">
+    <button class="open-page-button" type="submit">SEED</button>
+</form>

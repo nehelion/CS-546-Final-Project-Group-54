@@ -4,8 +4,16 @@
 </a>
 </header>
 
-<main>
+<script>
+	function show(shown, hidden) 
+	{
+		document.getElementById(shown).style.display='block';
+		document.getElementById(hidden).style.display='none';
+		return false;
+	}
+</script>
 
+<main>
 
     <div class="item">
       <a>
@@ -14,62 +22,65 @@
 		
 		<a>
 			
-			INFO:
+			<div class="row">
 			
-			<p>Year Released: {{allData.releaseYear}}</p>
-			<p>Genre: {{allData.genre}}</p>
-			<p>IMDB Rating: {{allData.rating}}</p>
-			<p>Movie Description: {{allData.description}}</p>
-			<p>Actors: {{allData.actors}}</p>
-			<p>Directors: {{allData.directors}}</p>
-			<p>Where To Watch: {{allData.whereToWatch}}</p>
+			<div class="column">
 			
-			<p>Status:</p>
-			<p>User Rating:</p>
+				<div class="movie_info">
+				INFO:
+				<p>Year Released: {{allData.releaseYear}}</p>
+				<p>Genre:</p>
+				{{#each allData.genre}} <p>- {{{this}}} </p> {{/each}}
+				<p>Where To Watch:</p>
+				{{#each allData.whereToWatch}} <p>- {{{this}}} </p> {{/each}}
+				</div>
+
+				<div class="movie_info">
+				<p>IMDB Rating: {{allData.rating}}</p>
+				<p>Actors:</p>
+				{{#each allData.actors}} <p>- {{{this}}} </p> {{/each}}
+				<p>Directors:</p>
+				{{#each allData.directors}} <p>- {{{this}}} </p> {{/each}}
+				
+				<p>Status: Watched</p>
+				<p>User Rating: Liked</p>
+				</div>
+			
+			
+			<p class="movie_info_des">
+				Movie Description: {{allData.description}} 
+			</p>
 			
 		</a>
 		
 		<br>
+		</div>
+		<div class="column">
 		
 		<div class="comment_section">
 		<a>
 			COMMENTS:
 			
-			<br>
+			<li id="comments_list">
 			
-			<div class="boxed_comment">
-				<a class="username_comment">
-					Username
-				</a>
-				<hr class="hr_comment">
-				<div class="post_comment">
-					This is a Sample Comment
-				</div>
-			</div>
+			{{#each comments}}
+				{{{comment}}}
+			{{/each}}
 			
-			<br>
+			</li>
 			
-			<div class="boxed_comment">
-				<a class="username_comment">
-					Username
-				</a>
-				<hr class="hr_comment">
-				<div class="post_comment">
-					And this is how it looks if there is a bunch of text
-					Much more text than normally it should be able to handle
-					just to see if it can handle several lines without breaking anything
-					so these lines should go over to next line as if it is in a box
-				</div>
-			</div>
 		</a>
 		
-		<br>
-		
-		<form method="POST" action="/movie">
+		<form method="POST" action="/movie/{{allData._id}}/newcomment">
         <p id="error" class="error">{{error}}</p>
-        <textarea class="post_comment" type="text" id="comment_post" name="comment_post" placeholder="Enter Comment Here..." required></textarea>
-        <button class="submit-button_comment" type="submit">POST</button>
+				<label for="comment_post">
+					<textarea class="post_comment" type="text" id="comment_post" name="comment_post" placeholder="Enter Comment Here..." required></textarea>
+        </label>
+				<button class="submit-button_comment" type="submit">POST</button>
     </form>
+		
+		
+		</div>
 		
     </div>
 		</div>

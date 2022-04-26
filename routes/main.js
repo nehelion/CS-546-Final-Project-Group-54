@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express.Router();
+const data = require('../data');
+const moviesData = data.movies;
 
 router.get('/', async (req, res) => {
     try {
         if (req.session.user)
+				{
             return res.redirect('/private')
+				}
         else
             res.render('posts/login', { title: "Login" })
     } catch (e) {
