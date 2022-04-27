@@ -581,8 +581,66 @@ div.movie_info {
 }
 
 p.movie_info_des {
-	font-size: 18px;
+	font-size: 24px;
   font-family: "Times New Roman", Times, serif;
-	width: 500px;
+	width: 700px;
 	margin: auto;
+	margin-bottom: 50px;
+	overflow-wrap: break-word;
+}
+
+p.user_status_l {
+	font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+	position: relative;
+	margin-left: -720px;
+	bottom: 70px;
+}
+
+p.user_status_d {
+	font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+	position: relative;
+	margin-left: -720px;
+	bottom: 70px;
+	color: green;
+}
+				
+h1.movie_title {
+	font-size: 50px;
+  font-family: "Times New Roman", Times, serif;
+	margin-bottom: -250px;
+}
+				
+p.user_rating_l {
+	font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+	position: relative;
+	margin-left: 720px;
+	bottom: 235px;
+}
+
+p.user_rating_d {
+	font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+	position: relative;
+	margin-left: 720px;
+	bottom: 235px;
+	color: green;
+}
+
+button.user_status_b {
+	font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+	position: relative;
+	margin-left: -450px;
+	bottom: 150px;
+}
+
+button.user_rating_b {
+	font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+	position: relative;
+	margin-left: 950px;
+	bottom: 315px;
 }

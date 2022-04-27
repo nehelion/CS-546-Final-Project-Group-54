@@ -13,7 +13,8 @@ async function createUser(username, password, email) {
     let newUser = {
         username: username.toLowerCase(),
         password: hashedPassword,
-        email: email.toLowerCase()
+        email: email.toLowerCase,
+				movieReactions: []
     }
     const insertDetails = await usersCollection.insertOne(newUser);
     if (insertDetails.insertedCount === 0) throw "Could not create user, try again!"

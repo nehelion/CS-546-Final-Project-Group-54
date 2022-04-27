@@ -17,40 +17,43 @@
 
     <div class="item">
       <a>
-				<h1 class="heading">{{allData.movieTitle}}</h1>
+			
+				<h1 class="movie_title">{{allData.movieTitle}}
+				
+				<p class="user_status_l">Your Status:</p>
+				<p class="user_status_d">Watched</p>
+				<button class="user_status_b">E</button>
+				
+				<p class="user_rating_l">Your Rating:</p>
+				<p class="user_rating_d">Liked</p>
+				<button class="user_rating_b">E</button>
+				
+				</h1>
+				
       </a>
-		
 		<a>
 			
 			<div class="row">
+			
+			<p class="movie_info_des">
+				Movie Description: {{allData.description}} DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription
+			</p>
 			
 			<div class="column">
 			
 				<div class="movie_info">
 				INFO:
 				<p>Year Released: {{allData.releaseYear}}</p>
+				<p>IMDB Rating: {{allData.rating}}</p>
 				<p>Genre:</p>
 				{{#each allData.genre}} <p>- {{{this}}} </p> {{/each}}
 				<p>Where To Watch:</p>
 				{{#each allData.whereToWatch}} <p>- {{{this}}} </p> {{/each}}
-				</div>
-
-				<div class="movie_info">
-				<p>IMDB Rating: {{allData.rating}}</p>
 				<p>Actors:</p>
 				{{#each allData.actors}} <p>- {{{this}}} </p> {{/each}}
 				<p>Directors:</p>
 				{{#each allData.directors}} <p>- {{{this}}} </p> {{/each}}
-				
-				<p>Status: Watched</p>
-				<p>User Rating: Liked</p>
 				</div>
-			
-			
-			<p class="movie_info_des">
-				Movie Description: {{allData.description}} 
-			</p>
-			
 		</a>
 		
 		<br>
