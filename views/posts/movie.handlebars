@@ -1,7 +1,7 @@
 <header>
-<a href="/private">
-    <h1>FILM FORAY</h1>
-</a>
+	<a href="/private">
+		<h1>FILM FORAY</h1>
+	</a>
 </header>
 
 <script>
@@ -15,76 +15,151 @@
 
 <main>
 
-    <div class="item">
-      <a>
-			
-				<h1 class="movie_title">{{allData.movieTitle}}
-				
-				<p class="user_status_l">Your Status:</p>
-				<p class="user_status_d">Watched</p>
-				<button class="user_status_b">E</button>
-				
-				<p class="user_rating_l">Your Rating:</p>
-				<p class="user_rating_d">Liked</p>
-				<button class="user_rating_b">E</button>
-				
-				</h1>
-				
-      </a>
+	<div class="item">
 		<a>
-			
-			<div class="row">
-			
+			<h1 class="movie_title">{{allData.movieTitle}}
+				
+			<p class="user_status_l">Your Status:</p>
+			<p class="user_status_d">{{reactions.status}}</p>
+			<button class="user_status_b">E</button>
+				
+			<p class="user_rating_l">Your Rating:</p>
+			<p class="user_rating_d">{{reactions.rating}}</p>
+			<button class="user_rating_b">E</button>
+				
+			</h1>	
+		</a>
+		<div class="row">
 			<p class="movie_info_des">
-				Movie Description: {{allData.description}} DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription
+				Movie Description: {{allData.description}}
 			</p>
 			
+			<a>
 			<div class="column">
-			
 				<div class="movie_info">
-				INFO:
-				<p>Year Released: {{allData.releaseYear}}</p>
-				<p>IMDB Rating: {{allData.rating}}</p>
-				<p>Genre:</p>
-				{{#each allData.genre}} <p>- {{{this}}} </p> {{/each}}
-				<p>Where To Watch:</p>
-				{{#each allData.whereToWatch}} <p>- {{{this}}} </p> {{/each}}
-				<p>Actors:</p>
-				{{#each allData.actors}} <p>- {{{this}}} </p> {{/each}}
-				<p>Directors:</p>
-				{{#each allData.directors}} <p>- {{{this}}} </p> {{/each}}
+					INFO:
+					<p>Year Released: {{allData.releaseYear}}</p>
+					<p>IMDB Rating: {{allData.rating}}</p>
+					<p>Genre:</p>
+						{{#each allData.genre}} <p>- {{{this}}} </p> {{/each}}
+					<p>Where To Watch:</p>
+						{{#each allData.whereToWatch}} <p>- {{{this}}} </p> {{/each}}
+					<p>Actors:</p>
+						{{#each allData.actors}} <p>- {{{this}}} </p> {{/each}}
+					<p>Directors:</p>
+						{{#each allData.directors}} <p>- {{{this}}} </p> {{/each}}
 				</div>
-		</a>
+			</div>
+			</a>
 		
-		<br>
+			<a>
+			<div class="column">
+				<div class="comment_section">
+					COMMENTS:
+						<li id="comments_list" >
+						
+						<br>
+							
+						{{#each comments}}
+							{{{comment}}}
+						{{/each}}
+			
+						</li>
+			
+					<form method="POST" action="/movie/{{allData._id}}/newcomment">
+						<p id="error" class="error">{{error}}</p>
+						<label for="comment_post">
+							<textarea class="post_comment" type="text" id="comment_post" name="comment_post" placeholder="Enter Comment Here..." required></textarea>
+						</label>
+						<button class="submit-button_comment" type="submit">POST</button>
+					</form>
+				</div>
+			</div>
+			</a>
+			
 		</div>
-		<div class="column">
-		
-		<div class="comment_section">
-		<a>
-			COMMENTS:
-			
-			<li id="comments_list">
-			
-			{{#each comments}}
-				{{{comment}}}
-			{{/each}}
-			
-			</li>
-			
-		</a>
-		
-		<form method="POST" action="/movie/{{allData._id}}/newcomment">
-        <p id="error" class="error">{{error}}</p>
-				<label for="comment_post">
-					<textarea class="post_comment" type="text" id="comment_post" name="comment_post" placeholder="Enter Comment Here..." required></textarea>
-        </label>
-				<button class="submit-button_comment" type="submit">POST</button>
-    </form>
-		
-		
-		</div>
-		
-    </div>
-		</div>
+	</div>
+	
+	<script>
+		$(function()
+		{
+            $('.user_status_b').click(function(e) 
+			{
+                var dialog = $('<p>Choose your Movie Status</p>').dialog(
+				{
+                    buttons: 
+					{
+                        "Watched": function() 
+						{
+							var form = document.createElement("form");
+							var ele1 = document.createElement("input"); 
+							form.method = "POST";
+							form.action = "/movie/{{allData._id}}/status";  
+							ele1.value="Watched";
+							ele1.name="sentResponse";
+							form.appendChild(ele1);  
+							document.body.appendChild(form);
+							form.submit();
+						},
+                        "Not Watched": function() 
+						{
+							var form = document.createElement("form");
+							var ele1 = document.createElement("input"); 
+							form.method = "POST";
+							form.action = "/movie/{{allData._id}}/status";  
+							ele1.value="Not Watched";
+							ele1.name="sentResponse";
+							form.appendChild(ele1);     
+							document.body.appendChild(form);
+							form.submit();
+						},
+                        "Cancel":  function() 
+						{
+							dialog.dialog('close');
+                        }
+                    }
+                });
+				ui-dialog-title.text("text here...");
+				textElement.css('position', 'absolute');
+				textElement.css('right', '20px');
+				$("#id_of_tab_element").append(textElement);
+            });
+			$('.user_rating_b').click(function(e) {
+                e.preventDefault();
+                var dialog = $('<p>Choose your Movie Rating</p>').dialog({
+                    buttons: {
+                        "Like": function() 
+						{
+							var form = document.createElement("form");
+							var ele1 = document.createElement("input"); 
+							form.method = "POST";
+							form.action = "/movie/{{allData._id}}/rating";  
+							ele1.value="Like";
+							ele1.name="sentResponse";
+							form.appendChild(ele1);     
+							document.body.appendChild(form);
+							form.submit();
+						},
+                        "Dislike": function() 
+						{
+							var form = document.createElement("form");
+							var ele1 = document.createElement("input"); 
+							form.method = "POST";
+							form.action = "/movie/{{allData._id}}/rating";  
+							ele1.value="Dislike";
+							ele1.name="sentResponse";
+							form.appendChild(ele1);     
+							document.body.appendChild(form);
+							form.submit();
+						},
+                        "Cancel": function() 
+						{
+							dialog.dialog('close');
+                        }
+                    }
+                });
+            });
+        });
+	</script>
+	
 </main>
