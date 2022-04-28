@@ -15,7 +15,8 @@ async function createUser(firstName, lastName, username, password, email) {
         lastName: lastName.charAt(0).toUpperCase()+ lastName.slice(1),
         username: username.toLowerCase(),
         password: hashedPassword,
-        email: email.toLowerCase()
+        email: email.toLowerCase,
+		movieReactions: []
     }
     const insertDetails = await usersCollection.insertOne(newUser);
     if (insertDetails.insertedCount === 0) throw "Could not create user, try again!"
@@ -30,7 +31,17 @@ async function checkUser(username, password) {
     if (!passMatch) throw "Either the username or password is invalid"
     return { authenticated: true }
 }
+
+async function getUser(username) 
+{		
+    const usersCollection = await users();
+    let user = await usersCollection.findOne({ username: username.toLowerCase() })
+	if (user === null) throw "No movie with that id";
+	return user;
+}
+
 module.exports = {
     createUser,
-    checkUser
+    checkUser,
+	getUser
 }

@@ -78,7 +78,6 @@ h4 {
   color: #fff;
 }
 
-
 img {
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -621,10 +620,13 @@ div.movie_info {
 }
 
 p.movie_info_des {
-  font-size: 18px;
+  font-size: 24px;
   font-family: "Times New Roman", Times, serif;
-  width: 500px;
-  margin: auto;
+	width: 700px;
+	margin: auto;
+	margin-bottom: 50px;
+	overflow-wrap: break-word;
+}
 }
 
 
@@ -674,3 +676,64 @@ dd {
   width: 50%;
 }
 
+	
+
+p.user_status_l {
+	font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+	position: relative;
+	margin-left: -720px;
+	bottom: 70px;
+}
+
+p.user_status_d {
+	font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+	position: relative;
+	margin-left: -630px;
+	bottom: 70px;
+	color: green;
+}
+
+button.user_status_b {
+	font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+	position: relative;
+	margin-left: -875px;
+	bottom: 145px;
+}
+				
+h1.movie_title {
+	font-size: 50px;
+  font-family: "Times New Roman", Times, serif;
+	margin-bottom: -250px;
+}
+				
+p.user_rating_l {
+	font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+	position: relative;
+	margin-left: 720px;
+	bottom: 248px;
+}
+
+p.user_rating_d {
+	font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+	position: relative;
+	margin-left: 740px;
+	bottom: 248px;
+	color: green;
+}
+
+button.user_rating_b {
+	font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+	position: relative;
+	margin-left: 560px;
+	bottom: 324px;
+}
+
+li {
+	list-style-type: none;
+}
