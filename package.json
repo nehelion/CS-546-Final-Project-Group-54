@@ -1,13 +1,13 @@
 {
-  "name": "lab10",
+  "name": "Film_Foray",
   "version": "1.0.0",
-  "description": "\"This is our lab 10\"",
+  "description": "\"This is our Final Project\"",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "author": "Anusha Suresh 10473608",
+  "author": "CS546-Group54",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.1",

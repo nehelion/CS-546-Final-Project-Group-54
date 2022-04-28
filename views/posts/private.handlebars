@@ -12,27 +12,10 @@
             <h1>FILM FORAY</h1>
         </a>
     </header>
-    {{!
-    <button class="open-button" onclick="openForm()">+ Add a Movie</button>
-	
-    <div class="form-popup" id="myForm">
-        <form action="/addmovie" class="form-container">
-            <h2>Add a Movie</h2>
-
-            <label for="movie"><b>Movie Name</b></label>
-            <input type="text" placeholder="Enter Movie Title" name="email" required>
-
-            <label for="psw"><b>Year Released</b></label>
-            <input type="password" placeholder="year released" name="psw" required>
-
-            <button type="submit" class="btn">Add a Movie!</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        </form>
-    </div> if you want a pop up}}
     <a href="/addmovie">
         <button class="open-button" type="submit">+ Add a Movie</button>
     </a>
-	
+
     <div class="topnav">
         <div class="dropdown">
             <button class="dropbtn">{{userDetails.userName}}
@@ -55,12 +38,12 @@
 
         <section id="section1">
             <a href="#section3" class="arrow__btn left-arrow">‹</a>
-            
-						{{#each movies}}
-							{{{title}}}
-						{{/each}}
-			
-			<a href="#section2" class="arrow__btn right-arrow">›</a>
+
+            {{#each movies}}
+            {{{title}}}
+            {{/each}}
+
+            <a href="#section2" class="arrow__btn right-arrow">›</a>
         </section>
 
         <section id="section2">
@@ -203,15 +186,4 @@
 
     </div>
     {{/if}}
-
-    {{!
-    <script>
-        /*function openForm() {
-          document.getElementById("myForm").style.display = "block";
-        }
-        
-        function closeForm() {
-          document.getElementById("myForm").style.display = "none";
-        }*/
-    </script> if you want a pop up}}
 </main>

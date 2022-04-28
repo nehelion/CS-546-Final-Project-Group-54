@@ -1,87 +1,93 @@
 <header>
-<a href="/private">
-    <h1>FILM FORAY</h1>
-</a>
+	<a href="/private">
+		<h1>FILM FORAY</h1>
+	</a>
 </header>
 
 <script>
-	function show(shown, hidden) 
-	{
-		document.getElementById(shown).style.display='block';
-		document.getElementById(hidden).style.display='none';
+	function show(shown, hidden) {
+		document.getElementById(shown).style.display = 'block';
+		document.getElementById(hidden).style.display = 'none';
 		return false;
 	}
 </script>
 
-<main>
+<h1 class="movie-name">{{allData.movieTitle}}</h1>
+<img class="movie-poster" src="{{allData.img}}" alt="{{allData.movieTitle}} poster">
 
-    <div class="item">
-      <a>
-				<h1 class="heading">{{allData.movieTitle}}</h1>
-      </a>
-		
-		<a>
-			
-			<div class="row">
-			
-			<div class="column">
-			
-				<div class="movie_info">
-				INFO:
-				<p>Year Released: {{allData.releaseYear}}</p>
-				<p>Genre:</p>
-				{{#each allData.genre}} <p>- {{{this}}} </p> {{/each}}
-				<p>Where To Watch:</p>
-				{{#each allData.whereToWatch}} <p>- {{{this}}} </p> {{/each}}
-				</div>
+<main style="text-align: left;">
+	<div class="column">
 
-				<div class="movie_info">
-				<p>IMDB Rating: {{allData.rating}}</p>
-				<p>Actors:</p>
-				{{#each allData.actors}} <p>- {{{this}}} </p> {{/each}}
-				<p>Directors:</p>
-				{{#each allData.directors}} <p>- {{{this}}} </p> {{/each}}
-				
-				<p>Status: Watched</p>
-				<p>User Rating: Liked</p>
-				</div>
-			
-			
-			<p class="movie_info_des">
-				Movie Description: {{allData.description}} 
-			</p>
-			
-		</a>
-		
+		<dt>Summary</dt>
+		<dd>{{allData.description}}</dd>
 		<br>
-		</div>
-		<div class="column">
-		
+
+		<dt>Year Released:</dt>
+		<dd>{{allData.releaseYear}}</dd>
+		<br>
+
+		<dt>Genre:</dt>
+		<dd>
+			{{#each allData.genre}}
+			<li>{{{this}}} </li> {{/each}}
+		</dd>
+		<br>
+
+		<dt>IMDB Rating:</dt>
+		<dd>{{allData.rating}}</dd>
+		<br>
+
+		<dt>Actors</dt>
+		<dd>
+			{{#each allData.actors}}
+			<li>{{{this}}} </li> {{/each}}
+
+		</dd>
+		<br>
+
+		<dt>Directors</dt>
+		<dd>
+			{{#each allData.directors}}
+			<li>{{{this}}} </li> {{/each}}
+
+		</dd>
+		<br>
+
+		<dt>Where To Watch:</dt>
+		<dd>
+			{{#each allData.whereToWatch}}
+			<li>{{{this}}} </li> {{/each}}
+
+		</dd>
+		<br>
+
+		<dt>Status:</dt>
+		<dd>Watched</dd>
+		<dt>User Rating:</dt>
+		<dd>Liked</dd>
+
+	</div>
+
+	<div class="column-right">
 		<div class="comment_section">
-		<a>
-			COMMENTS:
-			
-			<li id="comments_list">
-			
-			{{#each comments}}
-				{{{comment}}}
-			{{/each}}
-			
-			</li>
-			
-		</a>
-		
-		<form method="POST" action="/movie/{{allData._id}}/newcomment">
-        <p id="error" class="error">{{error}}</p>
+			<form method="POST" action="/movie/{{allData._id}}/newcomment">
+				<p id="error" class="error">{{error}}</p>
+				<p>Join the Conversation:</p>
 				<label for="comment_post">
-					<textarea class="post_comment" type="text" id="comment_post" name="comment_post" placeholder="Enter Comment Here..." required></textarea>
-        </label>
+					<textarea class="post_comment" type="text" id="comment_post" name="comment_post"
+						placeholder="Enter Comment Here..." required></textarea>
+				</label></br>
 				<button class="submit-button_comment" type="submit">POST</button>
-    </form>
-		
-		
+			</form>
+			<a> COMMENTS:
+				<li id="comments_list">
+					{{#each comments}}
+					{{{comment}}}
+					{{/each}}
+				</li>
+			</a>
 		</div>
-		
-    </div>
-		</div>
+	</div>
+
+
 </main>

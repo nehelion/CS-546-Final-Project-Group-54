@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const searchData = require("../data/searchpage");
+const searchData = require("../data/movies");
 
 router.post("/", async (req, res) => {
   const data = req.body;
