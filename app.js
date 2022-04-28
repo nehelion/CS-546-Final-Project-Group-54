@@ -24,28 +24,25 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.use('/private', async (req, res, next) => 
-{
-  if (!req.session.user) 
-	{
+app.use('/private', async (req, res, next) => {
+  if (!req.session.user) {
     return res.status(403).render('posts/login', { title: "Login Screen", error: "User is not logged in." })
-  } 
-	else 
-	{
-		let movies = await moviesData.getAllMovies();
-		
-		var movieList = [];
-		
-		for (let i = 0; i < movies.length; i++) 
-		{
-			movieList.push({title: 
-				"<div class='item'><a href='/movie/"+movies[i]._id+"'>" + 
-				"<img src='https://www.creativefabrica.com/wp-content/uploads/2020/01/31/filmstrip-tapes-movie-cinema-film-logo-Graphics-1.jpg' alt='Describe Image'>" +
-				"<h3>"+movies[i].movieTitle+"</h3>" +
-				"</a></div>"
-			});
-		}
-		
+  }
+  else {
+    let movies = await moviesData.getAllMovies();
+
+    var movieList = [];
+
+    for (let i = 0; i < movies.length; i++) {
+      movieList.push({
+        title:
+          "<div class='item'><a href='/movie/" + movies[i]._id + "'>" +
+          "<img src='https://www.creativefabrica.com/wp-content/uploads/2020/01/31/filmstrip-tapes-movie-cinema-film-logo-Graphics-1.jpg' alt='Describe Image'>" +
+          "<h3>" + movies[i].movieTitle + "</h3>" +
+          "</a></div>"
+      });
+    }
+
     res.render('posts/private', { title: "Logged In", userDetails: req.session.user, movies: movieList })
   }
 });
@@ -61,7 +58,7 @@ app.use('/login', (req, res, next) => {
 app.use('/logout', (req, res) => {
   res.clearCookie('session')
   req.session.destroy();
-  res.render('posts/login', { title: "Logged out", msg: "You are logged out" })
+  res.render('posts/private', { title: "Logged out", msg: "You are logged out" })
 });
 
 app.use('/signup', (req, res, next) => {
@@ -87,7 +84,7 @@ app.use(requestTime)
 
 configRoutes(app);
 
-app.listen(3000, () => {
+app.listen(3018, () => {
   console.log("We've now got a server!");
-  console.log('Your routes will be running on http://localhost:3000');
+  console.log('Your routes will be running on http://localhost:3018');
 });
