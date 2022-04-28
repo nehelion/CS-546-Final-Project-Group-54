@@ -484,6 +484,7 @@ hr.hr_comment {
 
 div.comment_section {
   width: 250px;
+  height: 50px;
   margin: auto;
 }
 
@@ -494,7 +495,7 @@ div.comment_section {
   text-decoration: currentColor;
   border-radius: 6.5px;
   border-color: #2c383f;
-  background-color: #04619f;
+  background-color: #4ead67;
   letter-spacing: 1px;
   color: #ffffff;
   font-size: 18px;
@@ -538,7 +539,7 @@ dd {
 }
 
 .row {
-  width: 600px;
+  width: 700px;
   margin: auto;
 }
 
@@ -551,62 +552,123 @@ p.movie_info_des {
   overflow-wrap: break-word;
 }
 
+a.popup {
+	height: 0px;
+	visibility: hidden;
+}
+
+.ui-dialog-titlebar-close {
+    visibility: hidden;
+}
+
 p.user_status_l {
   font-size: 22px;
   font-family: "Times New Roman", Times, serif;
   position: relative;
-  margin-left: -720px;
-  bottom: 70px;
+  bottom: -200px;
 }
 
 p.user_status_d {
   font-size: 22px;
   font-family: "Times New Roman", Times, serif;
   position: relative;
-  margin-left: -630px;
-  bottom: 70px;
-  color: green;
+  bottom: -190px;
+  color: #4ead67;
 }
 
 button.user_status_b {
-  font-size: 22px;
+  font-size: 15px;
   font-family: "Times New Roman", Times, serif;
   position: relative;
-  margin-left: -875px;
-  bottom: 145px;
+  bottom: -137px;
+  right: -130px;
+  background-color: #4ead67;
+  border-color: #2c383f;
 }
 
 h1.movie_title {
   font-size: 50px;
   font-family: "Times New Roman", Times, serif;
-  margin-bottom: -250px;
+  margin-bottom: -200px;
 }
 
 p.user_rating_l {
   font-size: 22px;
   font-family: "Times New Roman", Times, serif;
   position: relative;
-  margin-left: 720px;
-  bottom: 248px;
+  bottom: -43px;
+  margin-left: 500px;
 }
 
 p.user_rating_d {
   font-size: 22px;
   font-family: "Times New Roman", Times, serif;
   position: relative;
-  margin-left: 740px;
-  bottom: 248px;
-  color: green;
+  bottom: -33px;
+  color: #4ead67;
+  margin-left: 500px;
 }
 
 button.user_rating_b {
-  font-size: 22px;
+  font-size: 15px;
   font-family: "Times New Roman", Times, serif;
   position: relative;
-  margin-left: 560px;
-  bottom: 324px;
+  bottom: 20px;
+  right: -130px;
+  margin-left: 500px;
+  background-color: #4ead67;
+  border-color: #2c383f;
 }
 
+textarea {
+	resize: none;
+}
+
+.ui-dialog .ui-dialog-title {
+	text-align: center;
+	width: 100%;
+	border-color: #2c383f;
+	color: white; 
+}
+
+.ui-dialog .ui-dialog-content { 
+	color: white; 
+}
+
+.ui-dialog .ui-dialog-titlebar {
+  background: #04619f;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+	text-align: left;
+	border-width: 1px 0 0 0;
+	background-image: none;
+	margin-top: .5em;
+	padding: .3em 1em .5em .4em;
+    background-color: #04619f;
+}
+
+.ui-dialog .ui-dialog-buttonset button {
+	text-align: center;
+	border-color: #2c383f;
+	background-color: #4ead67;
+	color: white; 
+}
+
+a.comment_pages_r {
+	font-weight: bold;
+	float: right;
+}
+
+a.comment_pages_l {
+	font-weight: bold;
+	float: left;
+}
+
+div.comment_pages_div {
+	width: 400px;
+	padding-bottom: 20px;
+}
 
 li {
   list-style-type: none;
