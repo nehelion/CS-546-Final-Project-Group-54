@@ -76,7 +76,9 @@
                 <div class="hs__header">
                     <div class="hs__arrows"><a class="arrow disabled arrow-prev"></a></div>
                     <ul class="hs">
-                        insert liked movies here
+						{{#each likedMovies}}
+							{{{title}}}
+						{{/each}}
                     </ul>
                     <div class="hs__arrows"><a class="arrow arrow-next"></a></div>
                 </div>

@@ -68,8 +68,20 @@ app.use('/private', async (req, res, next) => {
 		return;
 	}
 	
-    res.render('posts/private', { title: "Logged In", userDetails: req.session.user, movies: movieList, likedMovies: likedMovieList })
-  }
+	var likedMovieListHtml = [];
+
+    for (let i = 0; i < likedMovieList.length; i++) {
+      likedMovieListHtml.push({
+        title:
+          "<div class='item'><a href='/movie/" + likedMovieList[i]._id + "'>" +
+          "<img src='https://www.creativefabrica.com/wp-content/uploads/2020/01/31/filmstrip-tapes-movie-cinema-film-logo-Graphics-1.jpg' alt='Describe Image'>" +
+          "<h3>" + likedMovieList[i].movieTitle + "</h3>" +
+          "</a></div>"
+      });
+    }
+	
+		res.render('posts/private', { title: "Logged In", userDetails: req.session.user, movies: movieList, likedMovies: likedMovieListHtml })
+	}
 });
 
 app.use('/login', (req, res, next) => {
