@@ -37,8 +37,7 @@ app.use('/private', async (req, res, next) => {
       movieList.push({
         title:
           "<div class='item'><a href='/movie/" + movies[i]._id + "'>" +
-          "<img src='https://www.creativefabrica.com/wp-content/uploads/2020/01/31/filmstrip-tapes-movie-cinema-film-logo-Graphics-1.jpg' alt='Describe Image'>" +
-          "<h3>" + movies[i].movieTitle + "</h3>" +
+          "<button class='movie-thumbnail all-movies' type='submit'>" + movies[i].movieTitle + "</button>" +
           "</a></div>"
       });
     }
@@ -58,7 +57,7 @@ app.use('/login', (req, res, next) => {
 app.use('/logout', (req, res) => {
   res.clearCookie('session')
   req.session.destroy();
-  res.render('posts/private', { title: "Logged out", msg: "You are logged out" })
+  res.render('posts/login', { title: "Logged out", msg: "You are logged out" })
 });
 
 app.use('/signup', (req, res, next) => {
@@ -84,7 +83,7 @@ app.use(requestTime)
 
 configRoutes(app);
 
-app.listen(3018, () => {
+app.listen(3027, () => {
   console.log("We've now got a server!");
-  console.log('Your routes will be running on http://localhost:3018');
+  console.log('Your routes will be running on http://localhost:3027');
 });

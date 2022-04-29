@@ -1,7 +1,5 @@
 html {
   scroll-behavior: smooth;
-  height: 100%;
-
 }
 
 .div {
@@ -74,23 +72,8 @@ h4 {
   text-align: left;
   color: #fff;
 }
-
-img {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  width: 250px;
-  margin: 20px;
-}
-
-img:hover {
-  margin: 10px 20px;
-  transform: scale(1.1);
-}
-
 .item {
   text-align: left;
-
 }
 
 .login-label {
@@ -99,7 +82,6 @@ img:hover {
   color: #ffffff;
   border-color: #2c383f;
   font-size: 24px;
-
 }
 
 .label {
@@ -107,7 +89,6 @@ img:hover {
   color: #ffffff;
   border-color: #2c383f;
   font-size: 16px;
-
 }
 
 .signup-container {
@@ -134,7 +115,6 @@ img:hover {
   width: 30%;
   margin-left: auto;
   margin-right: auto;
-
 }
 
 #signup-form {
@@ -156,7 +136,7 @@ img:hover {
 }
 
 .submit-button:hover {
-  opacity: 0.7;
+  opacity: 0.3;
   cursor: pointer;
 
 }
@@ -179,24 +159,42 @@ img:hover {
 
 }
 
-.genre-button {
-  margin: 25px;
-  padding: 50px 85px;
+.movie-thumbnail {
   border-style: initial;
   text-decoration: currentColor;
-  border-radius: 6.5px;
   border-color: #2c383f;
-  background: linear-gradient(#e43c3c, #3e4df5cd);
   letter-spacing: 1px;
   color: #ffffff;
   font-size: 22px;
   font-family: "Times New Roman", Times, serif;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 250px;
+  max-width: 250px;
+  height: 155px;
+  max-height: 155px;
+  margin: 20px;
+  display: inline-block;
+
 }
 
-.genre-button:hover {
-  opacity: 0.7;
+.movie-thumbnail:hover {
+  margin: 20px 20px;
+  transform: scale(1.1);
   cursor: pointer;
+}
 
+.movie-thumbnail.all-movies {
+  background-color: rgba(0, 31, 52, 0.782);
+}
+
+.movie-thumbnail.genre {
+  background: linear-gradient(#e43c3c, #3e4df5cd);
+}
+
+.movie-thumbnail.liked-movies {
+  background: linear-gradient(#79d707, #365f03);
 }
 
 .searchForm {
@@ -553,12 +551,12 @@ p.movie_info_des {
 }
 
 a.popup {
-	height: 0px;
-	visibility: hidden;
+  height: 0px;
+  visibility: hidden;
 }
 
 .ui-dialog-titlebar-close {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 p.user_status_l {
@@ -621,18 +619,18 @@ button.user_rating_b {
 }
 
 textarea {
-	resize: none;
+  resize: none;
 }
 
 .ui-dialog .ui-dialog-title {
-	text-align: center;
-	width: 100%;
-	border-color: #2c383f;
-	color: white; 
+  text-align: center;
+  width: 100%;
+  border-color: #2c383f;
+  color: white;
 }
 
-.ui-dialog .ui-dialog-content { 
-	color: white; 
+.ui-dialog .ui-dialog-content {
+  color: white;
 }
 
 .ui-dialog .ui-dialog-titlebar {
@@ -640,34 +638,34 @@ textarea {
 }
 
 .ui-dialog .ui-dialog-buttonpane {
-	text-align: left;
-	border-width: 1px 0 0 0;
-	background-image: none;
-	margin-top: .5em;
-	padding: .3em 1em .5em .4em;
-    background-color: #04619f;
+  text-align: left;
+  border-width: 1px 0 0 0;
+  background-image: none;
+  margin-top: .5em;
+  padding: .3em 1em .5em .4em;
+  background-color: #04619f;
 }
 
 .ui-dialog .ui-dialog-buttonset button {
-	text-align: center;
-	border-color: #2c383f;
-	background-color: #4ead67;
-	color: white; 
+  text-align: center;
+  border-color: #2c383f;
+  background-color: #4ead67;
+  color: white;
 }
 
 a.comment_pages_r {
-	font-weight: bold;
-	float: right;
+  font-weight: bold;
+  float: right;
 }
 
 a.comment_pages_l {
-	font-weight: bold;
-	float: left;
+  font-weight: bold;
+  float: left;
 }
 
 div.comment_pages_div {
-	width: 400px;
-	padding-bottom: 20px;
+  width: 400px;
+  padding-bottom: 20px;
 }
 
 li {
@@ -687,7 +685,6 @@ li {
 .hs {
   display: flex;
   overflow-x: scroll;
-  justify-content: space-between;
   scrollbar-width: none;
   /* Firefox */
   -ms-overflow-style: none;
@@ -705,6 +702,13 @@ li {
 
 .hs__arrows {
   align-self: center;
+  position: absolute;
+}
+
+.hs__arrows.right {
+  position: absolute;
+  right: 0;
+
 }
 
 .hs__arrows .arrow:before {
@@ -714,9 +718,8 @@ li {
   content: "";
   background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgMTUgOSI+Cgk8cGF0aCBmaWxsPSIjMzMzMzMzIiBkPSJNNy44NjcgOC41NzRsLTcuMjItNy4yMi43MDctLjcwOEw3Ljg2NyA3LjE2IDE0LjA1Ljk4bC43MDYuNzA3Ii8+Cjwvc3ZnPgo=");
   background-size: contain;
-  filter: brightness(100%);
-  width: 36px;
-  height: 24px;
+  width: 18px;
+  height: 12px;
   cursor: pointer;
 }
 
@@ -831,7 +834,7 @@ body {
 }
 
 .container {
-  padding: calc(10px * 2);
+  padding: calc(6px * 2);
   margin: 0 auto;
   mix-blend-mode: invert;
   position: relative;
