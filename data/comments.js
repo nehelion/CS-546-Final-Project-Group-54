@@ -68,9 +68,9 @@ async function getAllComments(movie)
 		}
 		movieList.push({comment: 
 			"<div class='boxed_comment'><a class='username_comment'>" + 
-			movie.comments[i].username + 
+			movie.comments[(movie.comments.length - i - 1)].username + 
 			"</a><hr class='hr_comment'><div class='post_comment'>" + 
-			movie.comments[i].comment + 
+			movie.comments[(movie.comments.length - i - 1)].comment + 
 			"</div></div><br>"
 		});
 		if(i == movie.comments.length - 1 && i > 5)

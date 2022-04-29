@@ -47,6 +47,32 @@ async function getAllMovies()
 	return moviesList;
 }
 
+async function sortMovies(moviesList)
+{
+	var titlesMoviesList = [];
+	var sortedMoviesList = [];
+	
+	for (let i = 0; i < moviesList.length; i++) 
+	{
+		titlesMoviesList.push(moviesList[i].movieTitle);
+    }
+	
+	titlesMoviesList.sort();
+	
+	for (let i = 0; i < titlesMoviesList.length; i++) 
+	{
+		for (let j = 0; j < moviesList.length; j++) 
+		{
+			if(titlesMoviesList[i] == moviesList[j].movieTitle)
+			{
+				sortedMoviesList.push(moviesList[j]);
+			}
+		}
+	}
+	
+	return sortedMoviesList;
+}
+
 async function clearMovies() 
 {	
 	const moviesCollection = await movies();
@@ -61,11 +87,12 @@ async function test()
 
 module.exports = 
 {
-  addMovie,
+	addMovie,
 	getMovie,
 	getAllMovies,
 	clearMovies,
-  test
+	sortMovies,
+	test
 }
 
 
