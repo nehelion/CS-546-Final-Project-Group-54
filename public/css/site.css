@@ -27,6 +27,7 @@ input[type=password] {
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
+  background-color: #ffffffea;
 }
 
 h1 {
@@ -72,6 +73,12 @@ h4 {
   text-align: left;
   color: #fff;
 }
+
+.h5 {
+  font-size: 18px;
+  color: white;
+}
+
 .item {
   text-align: left;
 }
@@ -103,6 +110,14 @@ h4 {
   text-align: center;
   background-color: #00000059;
   padding: 80px;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.addmovie-container {
+  background-color: #00000059;
+  padding: 20px;
   width: 30%;
   margin-left: auto;
   margin-right: auto;
@@ -623,54 +638,60 @@ textarea {
 }
 
 .ui-dialog .ui-dialog-title {
-	font-size: 25px;
-	text-align: center;
-	width: 100%;
-	border-color: #04619f;
-	color: white; 
+  font-size: 25px;
+  text-align: center;
+  width: 100%;
+  border-color: #04619f;
+  color: white;
 }
 
-.ui-dialog .ui-dialog-content { 
-	text-align: center;
-	color: #04619f;
-	background: #04619f;
-	background-color: #04619f;
+.ui-dialog .ui-dialog-content {
+  text-align: center;
+  color: #04619f;
+  background: #04619f;
+  background-color: #04619f;
 }
 
 .ui-dialog .ui-dialog-titlebar {
-	background: #04619f;
-	border-color: #04619f;
+  background: #04619f;
+  border-color: #04619f;
 }
 
-.ui-dialog,.ui-widget, .ui-widget-content, .ui-corner-all, .foo, .ui-draggable, .ui-resizable  {
-	background: #04619f  !important;
+.ui-dialog,
+.ui-widget,
+.ui-widget-content,
+.ui-corner-all,
+.foo,
+.ui-draggable,
+.ui-resizable {
+  background: #04619f !important;
 }
 
 .ui-dialog .ui-dialog-buttonpane {
-	text-align: center;
-	border-width: 1px 0 0 0;
-	margin-top: .5em;
-	padding: .3em 1em .5em .4em;
-    background-color: #04619f;
-	border-color: #04619f;
+  text-align: center;
+  border-width: 1px 0 0 0;
+  margin-top: .5em;
+  padding: .3em 1em .5em .4em;
+  background-color: #04619f;
+  border-color: #04619f;
 }
 
 .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
-    text-align: center;
-    float: none !important;
+  text-align: center;
+  float: none !important;
 }
 
 .ui-dialog .ui-dialog-buttonset button {
-	text-align: center;
-    float: none;
-	border-color: #2c383f;
-	background-color: #4ead67;
-	color: white; 
-	bottom: 20px;
+  text-align: center;
+  float: none;
+  border-color: #2c383f;
+  background-color: #4ead67;
+  color: white;
+  bottom: 20px;
 }
 
 .ui-dialog .ui-dialog-buttonset .ui-button {
-	background-color: #4ead67 !important;
+  background-color: #4ead67 !important;
 }
 
 a.comment_pages_r {
@@ -885,5 +906,26 @@ ul {
 }
 
 .search-list {
-  font-size: 50px;
+  font-size: 20px;
+}
+
+.search-list:hover {
+  text-decoration: underline;
+}
+
+.myacc-text {
+  font-size: 20px;
+  font-weight: 100;
+  color: #000000;
+  background-color: #ffffffe4;
+  margin: auto;
+  width: 75%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-style: solid;
+  border-color: #000000;
+  padding: 6px;
+  border-width: 2px;
+  border-radius: 15px;
+
 }

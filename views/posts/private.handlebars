@@ -15,7 +15,7 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#">My Account</a>
+                <a href="/myaccount">My Account</a>
                 <a href="/logout">Logout</a>
             </div>
         </div>
@@ -26,11 +26,9 @@
 
     </div>
 
-
-
     <div class="container">
         <div class="hs__wrapper">
-            <h4 class="h4">All Movies</h4>
+            <h4 class="h4">All Movies (A-Z)</h4>
             <div class="hs__header">
                 <div class="hs__arrows">
                     <a class="arrow arrow-next"></a>
@@ -41,7 +39,6 @@
                     <a class="arrow disabled arrow-prev"></a>
                 </div>
             </div>
-
             <ul class="hs">
                 {{#each movies}}
                 {{{title}}}
@@ -54,46 +51,17 @@
         <div class="hs__wrapper">
             <h4 class="h4">Genre</h4>
             <div class="hs__header">
-                <div class="hs__arrows"><a class="arrow disabled arrow-prev"></a></div>
-                <ul class="hs">
-                    <a href="/action">
-                        <button class="genre-button" type="submit">Action</button>
-                    </a>
-                    <a href="/movie">
-                        <button class="genre-button" type="submit">Comedy</button>
-                    </a>
-                    <a href="/movie">
-                        <button class="genre-button" type="submit">Drama</button>
-                    </a>
-                    <a href="/movie">
-                        <button class="genre-button" type="submit">Horror</button>
-                    </a>
-                    <a href="/movie">
-                        <button class="genre-button" type="submit">Sci/Fi</button>
-                    </a>
-                    <a href="/movie">
-                        <button class="genre-button" type="submit">Romance</button>
-                    </a>
-                </ul>
-                <div class="hs__arrows"><a class="arrow arrow-next"></a></div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="hs__wrapper">
-                <h4 class="h4">Liked Movies</h4>
-                <div class="hs__header">
-                    <div class="hs__arrows"><a class="arrow disabled arrow-prev"></a></div>
-                    <ul class="hs">
-						{{#each likedMovies}}
-							{{{title}}}
-						{{/each}}
-                    </ul>
-                    <div class="hs__arrows"><a class="arrow arrow-next"></a></div>
+                <div class="hs__arrows">
+                    <a class="arrow arrow-next"></a>
+                    <a class="arrow disabled arrow-prev"></a>
+                </div>
+                <div class="hs__arrows right">
+                    <a class="arrow arrow-next"></a>
+                    <a class="arrow disabled arrow-prev"></a>
                 </div>
             </div>
             <ul class="hs">
-                <a href="/action">
+                <a href="/genre">
                     <button class="movie-thumbnail genre" type="submit">Action</button>
                 </a>
                 <a href="/movie">
@@ -119,20 +87,24 @@
         <div class="hs__wrapper">
             <h4 class="h4">Liked Movies</h4>
             <div class="hs__header">
-                <div class="hs__arrows"><a class="arrow disabled arrow-prev"></a><a class="arrow arrow-next"></a></div>
-                <div class="hs__arrows right"><a class="arrow disabled arrow-prev"></a><a class="arrow arrow-next"></a>
+                <div class="hs__arrows">
+                    <a class="arrow arrow-next"></a>
+                    <a class="arrow disabled arrow-prev"></a>
+                </div>
+                <div class="hs__arrows right">
+                    <a class="arrow arrow-next"></a>
+                    <a class="arrow disabled arrow-prev"></a>
                 </div>
             </div>
             <ul class="hs">
-                <a href="/movie">
-                    <button class="movie-thumbnail liked-movies" type="submit">Liked 1</button>
-                </a>
-                <a href="/movie">
-                    <button class="movie-thumbnail liked-movies" type="submit">Liked 2</button>
-                </a>
+                {{#each likedMovies}}
+                {{{title}}}
+                {{/each}}
             </ul>
         </div>
     </div>
+    </div>
+
 </main>
 
 

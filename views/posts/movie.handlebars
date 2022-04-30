@@ -13,22 +13,21 @@
 </script>
 
 <main>
+	<h1 class="movie_title">{{allData.movieTitle}}</h1>
 
 	<div class="item">
-		<a>
-			<h1 class="movie_title">{{allData.movieTitle}}</h1>
-		</a>
-		
+
+
 		<div class="row">
-		
+
 			<p class="user_status_l">Your Status:</p>
 			<p class="user_status_d">{{reactions.status}}</p>
 			<button class="user_status_b">EDIT</button>
-				
+
 			<p class="user_rating_l">Your Rating:</p>
 			<p class="user_rating_d">{{reactions.rating}}</p>
 			<button class="user_rating_b">EDIT</button>
-		
+
 			<p class="movie_info_des">
 				Movie Description: {{allData.description}}
 			</p>
@@ -76,11 +75,9 @@
 					<div class="comment_section">
 						COMMENTS:
 						<li id="comments_list">
-
 							<br>
-
 							{{#each comments}}
-								{{{comment}}}
+							{{{comment}}}
 							{{/each}}
 
 						</li>
@@ -101,98 +98,90 @@
 	</div>
 
 	<script>
-		$(function () 
-		{
-			$('.user_status_b').click(function (e) 
-			{
+		$(function () {
+			$('.user_status_b').click(function (e) {
 				var dialog = $('<div class="popup"></div>').dialog(
-				{
-					dialogClass: "popup",
-					modal: true,
-					resizable: false,
-					title: "Choose your Movie Status",
-					width: "450px",
-					closeOnEscape: false,
-					open: function(event, ui) 
 					{
-						$(".ui-dialog-titlebar-close", ui.dialog || ui).hide();
-					},
-					buttons:
-					{
-						"Watched": function () 
-						{
-							var form = document.createElement("form");
-							var ele1 = document.createElement("input");
-							form.method = "POST";
-							form.action = "/movie/{{allData._id}}/status";
-							ele1.value = "Watched";
-							ele1.name = "sentResponse";
-							form.appendChild(ele1);
-							document.body.appendChild(form);
-							form.submit();
+						dialogClass: "popup",
+						modal: true,
+						resizable: false,
+						title: "Choose your Movie Status",
+						width: "450px",
+						closeOnEscape: false,
+						open: function (event, ui) {
+							$(".ui-dialog-titlebar-close", ui.dialog || ui).hide();
 						},
-						"Not Watched": function () 
+						buttons:
 						{
-							var form = document.createElement("form");
-							var ele1 = document.createElement("input");
-							form.method = "POST";
-							form.action = "/movie/{{allData._id}}/status";
-							ele1.value = "Not Watched";
-							ele1.name = "sentResponse";
-							form.appendChild(ele1);
-							document.body.appendChild(form);
-							form.submit();
-						},
-						"Cancel": function () 
-						{
-							dialog.dialog('close');
+							"Watched": function () {
+								var form = document.createElement("form");
+								var ele1 = document.createElement("input");
+								form.method = "POST";
+								form.action = "/movie/{{allData._id}}/status";
+								ele1.value = "Watched";
+								ele1.name = "sentResponse";
+								form.appendChild(ele1);
+								document.body.appendChild(form);
+								form.submit();
+							},
+							"Not Watched": function () {
+								var form = document.createElement("form");
+								var ele1 = document.createElement("input");
+								form.method = "POST";
+								form.action = "/movie/{{allData._id}}/status";
+								ele1.value = "Not Watched";
+								ele1.name = "sentResponse";
+								form.appendChild(ele1);
+								document.body.appendChild(form);
+								form.submit();
+							},
+							"Cancel": function () {
+								dialog.dialog('close');
+							}
 						}
-					}
-				});
+					});
 			});
 			$('.user_rating_b').click(function (e) {
 				e.preventDefault();
 				var dialog = $('<div class="popup"></div>').dialog(
-				{
-					dialogClass: "popup",
-					modal: true,
-					resizable: false,
-					title: "Choose your Movie Rating",
-					width: "450px",
-					closeOnEscape: false,
-					open: function(event, ui) 
 					{
-						$(".ui-dialog-titlebar-close", ui.dialog || ui).hide();
-					},
-					buttons: {
-						"Like": function () {
-							var form = document.createElement("form");
-							var ele1 = document.createElement("input");
-							form.method = "POST";
-							form.action = "/movie/{{allData._id}}/rating";
-							ele1.value = "Like";
-							ele1.name = "sentResponse";
-							form.appendChild(ele1);
-							document.body.appendChild(form);
-							form.submit();
+						dialogClass: "popup",
+						modal: true,
+						resizable: false,
+						title: "Choose your Movie Rating",
+						width: "450px",
+						closeOnEscape: false,
+						open: function (event, ui) {
+							$(".ui-dialog-titlebar-close", ui.dialog || ui).hide();
 						},
-						"Dislike": function () {
-							var form = document.createElement("form");
-							var ele1 = document.createElement("input");
-							form.method = "POST";
-							form.action = "/movie/{{allData._id}}/rating";
-							ele1.value = "Dislike";
-							ele1.name = "sentResponse";
-							form.appendChild(ele1);
-							document.body.appendChild(form);
-							form.submit();
-						},
-						"Cancel": function () 
-						{
-							dialog.dialog('close');
+						buttons: {
+							"Like": function () {
+								var form = document.createElement("form");
+								var ele1 = document.createElement("input");
+								form.method = "POST";
+								form.action = "/movie/{{allData._id}}/rating";
+								ele1.value = "Like";
+								ele1.name = "sentResponse";
+								form.appendChild(ele1);
+								document.body.appendChild(form);
+								form.submit();
+							},
+							"Dislike": function () {
+								var form = document.createElement("form");
+								var ele1 = document.createElement("input");
+								form.method = "POST";
+								form.action = "/movie/{{allData._id}}/rating";
+								ele1.value = "Dislike";
+								ele1.name = "sentResponse";
+								form.appendChild(ele1);
+								document.body.appendChild(form);
+								form.submit();
+							},
+							"Cancel": function () {
+								dialog.dialog('close');
+							}
 						}
-					}
-				});
+					});
 			});
 		});
 	</script>
