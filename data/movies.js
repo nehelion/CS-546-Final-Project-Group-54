@@ -4,7 +4,6 @@ const { ObjectId } = require('mongodb');
 
 async function addMovie(movieTitle, releaseYear, genre, rating, description, actors, directors, whereToWatch)
 {
-  console.log("inside addMovie");
   const moviesCollection = await movies();
   let dupMovie = await moviesCollection.findOne({movieTitle: movieTitle});
   if (dupMovie !== null) throw "There is already a movie with that title.";
@@ -47,6 +46,32 @@ async function getAllMovies()
 	return moviesList;
 }
 
+async function sortMovies(moviesList)
+{
+	var titlesMoviesList = [];
+	var sortedMoviesList = [];
+	
+	for (let i = 0; i < moviesList.length; i++) 
+	{
+		titlesMoviesList.push(moviesList[i].movieTitle);
+    }
+	
+	titlesMoviesList.sort();
+	
+	for (let i = 0; i < titlesMoviesList.length; i++) 
+	{
+		for (let j = 0; j < moviesList.length; j++) 
+		{
+			if(titlesMoviesList[i] == moviesList[j].movieTitle)
+			{
+				sortedMoviesList.push(moviesList[j]);
+			}
+		}
+	}
+	
+	return sortedMoviesList;
+}
+
 async function clearMovies() 
 {	
 	const moviesCollection = await movies();
@@ -61,11 +86,12 @@ async function test()
 
 module.exports = 
 {
-  addMovie,
+	addMovie,
 	getMovie,
 	getAllMovies,
 	clearMovies,
-  test
+	sortMovies,
+	test
 }
 
 

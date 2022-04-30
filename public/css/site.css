@@ -623,34 +623,54 @@ textarea {
 }
 
 .ui-dialog .ui-dialog-title {
-  text-align: center;
-  width: 100%;
-  border-color: #2c383f;
-  color: white;
+	font-size: 25px;
+	text-align: center;
+	width: 100%;
+	border-color: #04619f;
+	color: white; 
 }
 
-.ui-dialog .ui-dialog-content {
-  color: white;
+.ui-dialog .ui-dialog-content { 
+	text-align: center;
+	color: #04619f;
+	background: #04619f;
+	background-color: #04619f;
 }
 
 .ui-dialog .ui-dialog-titlebar {
-  background: #04619f;
+	background: #04619f;
+	border-color: #04619f;
+}
+
+.ui-dialog,.ui-widget, .ui-widget-content, .ui-corner-all, .foo, .ui-draggable, .ui-resizable  {
+	background: #04619f  !important;
 }
 
 .ui-dialog .ui-dialog-buttonpane {
-  text-align: left;
-  border-width: 1px 0 0 0;
-  background-image: none;
-  margin-top: .5em;
-  padding: .3em 1em .5em .4em;
-  background-color: #04619f;
+	text-align: center;
+	border-width: 1px 0 0 0;
+	margin-top: .5em;
+	padding: .3em 1em .5em .4em;
+    background-color: #04619f;
+	border-color: #04619f;
+}
+
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+    text-align: center;
+    float: none !important;
 }
 
 .ui-dialog .ui-dialog-buttonset button {
-  text-align: center;
-  border-color: #2c383f;
-  background-color: #4ead67;
-  color: white;
+	text-align: center;
+    float: none;
+	border-color: #2c383f;
+	background-color: #4ead67;
+	color: white; 
+	bottom: 20px;
+}
+
+.ui-dialog .ui-dialog-buttonset .ui-button {
+	background-color: #4ead67 !important;
 }
 
 a.comment_pages_r {
@@ -862,4 +882,8 @@ body {
 ul {
   padding: 0;
   margin: 0;
+}
+
+.search-list {
+  font-size: 50px;
 }

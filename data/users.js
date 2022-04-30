@@ -23,7 +23,8 @@ async function createUser(firstName, lastName, username, password, email) {
     return { userInserted: true };
 }
 
-async function checkUser(username, password) {
+async function checkUser(username, password) 
+{
     const usersCollection = await users();
     let usernameMatch = await usersCollection.findOne({ username: username.toLowerCase() })
     if (!usernameMatch || !usernameMatch._id) throw "Either the username or password is invalid"
@@ -40,8 +41,26 @@ async function getUser(username)
 	return user;
 }
 
+async function getAllLikedMovies(username) 
+{	
+	const user = await getUser(username);
+	
+	var likedMoviesList = [];
+	
+	for (let i = 0; i < user.movieReactions.length; i++) 
+	{
+		if(user.movieReactions[i].rating == "Like")
+		{
+			likedMoviesList.push(user.movieReactions[i].movieId);
+		}
+	}
+	
+	return likedMoviesList;
+}
+
 module.exports = {
     createUser,
     checkUser,
-	getUser
+	getUser,
+	getAllLikedMovies
 }

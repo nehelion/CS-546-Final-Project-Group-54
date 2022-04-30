@@ -105,13 +105,13 @@
 		{
 			$('.user_status_b').click(function (e) 
 			{
-				var dialog = $('<a></a>').dialog(
+				var dialog = $('<div class="popup"></div>').dialog(
 				{
-					class: "popup",
+					dialogClass: "popup",
 					modal: true,
 					resizable: false,
 					title: "Choose your Movie Status",
-					width: "420px",
+					width: "450px",
 					closeOnEscape: false,
 					open: function(event, ui) 
 					{
@@ -152,7 +152,18 @@
 			});
 			$('.user_rating_b').click(function (e) {
 				e.preventDefault();
-				var dialog = $('<p>Choose your Movie Rating</p>').dialog({
+				var dialog = $('<div class="popup"></div>').dialog(
+				{
+					dialogClass: "popup",
+					modal: true,
+					resizable: false,
+					title: "Choose your Movie Rating",
+					width: "450px",
+					closeOnEscape: false,
+					open: function(event, ui) 
+					{
+						$(".ui-dialog-titlebar-close", ui.dialog || ui).hide();
+					},
 					buttons: {
 						"Like": function () {
 							var form = document.createElement("form");
@@ -176,7 +187,8 @@
 							document.body.appendChild(form);
 							form.submit();
 						},
-						"Cancel": function () {
+						"Cancel": function () 
+						{
 							dialog.dialog('close');
 						}
 					}

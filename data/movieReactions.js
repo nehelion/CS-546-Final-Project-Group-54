@@ -44,8 +44,6 @@ async function addStatusReaction(username, movieId, status)
 		throw 'could not update users successfully';
 	}
 	
-	console.log("----- HERE 6: ");
-	
 	const movieReactionsCollection = await movieReactions();
 	
 	const insertDetails = await movieReactionsCollection.insertOne(newReaction);
