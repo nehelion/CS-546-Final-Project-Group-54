@@ -1,8 +1,5 @@
 <link rel="stylesheet" href="/public/css/site.css" type="text/css">
 <head>
-    <form action="/">
-    <button action="/" type="submit" class="back-home">Back Home</button>
-  </form>
   <title>Search</title>
 </head>
 <header>
@@ -10,11 +7,11 @@
     <h1>FILM FORAY</h1>
 </a>
 </header>
-<h2 class="h2search" >{{showSearchTerm}}</h2>
+<h2 class="h2search" >You Searched: {{showSearchTerm}}</h2>
 <section class="search-section">  
   <ul style="list-style: none;">
     {{#each result}}
-    <li><a class="search-list" href="/movie/{{show.id}}" target="_blank">{{show.name}}</a></li>
+		<li><a class="search-list" href="/movie/{{_id}}" target="_blank">{{movieTitle}}</a></li>
     {{/each}}
   </ul>
 </section>

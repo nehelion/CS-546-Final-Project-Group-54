@@ -4,7 +4,6 @@ const { ObjectId } = require('mongodb');
 
 async function addMovie(movieTitle, releaseYear, genre, rating, description, actors, directors, whereToWatch)
 {
-  console.log("inside addMovie");
   const moviesCollection = await movies();
   let dupMovie = await moviesCollection.findOne({movieTitle: movieTitle});
   if (dupMovie !== null) throw "There is already a movie with that title.";

@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const searchData = require("../data/movies");
+const data = require('../data');
+const searchData = data.searchpage;
 
 router.post("/", async (req, res) => {
   const data = req.body;
-
+  
   if (data.showSearchTerm.trim().length === 0) {
     const errInput = true;
     res.status(400), {
@@ -15,16 +16,24 @@ router.post("/", async (req, res) => {
     return;
   }
 
-  try {
-    const result = await searchData.searchShowByTerm(data.showSearchTerm);
-    if (result.length === 0) {
-      errNotFound = true;
-      res.status(404), {
-        showSearchTerm: data.showSearchTerm,
-        title: "Error 404: Show Not Found",
-        errNotFound: errNotFound,
-      };
-      return;
+  try 
+  {
+	console.log("BEFORE: " + data.showSearchTerm);
+	
+	const result = await searchData.searchShowByTerm(data.showSearchTerm);
+	
+	console.log("AFTER: " + result.length);
+	
+    if (result.length === 0) 
+	{
+		errNotFound = true;
+		res.status(404), 
+		{
+			showSearchTerm: data.showSearchTerm,
+			title: "Error 404: Show Not Found",
+			errNotFound: errNotFound,
+		};
+		return;
     }
 
     res.render("posts/searchpage", {
