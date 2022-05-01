@@ -629,10 +629,10 @@ textarea {
 	text-align: center;
 	width: 100%;
 	border-color: #04619f;
-	color: white; 
+	color: white;
 }
 
-.ui-dialog .ui-dialog-content { 
+.ui-dialog .ui-dialog-content {
 	text-align: center;
 	color: #04619f;
 	background: #04619f;
@@ -667,7 +667,7 @@ textarea {
     float: none;
 	border-color: #2c383f;
 	background-color: #4ead67;
-	color: white; 
+	color: white;
 	bottom: 20px;
 }
 
