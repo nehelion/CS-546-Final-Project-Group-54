@@ -9,7 +9,10 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    let addingMovie = await moviesData.addMovie(req.body.movieTitle, req.body.releaseYear, [req.body.genre], req.body.rating, req.body.description, req.body.actors, req.body.directors, req.body.whereToWatch);
+    let actorsArray = req.body.actors.trim().split(',');
+    let directorsArray = req.body.directors.trim().split(',');
+    let whereToWatchArray = req.body.whereToWatch.trim().split(',');
+    let addingMovie = await moviesData.addMovie(req.body.movieTitle, req.body.releaseYear, [req.body.genre], req.body.rating, req.body.description, actorsArray, directorsArray, whereToWatchArray);
     if (addingMovie.movieInserted) {
       res.render('posts/addmovie', { title: "Add Movie Page", allData: req.session.user, error: "Movie Successfully Added!"});
       res.redirect('/private');
