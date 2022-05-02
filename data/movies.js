@@ -4,6 +4,17 @@ const { ObjectId } = require('mongodb');
 
 async function addMovie(movieTitle, releaseYear, genre, rating, description, actors, directors, whereToWatch)
 {
+  if (movieTitle === undefined || releaseYear === undefined || genre === undefined
+    || rating === undefined || description === undefined || actors === undefined
+    || directors === undefined || whereToWatch === undefined) {
+    throw "One or more fields are undefined!"
+  }
+  if (isNaN(releaseYear)) {
+    throw "Release year is not a number!"
+  }
+  if (isNaN(rating)) {
+    throw "Rating is not a number!"
+  }
   const moviesCollection = await movies();
   let dupMovie = await moviesCollection.findOne({movieTitle: movieTitle});
   if (dupMovie !== null) throw "There is already a movie with that title.";
@@ -24,22 +35,22 @@ async function addMovie(movieTitle, releaseYear, genre, rating, description, act
   return {movieInserted: true};
 }
 
-async function getMovie(id) 
-{	
+async function getMovie(id)
+{
 	if (!id) throw "You must provide an id to search for";
 	if (typeof id !== 'string') throw "Id must be a string";
 	if (id.trim().length === 0) throw "Id cannot be an empty string or just spaces";
 	id = id.trim();
 	if (!ObjectId.isValid(id)) throw "Invalid object ID";
-	
+
 	const moviesCollection = await movies();
 	let movie = await moviesCollection.findOne({ _id: ObjectId(id) });
 	if (movie === null) throw "No movie with that id";
 	return movie;
 }
 
-async function getAllMovies() 
-{	
+async function getAllMovies()
+{
 	const moviesCollection = await movies();
 	const moviesList = await moviesCollection.find({}).toArray();
 	if (!moviesList) throw 'Could not get all movies';
@@ -50,17 +61,17 @@ async function sortMovies(moviesList)
 {
 	var titlesMoviesList = [];
 	var sortedMoviesList = [];
-	
-	for (let i = 0; i < moviesList.length; i++) 
+
+	for (let i = 0; i < moviesList.length; i++)
 	{
 		titlesMoviesList.push(moviesList[i].movieTitle);
     }
-	
+
 	titlesMoviesList.sort();
-	
-	for (let i = 0; i < titlesMoviesList.length; i++) 
+
+	for (let i = 0; i < titlesMoviesList.length; i++)
 	{
-		for (let j = 0; j < moviesList.length; j++) 
+		for (let j = 0; j < moviesList.length; j++)
 		{
 			if(titlesMoviesList[i] == moviesList[j].movieTitle)
 			{
@@ -68,23 +79,23 @@ async function sortMovies(moviesList)
 			}
 		}
 	}
-	
+
 	return sortedMoviesList;
 }
 
-async function clearMovies() 
-{	
+async function clearMovies()
+{
 	const moviesCollection = await movies();
 	moviesCollection.drop();
 	return true;
 }
 
-async function test() 
+async function test()
 {
 	return {test: true};
 }
 
-module.exports = 
+module.exports =
 {
 	addMovie,
 	getMovie,
@@ -93,6 +104,3 @@ module.exports =
 	sortMovies,
 	test
 }
-
-
-
