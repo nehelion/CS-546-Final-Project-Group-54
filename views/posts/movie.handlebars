@@ -36,36 +36,32 @@
 				<div class="column">
 					<div class="movie_info">
 						INFO:
+						<dl>
 						<dt>Year Released:</dt>
 						<dd>{{allData.releaseYear}}</dd>
-						<br>
 						<dt>Genre:</dt>
 						<dd>
 							{{#each allData.genre}}
 							<li>{{{this}}} </li> {{/each}}
 						</dd>
-						<br>
 						<dt>IMDB Rating:</dt>
 						<dd>{{allData.rating}}</dd>
-						<br>
 						<dt>Actors</dt>
 						<dd>
 							{{#each allData.actors}}
 							<li>{{{this}}} </li> {{/each}}
 						</dd>
-						<br>
 						<dt>Directors</dt>
 						<dd>
 							{{#each allData.directors}}
 							<li>{{{this}}} </li> {{/each}}
 						</dd>
-						<br>
 						<dt>Where To Watch:</dt>
 						<dd>
 							{{#each allData.whereToWatch}}
 							<li>{{{this}}} </li> {{/each}}
 						</dd>
-						<br>
+						</dl>
 					</div>
 				</div>
 			</a>

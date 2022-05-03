@@ -3,15 +3,11 @@ const users = mongoCollections.users;
 const movieReactions = mongoCollections.movieReactions;
 const { ObjectID } = require('mongodb');
 
-async function addStatusReaction(username, movieId, status)
-{
-	console.log("----- HERE 1: " + status);
+async function addStatusReaction(username, movieId, status) {
+	// TODO ADD ERROR CHECKING
 	
 	const usersCollection = await users();
-	
-	console.log("----- HERE 2: ");
-	
-    let user = await usersCollection.findOne({ username: username.toLowerCase() })
+	let user = await usersCollection.findOne({ username: username.toLowerCase() })
 	
 	let newReaction = {
 		movieId: movieId,
@@ -53,6 +49,8 @@ async function addStatusReaction(username, movieId, status)
 
 async function addRatingReaction(username, movieId, rating)
 {
+	// TODO ADD ERROR CHECKING
+	
 	const usersCollection = await users();
     let user = await usersCollection.findOne({ username: username.toLowerCase() })
 	

@@ -3,8 +3,9 @@ const movies = mongoCollections.movies;
 const comments = mongoCollections.comments;
 const { ObjectID } = require('mongodb');
 
-async function addComment(movie, username, comment)
-{
+async function addComment(movie, username, comment) {
+	// TODO ADD ERROR CHECKING
+	
 	const moviesCollection = await movies();
 	
 	let newComment = 
@@ -33,8 +34,9 @@ async function addComment(movie, username, comment)
 	return {commentInserted: true};
 }
 
-async function getAllComments(movie)
-{
+async function getAllComments(movie) {
+	// TODO ADD ERROR CHECKING
+	
 	var movieList = [];
 	
 	for (let i = 0; i < movie.comments.length; i++) 
@@ -86,8 +88,7 @@ async function getAllComments(movie)
 	return movieList;
 }
 
-module.exports = 
-{
+module.exports = {
 	addComment,
 	getAllComments
 }

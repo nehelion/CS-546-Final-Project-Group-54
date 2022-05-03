@@ -1,33 +1,41 @@
-<header>
-    <a href="/">
-        <h1>FILM FORAY</h1>
-    </a>
-</header>
-<div class="signup-container">
-    <label class="login-label">Sign Up</label>
-    <br />
-    <br />
-    <br />
-    <form method="POST" id="signup-form" action="/signup">
+<!DOCTYPE HTML>
+<html lang="en">
 
-        <label class="label" for="firstName">First Name
-            <input type="text" id="firstName" name="firstName" />
-        </label>
-        <label class="label" for="lastName">Last Name
-            <input type="text" id="lastName" name="lastName" />
-        </label>
-        <label class="label" for="email">Enter Email
-            <input type="text" id="email" name="email" />
-        </label>
-        <label class="label" for="username">Create Username
-            <input type="text" id="username" name="username" />
-        </label>
-        <label class="label" for="password">Create Password
-            <input type="password" id="password" name="password" />
-        </label>
-        <button class="submit-button" type="submit">Sign Up</button>
-        <p id="error" class="error">{{error}}</p>
-        <br />
-        <a href="/"> Already have an account? Click here to log-in</a>
-    </form>
+<head>
+  <title>{{title}}</title>
+</head>
+
+<header>
+  <a href="/">
+    <h1>FILM FORAY</h1>
+  </a>
+</header>
+
+<div class="signup-container">
+  <label class="login-label">Sign Up</label>
+  <br />
+  <br />
+  <br />
+  <form method="POST" id="signup-form" action="/signup">
+		<label class="label" for="firstName">First Name
+      <input type="text" id="firstName" name="firstName" />
+    </label>
+    <label class="label" for="lastName">Last Name
+      <input type="text" id="lastName" name="lastName" />
+    </label>
+    <label class="label" for="email">Enter Email
+      <input type="text" id="email" name="email" />
+    </label>
+    <label class="label" for="username">Create Username
+      <input type="text" id="username" name="username" />
+    </label>
+    <label class="label" for="password">Create Password
+      <input type="password" id="password" name="password" />
+    </label>
+    <button class="submit-button" type="submit">Sign Up</button>
+    <p id="error" class="error">{{error}}</p>
+    <br />
+    <a href="/"> Already have an account? Click here to log-in</a>
+  </form>
 </div>
+</html>

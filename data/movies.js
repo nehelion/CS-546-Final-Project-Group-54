@@ -2,8 +2,9 @@ const mongoCollections = require('./../config/mongoCollections');
 const movies = mongoCollections.movies;
 const { ObjectId } = require('mongodb');
 
-async function addMovie(movieTitle, releaseYear, genre, rating, description, actors, directors, whereToWatch)
-{
+async function addMovie(movieTitle, releaseYear, genre, rating, description, actors, directors, whereToWatch) {
+	// TODO ADD ERROR CHECKING
+	
   if (movieTitle === undefined || releaseYear === undefined || genre === undefined
     || rating === undefined || description === undefined || actors === undefined
     || directors === undefined || whereToWatch === undefined) {
@@ -28,15 +29,16 @@ async function addMovie(movieTitle, releaseYear, genre, rating, description, act
     actors: actors,
     directors: directors,
     whereToWatch: whereToWatch,
-	comments: []
+		comments: []
   }
   const insertDetails = await moviesCollection.insertOne(newMovie);
   if (insertDetails.insertedCount === 0) throw "Could not add movie, try again!"
   return {movieInserted: true};
 }
 
-async function getMovie(id)
-{
+async function getMovie(id) {
+	// TODO ADD ERROR CHECKING
+	
 	if (!id) throw "You must provide an id to search for";
 	if (typeof id !== 'string') throw "Id must be a string";
 	if (id.trim().length === 0) throw "Id cannot be an empty string or just spaces";
@@ -49,32 +51,30 @@ async function getMovie(id)
 	return movie;
 }
 
-async function getAllMovies()
-{
+async function getAllMovies() {
+	// TODO ADD ERROR CHECKING
+	
 	const moviesCollection = await movies();
 	const moviesList = await moviesCollection.find({}).toArray();
 	if (!moviesList) throw 'Could not get all movies';
 	return moviesList;
 }
 
-async function sortMovies(moviesList)
-{
+async function sortMovies(moviesList) {
+	// TODO ADD ERROR CHECKING
+	
 	var titlesMoviesList = [];
 	var sortedMoviesList = [];
 
-	for (let i = 0; i < moviesList.length; i++)
-	{
-		titlesMoviesList.push(moviesList[i].movieTitle);
-    }
+	for (let i = 0; i < moviesList.length; i++) {
+		titlesMoviesList.push(moviesList[i].movieTitle.toLowerCase());
+  }
 
 	titlesMoviesList.sort();
 
-	for (let i = 0; i < titlesMoviesList.length; i++)
-	{
-		for (let j = 0; j < moviesList.length; j++)
-		{
-			if(titlesMoviesList[i] == moviesList[j].movieTitle)
-			{
+	for (let i = 0; i < titlesMoviesList.length; i++) {
+		for (let j = 0; j < moviesList.length; j++) {
+			if(titlesMoviesList[i] == moviesList[j].movieTitle.toLowerCase()) {
 				sortedMoviesList.push(moviesList[j]);
 			}
 		}
@@ -83,16 +83,30 @@ async function sortMovies(moviesList)
 	return sortedMoviesList;
 }
 
-async function clearMovies()
-{
+async function searchShowByTerm(showSearchTerm) {
+	// TODO ADD ERROR CHECKING
+	
+	const moviesCollection = await movies();
+	const moviesList = await moviesCollection.find({}).toArray();
+	if (!moviesList) throw 'Could not get all movies';
+	
+	let searchedMoviesList = [];
+	
+	for (let i = 0; i < moviesList.length; i++) {
+		if(moviesList[i].movieTitle.toLowerCase().includes(showSearchTerm)) {
+			searchedMoviesList.push(moviesList[i]);
+		}
+	}
+
+	return searchedMoviesList;
+}
+
+async function clearMovies() {
+	// TODO ADD ERROR CHECKING
+	
 	const moviesCollection = await movies();
 	moviesCollection.drop();
 	return true;
-}
-
-async function test()
-{
-	return {test: true};
 }
 
 module.exports =
@@ -102,5 +116,5 @@ module.exports =
 	getAllMovies,
 	clearMovies,
 	sortMovies,
-	test
+	searchShowByTerm
 }
