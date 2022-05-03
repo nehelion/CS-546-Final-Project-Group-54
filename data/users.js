@@ -6,12 +6,12 @@ const saltRounds = 10;
 async function createUser(firstName, lastName, username, password, email) {
 	// TODO ADD ERROR CHECKING
 	
+	const usersCollection = await users();
+	
   let dupUser = await usersCollection.findOne({ username: username.toLowerCase()});
   if (dupUser !== null) throw "There is already a user with that username.";
   let dupEmail = await usersCollection.findOne({ email: email.toLowerCase()});
   if (dupEmail !== null) throw "There is already a user with that email.";
-	
-	const usersCollection = await users();
 	
   const hashedPassword = bcrypt.hashSync(password, saltRounds);
 	
