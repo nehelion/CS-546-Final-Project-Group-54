@@ -1,17 +1,21 @@
+<html style="height: 100%;">
 <link rel="stylesheet" href="/public/css/site.css" type="text/css">
+
 <head>
   <title>Search</title>
 </head>
 <header>
-<a href="/private">
+  <a href="/private">
     <h1>FILM FORAY</h1>
-</a>
+  </a>
 </header>
-<h2 class="h2search" >You Searched: {{showSearchTerm}}</h2>
-<section class="search-section">  
-  <ul style="list-style: none;">
+<h2 class="h2search">Showing Results for: "{{showSearchTerm}}"</h2>
+<div class="signup-container">
+  <ul>
     {{#each result}}
-		<li><a class="search-list" href="/movie/{{_id}}" target="_blank">{{movieTitle}}</a></li>
+    <li><a class="search-list" href="/movie/{{_id}}" target="_blank">{{movieTitle}}</a></li>
     {{/each}}
   </ul>
-</section>
+</div>
+
+</html>

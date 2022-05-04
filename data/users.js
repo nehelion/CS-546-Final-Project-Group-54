@@ -40,8 +40,7 @@ async function checkUser(username, password) {
 }
 
 async function getUser(username) {
-	// TODO ADD ERROR CHECKING
-	
+	// TODO ADD ERROR CHECKING	
   const usersCollection = await users();
   let user = await usersCollection.findOne({ username: username.toLowerCase() })
 	if (user === null) throw "No movie with that id";

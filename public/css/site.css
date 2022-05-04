@@ -30,6 +30,7 @@ input[type=password] {
   background-color: #ffffffea;
 }
 
+
 h1 {
   font-family: Helvetica, sans-serif;
   padding-bottom: 20px;
@@ -151,7 +152,7 @@ h4 {
 }
 
 .submit-button:hover {
-  opacity: 0.3;
+  opacity: 0.5;
   cursor: pointer;
 
 }
@@ -402,10 +403,6 @@ input[type=search]::placeholder {
   opacity: 0.7;
 }
 
-button[type=submit]:hover {
-  opacity: 1;
-}
-
 button[type=submit]:focus,
 input[type=search]:focus {
   box-shadow: 0 0 3px 0 #1183d6;
@@ -638,18 +635,18 @@ textarea {
 }
 
 .ui-dialog .ui-dialog-title {
-	font-size: 25px;
-	text-align: center;
-	width: 100%;
-	border-color: #04619f;
-	color: white;
+  font-size: 25px;
+  text-align: center;
+  width: 100%;
+  border-color: #04619f;
+  color: white;
 }
 
 .ui-dialog .ui-dialog-content {
-	text-align: center;
-	color: #04619f;
-	background: #04619f;
-	background-color: #04619f;
+  text-align: center;
+  color: #04619f;
+  background: #04619f;
+  background-color: #04619f;
 }
 
 .ui-dialog .ui-dialog-titlebar {
@@ -682,12 +679,12 @@ textarea {
 }
 
 .ui-dialog .ui-dialog-buttonset button {
-	text-align: center;
-    float: none;
-	border-color: #2c383f;
-	background-color: #4ead67;
-	color: white;
-	bottom: 20px;
+  text-align: center;
+  float: none;
+  border-color: #2c383f;
+  background-color: #4ead67;
+  color: white;
+  bottom: 20px;
 }
 
 .ui-dialog .ui-dialog-buttonset .ui-button {
