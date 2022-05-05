@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="/public/css/site.css" type="text/css">
 <script type="text/javascript" src="/public/js/additionalField.js"></script>
 
 <head>
@@ -15,11 +14,11 @@
     <!--<button onclick="addGenre()">Add genre</button>-->
     <form method="POST" id="add-movie-form" action="/addmovie">
         
-				<label class="addmovie_label" for="movieTitle">*Movie Title:
+				<label class="addmovie_label" for="movieTitle"><a><font color="red">*</font></a>Movie Title:
             <input type="text" id="movieTitle" name="movieTitle" />
         </label>
 
-        <label class="addmovie_label" for="releaseYear">*Year Released:
+        <label class="addmovie_label" for="releaseYear"><a><font color="red">*</font></a>Year Released:
 						<br />
             <input class="addmovie_num_input" type="number" id="releaseYear" name="releaseYear" />
         </label>
@@ -28,7 +27,7 @@
 
         <ul id="genreList">
           <li>
-						<label class="addmovie_label" for="genre">*Genre:
+						<label class="addmovie_label" for="genre"><a><font color="red">*</font></a>Genre:
 						<br />
 							<select class="addmovie_genre" id="genre" name="genre">
 								<option value="Action">Action</option>
@@ -45,7 +44,7 @@
         
 				<br /> <br />
 
-        <label class="addmovie_label" for="rating">*IMDB Rating:
+        <label class="addmovie_label" for="rating"><a><font color="red">*</font></a>IMDB Rating:
 						<br />
             <input class="addmovie_num_input" type="number" id="rating" name="rating" />
         </label>
@@ -57,7 +56,7 @@
         </label>
 
         <ul id="actorsList">
-            <li><label class="addmovie_label" for="actors">Actors:
+            <li><label class="addmovie_label" for="actors"><a><font color="red">*</font></a>Actors:
                     <input type="text" id="actors" name="actors" />
                 </label></li>
         </ul>

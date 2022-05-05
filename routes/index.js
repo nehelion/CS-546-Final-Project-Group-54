@@ -7,7 +7,7 @@ const searchpage = require('./searchpage');
 const genre = require('./genre');
 const addmovie = require('./addmovie');
 const myaccount = require('./myaccount');
-
+const seeder = require('./seeder');
 
 const constructorMethod = (app) => {
   app.use('/', mainRoutes);
@@ -19,6 +19,7 @@ const constructorMethod = (app) => {
   app.use('/genre', genre);
   app.use('/addmovie', addmovie);
   app.use('/myaccount', myaccount);
+  app.use('/seeder', seeder);
 
   app.use('*', (req, res) => {
     res.redirect('/');

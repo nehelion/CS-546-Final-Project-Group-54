@@ -943,3 +943,9 @@ select.addmovie_genre {
 label.addmovie_label {
 	font-size: 20px;
 }
+
+a.no_liked_error {
+	font-size: 30px;
+	color: red;
+	margin-left: 50px;
+}

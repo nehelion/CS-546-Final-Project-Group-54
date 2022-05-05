@@ -184,7 +184,7 @@ async function searchShowByTerm(showSearchTerm) {
 
 async function clearMovies() {
 	const moviesCollection = await movies();
-	moviesCollection.drop();
+	moviesCollection.deleteMany();
 	return true;
 }
 

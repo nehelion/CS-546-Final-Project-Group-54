@@ -7,7 +7,7 @@ const usersData = data.users;
 router.get('/', async (req, res) => {
   try {
     if (!req.session.user) {
-			return res.status(403).render('posts/login', { title: "Login Screen", error: "User is not logged in." })
+			return res.status(403).render('posts/login', { title: "Login Screen"})
 		}
 		else {
 			let movies = await moviesData.getAllMovies();
@@ -43,13 +43,20 @@ router.get('/', async (req, res) => {
 			}
 
 			var likedMovieListHtml = [];
-
-			for (let i = 0; i < likedMovieList.length; i++) {
+			
+			if(likedMovieList.length == 0) {
 				likedMovieListHtml.push({
-					title: "<div class='item'><a href='/movie/" + likedMovieList[i]._id + "'>" +
-						"<button class='movie-thumbnail liked-movies' type='submit'>" + likedMovieList[i].movieTitle + "</button>" +
-						"</a></div>"
+					title: "<div class='item'><a class='no_liked_error'>THERE ARE CURRENTLY NO LIKED MOVIES</a></div>"
 				});
+			}
+			else {
+				for (let i = 0; i < likedMovieList.length; i++) {
+					likedMovieListHtml.push({
+						title: "<div class='item'><a href='/movie/" + likedMovieList[i]._id + "'>" +
+							"<button class='movie-thumbnail liked-movies' type='submit'>" + likedMovieList[i].movieTitle + "</button>" +
+							"</a></div>"
+					});
+				}
 			}
 
 			res.render('posts/private', { 
