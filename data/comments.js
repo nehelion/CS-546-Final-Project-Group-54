@@ -4,7 +4,33 @@ const comments = mongoCollections.comments;
 const { ObjectID } = require('mongodb');
 
 async function addComment(movie, username, comment) {
-	// TODO ADD ERROR CHECKING
+	// check movie 
+	if (!movie) 
+		throw "An issue occured on the server, no movie data was passed";
+	
+	// check username 
+	if (!username) 
+		throw "You must provide a username";
+  if (typeof username !== 'string') 
+		throw "Username must be a string";
+  if (username.trim().length === 0)
+		throw "Username cannot be an empty string or just spaces";
+	if (username.includes(" "))
+		throw "Username cannot contain spaces";
+	if (!(/^[a-zA-Z0-9]+$/gi.test(username)))
+		throw "Username should only contain alphanumeric characters";
+	if (username.length < 4)
+		throw "Username should be more than 4 characters";
+	
+	// check comment 
+	if (!comment) 
+		throw "You must provide a comment";
+  if (typeof comment !== 'string') 
+		throw "Comment must be a string";
+  if (comment.trim().length === 0)
+		throw "Comment cannot be an empty string or just spaces";
+	if (comment.length < 200)
+		throw "Comment should be more than 4 characters";
 	
 	const moviesCollection = await movies();
 	
@@ -35,7 +61,9 @@ async function addComment(movie, username, comment) {
 }
 
 async function getAllComments(movie) {
-	// TODO ADD ERROR CHECKING
+	// check movie 
+	if (!movie) 
+		throw "An issue occured on the server, no movie data was passed";
 	
 	var movieList = [];
 	

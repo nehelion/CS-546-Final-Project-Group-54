@@ -4,8 +4,18 @@ const movieReactions = mongoCollections.movieReactions;
 const { ObjectID } = require('mongodb');
 
 async function addStatusReaction(username, movieId, status) {
-	// TODO ADD ERROR CHECKING
-
+	// check username 
+	if (!username) 
+		throw "An issue occured on the server, no username data was passed";
+	
+	// check movieId 
+	if (!movieId) 
+		throw "An issue occured on the server, no movieId data was passed";
+	
+	// check status 
+	if (!status) 
+		throw "An issue occured on the server, no status data was passed";
+	
 	const usersCollection = await users();
 	let user = await usersCollection.findOne({ username: username.toLowerCase() })
 
@@ -44,7 +54,18 @@ async function addStatusReaction(username, movieId, status) {
 }
 
 async function addRatingReaction(username, movieId, rating) {
-	// TODO ADD ERROR CHECKING
+	// check username 
+	if (!username) 
+		throw "An issue occured on the server, no username data was passed";
+	
+	// check movieId 
+	if (!movieId) 
+		throw "An issue occured on the server, no movieId data was passed";
+	
+	// check rating 
+	if (!rating) 
+		throw "An issue occured on the server, no rating data was passed";
+	
 	const usersCollection = await users();
 	let user = await usersCollection.findOne({ username: username.toLowerCase() })
 

@@ -4,19 +4,76 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 async function createUser(firstName, lastName, username, password, email) {
-	// TODO ADD ERROR CHECKING
+	// check firstName 
+	if (!firstName) 
+		throw "You must provide a firstName";
+  if (typeof firstName !== 'string') 
+		throw "firstName name must be a string";
+  if (firstName.trim().length === 0)
+    throw "firstName cannot be an empty string or just spaces";
+  if (!(/^[a-zA-Z]+$/gi.test(firstName)))
+		throw "firstName should only contain letters";
+	
+	// check lastName 
+	if (!lastName) 
+		throw "You must provide a firstName";
+  if (typeof lastName !== 'string') 
+		throw "firstName name must be a string";
+  if (lastName.trim().length === 0)
+    throw "firstName cannot be an empty string or just spaces";
+  if (!(/^[a-zA-Z]+$/gi.test(lastName)))
+		throw "firstName should only contain letters";
+	
+	// check username 
+	if (!username) 
+		throw "You must provide a username";
+  if (typeof username !== 'string') 
+		throw "Username must be a string";
+  if (username.trim().length === 0)
+		throw "Username cannot be an empty string or just spaces";
+	if (username.includes(" "))
+		throw "Username cannot contain spaces";
+	if (!(/^[a-zA-Z0-9]+$/gi.test(username)))
+		throw "Username should only contain alphanumeric characters";
+	if (username.length < 4)
+		throw "Username should be more than 4 characters";
+	
+	// check password
+	if (!password) 
+		throw "You must provide a password";
+  if (typeof password !== 'string') 
+		throw "Password must be a string";
+  if (password.trim().length === 0)
+		throw "Password cannot be an empty string or just spaces";
+	if (password.includes(" "))
+		throw "Password cannot contain spaces";
+	if (password.length < 6)
+		throw "Password should be more than 6 characters";
+	
+	// check email
+	if (!email) 
+		throw "You must provide an email";
+	if (typeof email !== 'string') 
+		throw "Email must be a string";
+  if (email.trim().length === 0)
+    throw "Email cannot be an empty string or just spaces";
+	if (!email.includes("@"))
+		throw "Email does not contain @ symbol";
+	if (email.includes(" "))
+		throw "Email cannot contain spaces";
 	
 	const usersCollection = await users();
 	
   let dupUser = await usersCollection.findOne({ username: username.toLowerCase()});
   if (dupUser !== null) throw "There is already a user with that username.";
+	
   let dupEmail = await usersCollection.findOne({ email: email.toLowerCase()});
   if (dupEmail !== null) throw "There is already a user with that email.";
 	
   const hashedPassword = bcrypt.hashSync(password, saltRounds);
 	
   let newUser = {
-    firstName: firstName.charAt(0).toUpperCase()+ firstName.slice(1),
+    firstName: firstName.charAt(0).toUpperCase() + firstName.slice(1),
     lastName: lastName.charAt(0).toUpperCase()+ lastName.slice(1),
     username: username.toLowerCase(),
     password: hashedPassword,
@@ -29,7 +86,31 @@ async function createUser(firstName, lastName, username, password, email) {
 }
 
 async function checkUser(username, password) {
-	// TODO ADD ERROR CHECKING
+	// check username 
+	if (!username) 
+		throw "You must provide a username";
+  if (typeof username !== 'string') 
+		throw "Username must be a string";
+  if (username.trim().length === 0)
+		throw "Username cannot be an empty string or just spaces";
+	if (username.includes(" "))
+		throw "Username cannot contain spaces";
+	if (!(/^[a-zA-Z0-9]+$/gi.test(username)))
+		throw "Username should only contain alphanumeric characters";
+	if (username.length < 4)
+		throw "Username should be more than 4 characters";
+	
+	// check password
+	if (!password) 
+		throw "You must provide a password";
+  if (typeof password !== 'string') 
+		throw "Password must be a string";
+  if (password.trim().length === 0)
+		throw "Password cannot be an empty string or just spaces";
+	if (password.includes(" "))
+		throw "Password cannot contain spaces";
+	if (password.length < 6)
+		throw "Password should be more than 6 characters";
 	
   const usersCollection = await users();
   let usernameMatch = await usersCollection.findOne({ username: username.toLowerCase() })
@@ -40,7 +121,20 @@ async function checkUser(username, password) {
 }
 
 async function getUser(username) {
-	// TODO ADD ERROR CHECKING	
+	// check username 
+	if (!username) 
+		throw "You must provide a username";
+  if (typeof username !== 'string') 
+		throw "Username must be a string";
+  if (username.trim().length === 0)
+		throw "Username cannot be an empty string or just spaces";
+	if (username.includes(" "))
+		throw "Username cannot contain spaces";
+	if (!(/^[a-zA-Z0-9]+$/gi.test(username)))
+		throw "Username should only contain alphanumeric characters";
+	if (username.length < 4)
+		throw "Username should be more than 4 characters";
+	
   const usersCollection = await users();
   let user = await usersCollection.findOne({ username: username.toLowerCase() })
 	if (user === null) throw "No movie with that id";
@@ -48,7 +142,19 @@ async function getUser(username) {
 }
 
 async function getAllLikedMovies(username) {
-	// TODO ADD ERROR CHECKING
+	// check username 
+	if (!username) 
+		throw "You must provide a username";
+  if (typeof username !== 'string') 
+		throw "Username must be a string";
+  if (username.trim().length === 0)
+		throw "Username cannot be an empty string or just spaces";
+	if (username.includes(" "))
+		throw "Username cannot contain spaces";
+	if (!(/^[a-zA-Z0-9]+$/gi.test(username)))
+		throw "Username should only contain alphanumeric characters";
+	if (username.length < 4)
+		throw "Username should be more than 4 characters";
 	
 	const user = await getUser(username);
 	
