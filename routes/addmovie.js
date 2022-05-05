@@ -13,7 +13,32 @@ router.post('/', async (req, res) => {
     //let directorsArray = req.body.directors.trim().split(',');
     //let whereToWatchArray = req.body.whereToWatch.trim().split(',');
     //let addingMovie = await moviesData.addMovie(req.body.movieTitle, req.body.releaseYear, req.body.genre, req.body.rating, req.body.description, actorsArray, directorsArray, whereToWatchArray);
-    let addingMovie = await moviesData.addMovie(
+    
+		if(!Array.isArray(req.body.genre) && 
+		  typeof req.body.genre == 'string' && 
+			req.body.genre.trim().length !== 0) {
+			req.body.genre = [req.body.genre];
+		}
+		
+		if(!Array.isArray(req.body.actors) && 
+		  typeof req.body.actors == 'string' && 
+			req.body.actors.trim().length !== 0) {
+			req.body.actors = [req.body.actors];
+		}
+		
+		if(!Array.isArray(req.body.directors) && 
+		  typeof req.body.directors == 'string') {
+			req.body.directors = [req.body.directors];
+		}
+		
+		if(!Array.isArray(req.body.whereToWatch) && 
+		  typeof req.body.whereToWatch == 'string') {
+			req.body.whereToWatch = [req.body.whereToWatch];
+		}
+		
+		console.log(JSON.stringify(req.body));
+		
+		let addingMovie = await moviesData.addMovie(
 			req.body.movieTitle, 
 			req.body.releaseYear, 
 			req.body.genre, 

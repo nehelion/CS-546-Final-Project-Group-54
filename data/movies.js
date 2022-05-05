@@ -68,7 +68,7 @@ async function addMovie(movieTitle, releaseYear, genre, rating, description, act
 	if (!directors || !Array.isArray(directors))
     throw "You must provide an array of directors";
   for (i in directors) {
-    if (typeof directors[i] !== 'string' || directors[i].trim().length === 0) {
+    if (typeof directors[i] !== 'string') {
       throw "One or more directors is not a string or is an empty string";
     }
     directors[i] = directors[i].trim();
@@ -78,7 +78,7 @@ async function addMovie(movieTitle, releaseYear, genre, rating, description, act
 	if (!whereToWatch || !Array.isArray(whereToWatch))
     throw "You must provide an array of whereToWatch";
   for (i in whereToWatch) {
-    if (typeof whereToWatch[i] !== 'string' || whereToWatch[i].trim().length === 0) {
+    if (typeof whereToWatch[i] !== 'string') {
       throw "One or more whereToWatch is not a string or is an empty string";
     }
     whereToWatch[i] = whereToWatch[i].trim();
