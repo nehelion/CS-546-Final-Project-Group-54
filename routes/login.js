@@ -31,7 +31,8 @@ router.post('/', async (req, res) => {
       return;
     }
 		else {
-      req.session.user = { userName: username }
+      let user = await usersData.getUser(username);
+      req.session.user = { userName: username, theUser: user }
       res.redirect('/private');
     }
   } 
