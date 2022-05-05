@@ -1,5 +1,3 @@
-<script type="text/javascript" src="/public/js/additionalField.js"></script>
-
 <head>
     <title>Add a Movie Page</title>
 </head>
@@ -8,26 +6,27 @@
         <h1>FILM FORAY</h1>
     </a>
 </header>
+<script type="text/javascript" src="/public/js/additionalField.js"></script>
 <div class="addmovie-container">
     <h2>Add a Movie</h2>
     <p id="error" class="error">{{error}}</p>
-    <!--<button onclick="addGenre()">Add genre</button>-->
+
     <form method="POST" id="add-movie-form" action="/addmovie">
-        
-				<label class="addmovie_label" for="movieTitle"><a><font color="red">*</font></a>Movie Title:
+
+				<label class="addmovie_label" for="movieTitle"><a class="redAst">*</a>Movie Title:
             <input type="text" id="movieTitle" name="movieTitle" />
         </label>
 
-        <label class="addmovie_label" for="releaseYear"><a><font color="red">*</font></a>Year Released:
+        <label class="addmovie_label" for="releaseYear"><a class="redAst">*</a>Year Released:
 						<br />
             <input class="addmovie_num_input" type="number" id="releaseYear" name="releaseYear" />
         </label>
-				
+
 				<br /> <br />
 
         <ul id="genreList">
           <li>
-						<label class="addmovie_label" for="genre"><a><font color="red">*</font></a>Genre:
+						<label class="addmovie_label" for="genre"><a class="redAst">*</a>Genre:
 						<br />
 							<select class="addmovie_genre" id="genre" name="genre">
 								<option value="Action">Action</option>
@@ -41,14 +40,14 @@
 					</li>
         </ul>
         <button class="open-page-button" type="button" onclick="addGenre()">Add genre</button>
-        
+
 				<br /> <br />
 
-        <label class="addmovie_label" for="rating"><a><font color="red">*</font></a>IMDB Rating:
+        <label class="addmovie_label" for="rating"><a class="redAst">*</a>IMDB Rating:
 						<br />
             <input class="addmovie_num_input" type="number" id="rating" name="rating" />
         </label>
-				
+
 				<br /> <br />
 
         <label class="addmovie_label" for="description">Movie Description:
@@ -56,12 +55,12 @@
         </label>
 
         <ul id="actorsList">
-            <li><label class="addmovie_label" for="actors"><a><font color="red">*</font></a>Actors:
+            <li><label class="addmovie_label" for="actors"><a class="redAst">*</a>Actors:
                     <input type="text" id="actors" name="actors" />
                 </label></li>
         </ul>
         <button class="open-page-button" type="button" onclick="addActors()">Add actor</button>
-        
+
 				<br />
 
         <ul id="directorsList">
@@ -72,7 +71,7 @@
 					</li>
         </ul>
         <button class="open-page-button" type="button" onclick="addDirectors()">Add directors</button>
-        
+
 				<br />
 
         <ul id="whereToWatchList">

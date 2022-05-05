@@ -949,3 +949,7 @@ a.no_liked_error {
 	color: red;
 	margin-left: 50px;
 }
+
+.redAst {
+  color: red;
+}
