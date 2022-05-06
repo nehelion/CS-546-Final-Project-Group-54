@@ -11,7 +11,8 @@ router.post('/', async (req, res) => {
 
 		console.log("GOT HERE");
 
-		moviesData.clearMovies();
+		await moviesData.clearMovies();
+		
 		await moviesData.addMovie(
 			"Avatar",
 			2009,
@@ -241,7 +242,7 @@ router.post('/', async (req, res) => {
 	}
 	catch (e) {
 		res.status(500);
-		res.render('posts/login', { title: "Login Screen" });
+		res.render('posts/private', { title: "Main Screen", error: e });
 	}
 });
 

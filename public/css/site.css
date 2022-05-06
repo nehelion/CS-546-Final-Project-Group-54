@@ -967,3 +967,22 @@ a.no_liked_error {
 .redAst {
   color: red;
 }
+
+button.seed-open-button {
+  background-color: rgba(52, 207, 43, 0.893);
+  color: rgb(0, 0, 0);
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: absolute;
+  top: 45px;
+  left: 55px;
+  width: 150px;
+  font-weight: bold;
+	margin-left: 180px;
+}
+
+h2.main-error {
+  color: red;
+}

@@ -3,6 +3,9 @@ const movies = mongoCollections.movies;
 const { ObjectId } = require('mongodb');
 
 async function addMovie(movieTitle, releaseYear, genre, rating, description, actors, directors, whereToWatch) {
+	
+	console.log("Adding Movie");
+	
 	// check existance
 	if (movieTitle === undefined || releaseYear === undefined || genre === undefined
     || rating === undefined || description === undefined || actors === undefined
@@ -17,8 +20,6 @@ async function addMovie(movieTitle, releaseYear, genre, rating, description, act
 		throw "movieTitle name must be a string";
   if (movieTitle.trim().length === 0)
     throw "movieTitle cannot be an empty string or just spaces";
-  if (!(/^[a-zA-Z0-9]+$/gi.test(movieTitle)))
-		throw "movieTitle should only contain alphanumeric characters";
 	
 	// check releaseYear 
 	if (!releaseYear) 
@@ -102,6 +103,9 @@ async function addMovie(movieTitle, releaseYear, genre, rating, description, act
   }
   const insertDetails = await moviesCollection.insertOne(newMovie);
   if (insertDetails.insertedCount === 0) throw "Could not add movie, try again!"
+	
+	console.log("Done");
+	
   return {movieInserted: true};
 }
 

@@ -7,26 +7,24 @@ router.post("/", async (req, res) => {
   const data = req.body;
   
   if (data.showSearchTerm.trim().length === 0) {
-    const errInput = true;
-    res.status(400), {
-      showSearchTerm: data.showSearchTerm,
-      title: "Error 400: Invalid Input. Try Again!",
-      errInput: errInput,
-    };
-    return;
+		res.status(404);
+    res.render('posts/searchpage', {
+			error: "Error 400: Invalid Input. Try Again!",
+      title: "Film Foray",
+      notFound: true
+    })
   }
 
   try {
 		const result = await moviesData.searchShowByTerm(data.showSearchTerm);
 	
     if (result.length === 0) {
-			errNotFound = true;
-			res.status(404), {
-				showSearchTerm: data.showSearchTerm,
-				title: "Error 404: Show Not Found",
-				errNotFound: errNotFound,
-			};
-			return;
+			res.status(404);
+      res.render('posts/searchpage', {
+        error: "Error 404: Show Not Found",
+        title: "Film Foray",
+        notFound: true
+      })
     }
 
     res.render("posts/searchpage", {
@@ -36,7 +34,11 @@ router.post("/", async (req, res) => {
     });
   } 
 	catch (e) {
-    res.status(404).json({ error: "Search Failed!" });
+		res.status(404);
+    res.render('posts/searchpage', {
+			error: "Search Failed!",
+      title: "Film Foray"
+    })
   }
 });
 
