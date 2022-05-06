@@ -13,6 +13,8 @@ router.post('/', async (req, res) => {
 
 		await moviesData.clearMovies();
 		
+		// remove responses in all users
+		
 		await moviesData.addMovie(
 			"Avatar",
 			2009,

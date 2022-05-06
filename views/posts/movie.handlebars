@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<head>
+  <title>Film Foray - {{allData.movieTitle}}</title>
+</head>
+
 <header>
 	<a href="/private">
 		<h1>FILM FORAY</h1>
@@ -19,10 +23,7 @@
 	<h1 class="movie_title">{{allData.movieTitle}}</h1>
 
 	<div class="item">
-
-
 		<div class="row">
-
 			<p class="user_status_l">Your Status:</p>
 			<p class="user_status_d">{{reactions.status}}</p>
 			<button class="user_status_b">EDIT</button>
@@ -35,154 +36,153 @@
 				Movie Description: {{allData.description}}
 			</p>
 
-			<a>
-				<div class="column">
-					<div class="movie_info">
-						INFO:
-						<dl>
-						<dt>Year Released:</dt>
-						<dd>{{allData.releaseYear}}</dd>
-						<dt>Genre:</dt>
-						<dd>
+			<div class="column">
+				<div class="movie_info">
+					INFO:
+					<ul>
+						<li class="movie-label">Year Released:</li>
+						<li class="movie-list">{{allData.releaseYear}}</li>
+						<li class="movie-label">Genre:</li>
+						<li class="movie-list">
 							{{#each allData.genre}}
-							<li>{{{this}}} </li> {{/each}}
-						</dd>
-						<dt>IMDB Rating:</dt>
-						<dd>{{allData.rating}}</dd>
-						<dt>Actors</dt>
-						<dd>
+							<li class="movie-list">{{{this}}} </li> {{/each}}
+						</li>
+						<li class="movie-label">IMDB Rating:</li>
+						<li class="movie-list">{{allData.rating}}</li>
+						<li class="movie-label">Actors</li>
+						<li class="movie-list">
 							{{#each allData.actors}}
-							<li>{{{this}}} </li> {{/each}}
-						</dd>
-						<dt>Directors</dt>
-						<dd>
+							<li class="movie-list">{{{this}}} </li> {{/each}}
+						</li>
+						<li class="movie-label">Directors</li>
+						<li class="movie-list">
 							{{#each allData.directors}}
-							<li>{{{this}}} </li> {{/each}}
-						</dd>
-						<dt>Where To Watch:</dt>
-						<dd>
+							<li class="movie-list">{{{this}}} </li> {{/each}}
+						</li>
+						<li class="movie-label">Where To Watch:</li>
+						<li class="movie-list">
 							{{#each allData.whereToWatch}}
-							<li>{{{this}}} </li> {{/each}}
-						</dd>
-						</dl>
-					</div>
+							<li class="movie-list">{{{this}}} </li> {{/each}}
+						</li>
+					</ul>
 				</div>
-			</a>
+			</div>
 
-			<a>
-				<div class="column">
-					<div class="comment_section">
-						COMMENTS:
+			<div class="column">
+				<div class="comment_section">
+					COMMENTS:
+					<ul>
 						<li id="comments_list">
 							<br>
 							{{#each comments}}
 							{{{comment}}}
 							{{/each}}
-
 						</li>
-
-						<form method="POST" action="/movie/{{allData._id}}/newcomment">
-							<p id="error" class="error">{{error}}</p>
-							<label for="comment_post">
-								<textarea class="post_comment" type="text" id="comment_post" name="comment_post"
-									placeholder="Enter Comment Here..." required></textarea>
-							</label>
-							<button class="submit-button_comment" type="submit">POST</button>
-						</form>
-					</div>
+					</ul>
+	
+					<form method="POST" action="/movie/{{allData._id}}/newcomment">
+						<p id="error" class="error">{{error}}</p>
+						<label for="comment_post">
+							<textarea 
+								class="post_comment"
+								id="comment_post" 
+								name="comment_post"
+								placeholder="Enter Comment Here..." required>
+							</textarea>
+						</label>
+						<button class="submit-button_comment" type="submit">POST</button>
+					</form>
 				</div>
-			</a>
-
+			</div>
 		</div>
 	</div>
 
 	<script>
 		$(function () {
 			$('.user_status_b').click(function (e) {
-				var dialog = $('<div class="popup"></div>').dialog(
-					{
-						dialogClass: "popup",
-						modal: true,
-						resizable: false,
-						title: "Choose your Movie Status",
-						width: "450px",
-						closeOnEscape: false,
-						open: function (event, ui) {
-							$(".ui-dialog-titlebar-close", ui.dialog || ui).hide();
+				var dialog = $('<div class="popup"></div>').dialog({
+					dialogClass: "popup",
+					modal: true,
+					resizable: false,
+					title: "Choose your Movie Status",
+					width: "450px",
+					closeOnEscape: false,
+					open: function (event, ui) {
+						$(".ui-dialog-titlebar-close", ui.dialog || ui).hide();
+					},
+					buttons: {
+						"Watched": function () {
+							var form = document.createElement("form");
+							var ele1 = document.createElement("input");
+							form.method = "POST";
+							form.action = "/movie/{{allData._id}}/status";
+							ele1.value = "Watched";
+							ele1.name = "sentResponse";
+							form.appendChild(ele1);
+							document.body.appendChild(form);
+							form.submit();
 						},
-						buttons:
-						{
-							"Watched": function () {
-								var form = document.createElement("form");
-								var ele1 = document.createElement("input");
-								form.method = "POST";
-								form.action = "/movie/{{allData._id}}/status";
-								ele1.value = "Watched";
-								ele1.name = "sentResponse";
-								form.appendChild(ele1);
-								document.body.appendChild(form);
-								form.submit();
-							},
-							"Not Watched": function () {
-								var form = document.createElement("form");
-								var ele1 = document.createElement("input");
-								form.method = "POST";
-								form.action = "/movie/{{allData._id}}/status";
-								ele1.value = "Not Watched";
-								ele1.name = "sentResponse";
-								form.appendChild(ele1);
-								document.body.appendChild(form);
-								form.submit();
-							},
-							"Cancel": function () {
-								dialog.dialog('close');
-							}
+						"Not Watched": function () {
+							var form = document.createElement("form");
+							var ele1 = document.createElement("input");
+							form.method = "POST";
+							form.action = "/movie/{{allData._id}}/status";
+							ele1.value = "Not Watched";
+							ele1.name = "sentResponse";
+							form.appendChild(ele1);
+							document.body.appendChild(form);
+							form.submit();
+						},
+						"Cancel": function () {
+							dialog.dialog('close');
 						}
-					});
+					}
+				});
 			});
 			$('.user_rating_b').click(function (e) {
 				e.preventDefault();
-				var dialog = $('<div class="popup"></div>').dialog(
-					{
-						dialogClass: "popup",
-						modal: true,
-						resizable: false,
-						title: "Choose your Movie Rating",
-						width: "450px",
-						closeOnEscape: false,
-						open: function (event, ui) {
-							$(".ui-dialog-titlebar-close", ui.dialog || ui).hide();
+				var dialog = $('<div class="popup"></div>').dialog({
+					dialogClass: "popup",
+					modal: true,
+					resizable: false,
+					title: "Choose your Movie Rating",
+					width: "450px",
+					closeOnEscape: false,
+					open: function (event, ui) {
+						$(".ui-dialog-titlebar-close", ui.dialog || ui).hide();
+					},
+					buttons: {
+						"Like": function () {
+							var form = document.createElement("form");
+							var ele1 = document.createElement("input");
+							form.method = "POST";
+							form.action = "/movie/{{allData._id}}/rating";
+							ele1.value = "Like";
+							ele1.name = "sentResponse";
+							form.appendChild(ele1);
+							document.body.appendChild(form);
+							form.submit();
 						},
-						buttons: {
-							"Like": function () {
-								var form = document.createElement("form");
-								var ele1 = document.createElement("input");
-								form.method = "POST";
-								form.action = "/movie/{{allData._id}}/rating";
-								ele1.value = "Like";
-								ele1.name = "sentResponse";
-								form.appendChild(ele1);
-								document.body.appendChild(form);
-								form.submit();
-							},
-							"Dislike": function () {
-								var form = document.createElement("form");
-								var ele1 = document.createElement("input");
-								form.method = "POST";
-								form.action = "/movie/{{allData._id}}/rating";
-								ele1.value = "Dislike";
-								ele1.name = "sentResponse";
-								form.appendChild(ele1);
-								document.body.appendChild(form);
-								form.submit();
-							},
-							"Cancel": function () {
-								dialog.dialog('close');
-							}
+						"Dislike": function () {
+							var form = document.createElement("form");
+							var ele1 = document.createElement("input");
+							form.method = "POST";
+							form.action = "/movie/{{allData._id}}/rating";
+							ele1.value = "Dislike";
+							ele1.name = "sentResponse";
+							form.appendChild(ele1);
+							document.body.appendChild(form);
+							form.submit();
+						},
+						"Cancel": function () {
+							dialog.dialog('close');
 						}
-					});
+					}
+				});
 			});
 		});
 	</script>
 
 </main>
+
+</html>

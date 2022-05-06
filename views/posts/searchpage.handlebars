@@ -1,9 +1,10 @@
-<html style="height: 100%;">
-<link rel="stylesheet" href="/public/css/site.css" type="text/css">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <title>Search</title>
+  <title>Film Foray - Search {{showSearchTerm}}</title>
 </head>
+
 <header>
   <a href="/private">
     <h1>FILM FORAY</h1>
@@ -15,7 +16,7 @@
     {{#each result}}
     <li><a class="search-list" href="/movie/{{_id}}" target="_blank">{{movieTitle}}</a></li>
     {{/each}}
-		<h2 class="main-error"> {{error}} </h2>
+		<li class="main-error"> {{error}} </li>
   </ul>
 </div>
 

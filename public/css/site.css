@@ -505,12 +505,6 @@ hr.hr_comment {
   width: 350px;
 }
 
-div.comment_section {
-  width: 250px;
-  height: 50px;
-  margin: auto;
-}
-
 .submit-button_comment {
   margin-left: 120px;
   padding: 12px 60px;
@@ -523,12 +517,6 @@ div.comment_section {
   color: #ffffff;
   font-size: 18px;
   font-family: "Times New Roman", Times, serif;
-}
-
-div.movie_info {
-  font-size: 18px;
-  font-family: "Times New Roman", Times, serif;
-  margin: auto;
 }
 
 dt {
@@ -593,6 +581,7 @@ p.user_status_l {
 
 p.user_status_d {
   font-size: 22px;
+  font-weight: bold;
   font-family: "Times New Roman", Times, serif;
   position: relative;
   bottom: -190px;
@@ -625,6 +614,7 @@ p.user_rating_l {
 
 p.user_rating_d {
   font-size: 22px;
+  font-weight: bold;
   font-family: "Times New Roman", Times, serif;
   position: relative;
   bottom: -33px;
@@ -983,6 +973,38 @@ button.seed-open-button {
 	margin-left: 180px;
 }
 
-h2.main-error {
+li.main-error {
+  font-size: 20px;
   color: red;
+}
+
+li.movie-list {
+  font-size: 22px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  color: #4ead67;
+	margin-left: 50px;
+}
+
+li.movie-label {
+  font-size: 26px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+}
+
+div.movie_info {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  margin: auto;
+}
+
+div.comment_section {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  width: 250px;
+  height: 50px;
+  margin: auto;
 }

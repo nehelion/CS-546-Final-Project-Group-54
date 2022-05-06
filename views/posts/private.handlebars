@@ -1,122 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Film Foray - Main</title>
+</head>
+
 <main>
-    <header>
-        <a href="/private">
-            <h1>FILM FORAY</h1>
-        </a>
-    </header>
+  <header>
+    <a href="/private">
+      <h1>FILM FORAY</h1>
+    </a>
+  </header>
 
 	<form method="POST" action="/seeder">
 		<button class="seed-open-button" type="submit">SEED</button>
 	</form>
 
-    <div class="topnav">
+  <div class="topnav">
+		<form action="/addmovie" method="get">
+      <button class="open-button" type="submit">+ Add a Movie</button>
+    </form>
 
-        <form action="/addmovie" method="post">
-            <button class="open-button" type="submit">+ Add a Movie</button>
+    <div class="dropdown">
+      <button class="dropbtn">{{userDetails.userName}}
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="/myaccount">My Account</a>
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+
+    <div class="search-bar">
+      <form class="search-form" action="/searchpage" method="post">
+        <input type="search" name="showSearchTerm" placeholder="search movies...">
+        <button class="search-button" type="submit">Search</button>
+			</form>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hs__wrapper">
+      <h4 class="h4">All Movies (A-Z)</h4>
+      <div class="hs__header">
+        <div class="hs__arrows">
+          <a class="arrow arrow-next"></a>
+          <a class="arrow disabled arrow-prev"></a>
+        </div>
+        <div class="hs__arrows right">
+          <a class="arrow arrow-next"></a>
+          <a class="arrow disabled arrow-prev"></a>
+        </div>
+      </div>
+			<ul class="hs">
+        {{#each movies}}
+					{{{title}}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hs__wrapper">
+      <h4 class="h4">Genre</h4>
+      <div class="hs__header">
+        <div class="hs__arrows">
+          <a class="arrow arrow-next"></a>
+          <a class="arrow disabled arrow-prev"></a>
+        </div>
+        <div class="hs__arrows right">
+          <a class="arrow arrow-next"></a>
+          <a class="arrow disabled arrow-prev"></a>
+        </div>
+      </div>
+      <div class="hs">
+        <form action="/genre" method="GET">
+          <button class="movie-thumbnail genre" type="submit">Action</button>
         </form>
-
-        <div class="dropdown">
-            <button class="dropbtn">{{userDetails.userName}}
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="/myaccount">My Account</a>
-                <a href="/logout">Logout</a>
-            </div>
-        </div>
-
-        <div class="search-bar">
-            <form class="search-form" action="/searchpage" method="post">
-                <input type="search" name="showSearchTerm" placeholder="search movies...">
-                <button class="search-button" type="submit">Search</button>
-            </form>
-        </div>
+        <form action="/genre" method="GET">
+          <button class="movie-thumbnail genre" type="submit">Comedy</button>
+        </form>
+        <form action="/genre" method="GET">
+          <button class="movie-thumbnail genre" type="submit">Drama</button>
+        </form>
+        <form action="/genre" method="GET">
+          <button class="movie-thumbnail genre" type="submit">Horror</button>
+        </form>
+        <form action="/genre" method="GET">
+          <button class="movie-thumbnail genre" type="submit">Sci/Fi</button>
+        </form>
+        <form action="/genre" method="GET">
+          <button class="movie-thumbnail genre" type="submit">Romance</button>
+        </form>
+      </div>
     </div>
+  </div>
 
-    <div class="container">
-        <div class="hs__wrapper">
-            <h4 class="h4">All Movies (A-Z)</h4>
-            <div class="hs__header">
-                <div class="hs__arrows">
-                    <a class="arrow arrow-next"></a>
-                    <a class="arrow disabled arrow-prev"></a>
-                </div>
-                <div class="hs__arrows right">
-                    <a class="arrow arrow-next"></a>
-                    <a class="arrow disabled arrow-prev"></a>
-                </div>
-            </div>
-            <ul class="hs">
-                {{#each movies}}
-                {{{title}}}
-                {{/each}}
-            </ul>
+  <div class="container">
+    <div class="hs__wrapper">
+      <h4 class="h4">Liked Movies</h4>
+      <div class="hs__header">
+        <div class="hs__arrows">
+          <a class="arrow arrow-next"></a>
+          <a class="arrow disabled arrow-prev"></a>
         </div>
-    </div>
-
-    <div class="container">
-        <div class="hs__wrapper">
-            <h4 class="h4">Genre</h4>
-            <div class="hs__header">
-                <div class="hs__arrows">
-                    <a class="arrow arrow-next"></a>
-                    <a class="arrow disabled arrow-prev"></a>
-                </div>
-                <div class="hs__arrows right">
-                    <a class="arrow arrow-next"></a>
-                    <a class="arrow disabled arrow-prev"></a>
-                </div>
-            </div>
-            <ul class="hs">
-                <a href="/genre">
-                    <button class="movie-thumbnail genre" type="submit">Action</button>
-                </a>
-                <a href="/movie">
-                    <button class="movie-thumbnail genre" type="submit">Comedy</button>
-                </a>
-                <a href="/movie">
-                    <button class="movie-thumbnail genre" type="submit">Drama</button>
-                </a>
-                <a href="/movie">
-                    <button class="movie-thumbnail genre" type="submit">Horror</button>
-                </a>
-                <a href="/movie">
-                    <button class="movie-thumbnail genre" type="submit">Sci/Fi</button>
-                </a>
-                <a href="/movie">
-                    <button class="movie-thumbnail genre" type="submit">Romance</button>
-                </a>
-            </ul>
+        <div class="hs__arrows right">
+          <a class="arrow arrow-next"></a>
+          <a class="arrow disabled arrow-prev"></a>
         </div>
+      </div>
+      <ul class="hs">
+        {{#each likedMovies}}
+					{{{title}}}
+        {{/each}}
+      </ul>
     </div>
-
-    <div class="container">
-        <div class="hs__wrapper">
-            <h4 class="h4">Liked Movies</h4>
-            <div class="hs__header">
-                <div class="hs__arrows">
-                    <a class="arrow arrow-next"></a>
-                    <a class="arrow disabled arrow-prev"></a>
-                </div>
-                <div class="hs__arrows right">
-                    <a class="arrow arrow-next"></a>
-                    <a class="arrow disabled arrow-prev"></a>
-                </div>
-            </div>
-            <ul class="hs">
-                {{#each likedMovies}}
-                {{{title}}}
-                {{/each}}
-            </ul>
-        </div>
-    </div>
-    </div>
-		
-		<h2 class="main-error"> {{error}} </h2>
+  </div>
+	
+	<h2 class="main-error"> {{error}} </h2>
 
 </main>
 
-<script type="text/javascript">
+<script>
     var instance = $(".hs__wrapper");
     $.each(instance, function (key, value) {
 
@@ -178,3 +183,5 @@
 
     });
 </script>
+
+</html>

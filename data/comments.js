@@ -29,8 +29,8 @@ async function addComment(movie, username, comment) {
 		throw "Comment must be a string";
   if (comment.trim().length === 0)
 		throw "Comment cannot be an empty string or just spaces";
-	if (comment.length < 200)
-		throw "Comment should be more than 4 characters";
+	if (comment.length > 200)
+		throw "Comment should be less than 200 characters";
 	
 	const moviesCollection = await movies();
 	
@@ -103,7 +103,7 @@ async function getAllComments(movie) {
 			movie.comments[(movie.comments.length - i - 1)].comment + 
 			"</div></div><br>"
 		});
-		if(i == movie.comments.length - 1 && i > 5)
+		if(i == movie.comments.length - 1 && i > 4)
 		{
 			movieList.push({comment: 
 				"<a href='#' class='comment_pages_l'" + 
