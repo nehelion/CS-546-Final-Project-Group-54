@@ -249,7 +249,7 @@ footer {
   overflow: hidden;
   margin-top: -70px;
   margin-right: 50px;
-  width: 20%;
+  width: 25%;
   float: right;
 }
 
@@ -316,6 +316,19 @@ a:link {
 .dropdown {
   float: right;
   overflow: hidden;
+  margin-right: 25px;
+}
+
+.search-bar {
+  float: left;
+  overflow: hidden;
+
+}
+
+.addmovie {
+  overflow: hidden;
+  margin-top: 10px;
+  float: left;
 }
 
 /* Dropdown button */
@@ -335,7 +348,7 @@ a:link {
 /* Add a red background color to navbar links on hover */
 .navbar a:hover,
 .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: rgb(63, 63, 63);
 }
 
 /* Dropdown content (hidden by default) */
@@ -343,7 +356,7 @@ a:link {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 120px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
@@ -379,7 +392,7 @@ input[type=search] {
   border: rgba(255, 255, 255, 0.57);
   background: #000000b0;
   margin: 0;
-  padding: 7px 8px;
+  padding: 10px 8px;
   font-size: 14px;
   color: inherit;
   border: 1px solid transparent;
@@ -437,8 +450,8 @@ body {
   cursor: pointer;
   opacity: 0.8;
   position: absolute;
-  top: 23px;
-  left: 28px;
+  top: 45px;
+  left: 55px;
   width: 150px;
   font-weight: bold;
 }
@@ -927,25 +940,26 @@ ul {
 }
 
 textarea.description_textarea {
-	width: 100%;
-	height: 100px;
+  width: 100%;
+  height: 100px;
 }
 
 input.addmovie_num_input {
-	width: 30%;
-	font-size: 20px;
+  width: 30%;
+  font-size: 20px;
 }
 
 select.addmovie_genre {
-	font-size: 16px;
+  font-size: 16px;
 }
 
 label.addmovie_label {
-	font-size: 20px;
+  font-size: 20px;
 }
 
 a.no_liked_error {
-	font-size: 30px;
-	color: red;
-	margin-left: 50px;
+  font-size: 20px;
+  color: white;
+  margin-left: 700px;
+  position: relative;
 }

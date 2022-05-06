@@ -5,11 +5,14 @@
         </a>
     </header>
 
-    <a href="/addmovie">
-        <button class="open-button" type="submit">+ Add a Movie</button>
-    </a>
-		
+
+
     <div class="topnav">
+
+        <form action="/addmovie" method="post">
+            <button class="open-button" type="submit">+ Add a Movie</button>
+        </form>
+
         <div class="dropdown">
             <button class="dropbtn">{{userDetails.userName}}
                 <i class="fa fa-caret-down"></i>
@@ -19,11 +22,13 @@
                 <a href="/logout">Logout</a>
             </div>
         </div>
-        <form class="search-form" action="/searchpage" method="post">
-            <input type="search" name="showSearchTerm" placeholder="search...">
-            <button class="search-button" type="submit">Search</button>
-        </form>
 
+        <div class="search-bar">
+            <form class="search-form" action="/searchpage" method="post">
+                <input type="search" name="showSearchTerm" placeholder="search movies...">
+                <button class="search-button" type="submit">Search</button>
+            </form>
+        </div>
     </div>
 
     <div class="container">
@@ -96,8 +101,6 @@
                     <a class="arrow disabled arrow-prev"></a>
                 </div>
             </div>
-            <div id='favorites'></div>
-            <div id='nofavorites'></div>
             <ul class="hs">
                 {{#each likedMovies}}
                 {{{title}}}
@@ -106,7 +109,7 @@
         </div>
     </div>
     </div>
-		
+
 </main>
 
 <script type="text/javascript">

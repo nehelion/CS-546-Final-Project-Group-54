@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
 			
 			if(likedMovieList.length == 0) {
 				likedMovieListHtml.push({
-					title: "<div class='item'><a class='no_liked_error'>THERE ARE CURRENTLY NO LIKED MOVIES</a></div>"
+					title: "<div class='item'><a class='no_liked_error'>You haven't liked any movie yet!</a></div>"
 				});
 			}
 			else {
