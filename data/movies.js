@@ -130,6 +130,15 @@ async function getAllMovies() {
 	return moviesList;
 }
 
+async function getMoviesByGenre(genre)
+{
+	const moviesCollection = await movies();
+	const moviesList = await moviesCollection.find({}).toArray();
+	let genreList = moviesList.filter(function(value,index,arr){return value.genre.includes(genre);})
+	if (!genreList) throw "Could not get movies by the " + genre + " genre";
+	return genreList;
+}
+
 async function sortMovies(moviesList) {
 	// check moviesList 
 	if (!moviesList) 
@@ -193,6 +202,7 @@ module.exports =
 	addMovie,
 	getMovie,
 	getAllMovies,
+	getMoviesByGenre,
 	clearMovies,
 	sortMovies,
 	searchShowByTerm
