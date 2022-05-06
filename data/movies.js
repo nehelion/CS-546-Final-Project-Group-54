@@ -209,6 +209,7 @@ module.exports =
 	getMovie,
 	getAllMovies,
 	clearMovies,
+	getMoviesByGenre,
 	sortMovies,
 	searchShowByTerm
 }
