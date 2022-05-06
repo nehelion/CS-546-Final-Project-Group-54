@@ -1,10 +1,48 @@
 <link rel="stylesheet" href="/public/css/site.css" type="text/css">
 <head>
-  <title>Genre</title>
+  <title>{{title}}</title>
 </head>
-<header>
-<a href="/private">
-    <h1>FILM FORAY</h1>
-</a>
-</header>
-<h2>Genre: *name of genre selected*</h2>
+<main>
+  <header>
+        <a href="/private">
+            <h1>FILM FORAY</h1>
+        </a>
+  </header>
+<h2>Movies Based on the Selected Genre</h2>
+  <div class="topnav">
+    <div class="dropdown">
+      <button class="dropbtn">{{userDetails.userName}}
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="/myaccount">My Account</a>
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+      <form class="search-form" action="/searchpage" method="post">
+          <input type="search" name="showSearchTerm" placeholder="search...">
+          <button class="search-button" type="submit">Search</button>
+      </form>
+  </div>
+
+  <div class="container">
+        <div class="hs__wrapper">
+            <h4 class="h4">All Movies Based on {{{givenGenre}}}</h4>
+            <div class="hs__header">
+                <div class="hs__arrows">
+                    <a class="arrow arrow-next"></a>
+                    <a class="arrow disabled arrow-prev"></a>
+                </div>
+                <div class="hs__arrows right">
+                    <a class="arrow arrow-next"></a>
+                    <a class="arrow disabled arrow-prev"></a>
+                </div>
+            </div>
+            <ul class="hs">
+                {{#each allData}}
+                {{{title}}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</main>

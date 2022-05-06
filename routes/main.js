@@ -58,12 +58,25 @@ router.get('/', async (req, res) => {
 					});
 				}
 			}
+			
+			var listofGenres = ["Action","Comedy","Drama","Horror","Sci-Fi","Romance"]
+
+			var listofGenresHtml = [];
+
+			for(let i = 0; i < listofGenres.length; i++) {
+				listofGenresHtml.push({
+					genre: "<div class = 'item'><a href='/genre/" + listofGenres[i] + "'>" +
+						"<button class='movie-thumbnail genre' type='submit'>" + listofGenres[i] + "</button>" +
+						"</a></div>"
+				});
+			}
 
 			res.render('posts/private', { 
 				title: "Logged In", 
 				userDetails: req.session.user, 
 				movies: movieList, 
-				likedMovies: likedMovieListHtml 
+				likedMovies: likedMovieListHtml, 
+				listofGenres: listofGenresHtml
 			})
 		}
   } 

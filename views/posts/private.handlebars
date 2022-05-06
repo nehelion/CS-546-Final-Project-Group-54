@@ -61,40 +61,25 @@
   </div>
 
   <div class="container">
-    <div class="hs__wrapper">
-      <h4 class="h4">Genre</h4>
-      <div class="hs__header">
-        <div class="hs__arrows">
-          <a class="arrow arrow-next"></a>
-          <a class="arrow disabled arrow-prev"></a>
+        <div class="hs__wrapper">
+            <h4 class="h4">Genres</h4>
+            <div class="hs__header">
+                <div class="hs__arrows">
+                    <a class="arrow arrow-next"></a>
+                    <a class="arrow disabled arrow-prev"></a>
+                </div>
+                <div class="hs__arrows right">
+                    <a class="arrow arrow-next"></a>
+                    <a class="arrow disabled arrow-prev"></a>
+                </div>
+            </div>
+            <ul class="hs">
+                {{#each listofGenres}}
+                {{{genre}}}
+                {{/each}}
+            </ul>
         </div>
-        <div class="hs__arrows right">
-          <a class="arrow arrow-next"></a>
-          <a class="arrow disabled arrow-prev"></a>
-        </div>
-      </div>
-      <div class="hs">
-        <form action="/genre" method="GET">
-          <button class="movie-thumbnail genre" type="submit">Action</button>
-        </form>
-        <form action="/genre" method="GET">
-          <button class="movie-thumbnail genre" type="submit">Comedy</button>
-        </form>
-        <form action="/genre" method="GET">
-          <button class="movie-thumbnail genre" type="submit">Drama</button>
-        </form>
-        <form action="/genre" method="GET">
-          <button class="movie-thumbnail genre" type="submit">Horror</button>
-        </form>
-        <form action="/genre" method="GET">
-          <button class="movie-thumbnail genre" type="submit">Sci/Fi</button>
-        </form>
-        <form action="/genre" method="GET">
-          <button class="movie-thumbnail genre" type="submit">Romance</button>
-        </form>
-      </div>
     </div>
-  </div>
 
   <div class="container">
     <div class="hs__wrapper">
