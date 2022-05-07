@@ -7,8 +7,7 @@ router.get('/', async (req, res) => {
   req.session = null;
   res.send('Logged Out');
   return res.render("posts/login", {
-    title: "Login",
-    message: "You have been logged out.",
+    message: "You have been logged out."
   });
 });
 

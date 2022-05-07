@@ -10,7 +10,6 @@ router.post("/", async (req, res) => {
 		res.status(404);
     res.render('posts/searchpage', {
 			error: "Error 400: Invalid Input. Try Again!",
-      title: "Film Foray",
       notFound: true
     })
   }
@@ -22,22 +21,19 @@ router.post("/", async (req, res) => {
 			res.status(404);
       res.render('posts/searchpage', {
         error: "Error 404: Show Not Found",
-        title: "Film Foray",
         notFound: true
       })
     }
 
     res.render("posts/searchpage", {
       result: result,
-      showSearchTerm: data.showSearchTerm,
-      title: "Shows Found",
+      showSearchTerm: data.showSearchTerm
     });
   } 
 	catch (e) {
 		res.status(404);
     res.render('posts/searchpage', {
-			error: "Search Failed!",
-      title: "Film Foray"
+			error: "Search Failed!"
     })
   }
 });

@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     if (req.session.user)
       return res.redirect('/private')
     else
-      res.render('posts/signup', { title: "Sign Up" })
+      res.render('posts/signup')
   } 
 	catch (e) {
     res.status(404).json({
@@ -23,7 +23,6 @@ router.post('/', async (req, res) => {
       res.status(400);
       res.render('posts/signup', {
         error: "Username cannot be blank.",
-        title: "Sign Up",
         notFound: false
       })
       return;
@@ -32,7 +31,6 @@ router.post('/', async (req, res) => {
       res.status(400);
       res.render('posts/signup', {
         error: "Username must be at least 4 characters long",
-        title: "Sign Up",
         notFound: false
       })
       return;
@@ -41,7 +39,6 @@ router.post('/', async (req, res) => {
       res.status(400);
       res.render('posts/signup', {
         error: "Username must be alphanumeric and cannot have empty spaces",
-        title: "Sign Up",
         notFound: false
       })
       return;
@@ -50,7 +47,6 @@ router.post('/', async (req, res) => {
       res.status(400);
       res.render('posts/signup', {
         error: "Weak Password: Password cannot be blank.",
-        title: "Sign Up",
         notFound: false
       })
       return;
@@ -59,7 +55,6 @@ router.post('/', async (req, res) => {
       res.status(400);
       res.render('posts/signup', {
         error: "Weak Password: Password cannot have empty spaces",
-        title: "Sign Up",
         notFound: false
       })
       return;
@@ -68,7 +63,6 @@ router.post('/', async (req, res) => {
       res.status(400);
       res.render('posts/signup', {
         error: "Weak Password: Password must be at least 6 characters long",
-        title: "Sign Up",
         notFound: false
       })
       return;
@@ -77,7 +71,6 @@ router.post('/', async (req, res) => {
       res.status(400);
       res.render('posts/signup', {
         error: "Email cannot be blank.",
-        title: "Sign Up",
         notFound: false
       })
       return;
@@ -86,7 +79,6 @@ router.post('/', async (req, res) => {
       res.status(400);
       res.render('posts/signup', {
         error: "Email entered is invalid",
-        title: "Sign Up",
         notFound: false
       })
       return;
@@ -101,14 +93,14 @@ router.post('/', async (req, res) => {
     } 
 		else {
       res.status(500);
-      res.render('posts/signup', { title: "Sign Up", error: "Internal Server Error" })
+      res.render('posts/signup', { error: "Internal Server Error" })
       return;
     }
   } 
 	catch (e)
 	{
     res.status(500);
-    res.render('posts/signup', { title: "Sign Up", error: e })
+    res.render('posts/signup', { error: e })
     return;
   }
 });

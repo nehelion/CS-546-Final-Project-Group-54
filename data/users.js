@@ -141,6 +141,13 @@ async function getUser(username) {
 	return user;
 }
 
+async function getAllUsers() {
+	const usersCollection = await users();
+	const userList = await usersCollection.find({}).toArray();
+	if (!userList) throw "Could not get all users";
+	return userList;
+}
+
 async function getAllLikedMovies(username) {
 	// check username 
 	if (!username) 
@@ -160,8 +167,7 @@ async function getAllLikedMovies(username) {
 	
 	var likedMoviesList = [];
 	
-	for (let i = 0; i < user.movieReactions.length; i++) 
-	{
+	for (let i = 0; i < user.movieReactions.length; i++) {
 		if(user.movieReactions[i].rating == "Like")
 		{
 			likedMoviesList.push(user.movieReactions[i].movieId);
@@ -171,9 +177,33 @@ async function getAllLikedMovies(username) {
 	return likedMoviesList;
 }
 
+async function clearUserReactions() {
+	const userList = await getAllUsers();
+	
+	const usersCollection = await users();
+	
+	for (let i = 0; i < userList.length; i++) {
+		if(userList[i].movieReactions.length != 0)
+		{
+			userList[i].movieReactions = [];
+		
+			const updatedInfo = await usersCollection.updateOne(
+				{ _id: userList[i]._id },
+				{ $set: userList[i] }
+			);
+			if (updatedInfo.modifiedCount === 0) {
+				throw 'could not update users successfully';
+			}
+		}
+	}
+	return true;
+}
+
 module.exports = {
   createUser,
   checkUser,
 	getUser,
-	getAllLikedMovies
+	getAllUsers,
+	getAllLikedMovies,
+	clearUserReactions
 }

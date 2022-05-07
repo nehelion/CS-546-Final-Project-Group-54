@@ -3,9 +3,6 @@ const movies = mongoCollections.movies;
 const { ObjectId } = require('mongodb');
 
 async function addMovie(movieTitle, releaseYear, genre, rating, description, actors, directors, whereToWatch) {
-	
-	console.log("Adding Movie");
-	
 	// check existance
 	if (movieTitle === undefined || releaseYear === undefined || genre === undefined
     || rating === undefined || description === undefined || actors === undefined
@@ -49,10 +46,6 @@ async function addMovie(movieTitle, releaseYear, genre, rating, description, act
   if (rating < 0 || rating > 10) 
 		throw "Rating must be between values of 0 and 10 inclusive";
 	
-	// check description 
-	if (!description) 
-		throw "No description data was provided";
-	
 	// check actors 
 	if (!actors || !Array.isArray(actors))
     throw "You must provide an array of actors";
@@ -90,6 +83,9 @@ async function addMovie(movieTitle, releaseYear, genre, rating, description, act
 	if (dupMovie !== null) throw "There is already a movie with that title.";
 	let comments = new Array();
   
+	if(directors[0] == "") {directors = [];}
+	if(whereToWatch[0] == "") {whereToWatch = [];}
+	
 	let newMovie = {
     movieTitle: movieTitle,
     releaseYear: releaseYear,
@@ -103,8 +99,6 @@ async function addMovie(movieTitle, releaseYear, genre, rating, description, act
   }
   const insertDetails = await moviesCollection.insertOne(newMovie);
   if (insertDetails.insertedCount === 0) throw "Could not add movie, try again!"
-	
-	console.log("Done");
 	
   return {movieInserted: true};
 }
@@ -220,8 +214,8 @@ module.exports =
 	addMovie,
 	getMovie,
 	getAllMovies,
-	clearMovies,
 	getMoviesByGenre,
 	sortMovies,
-	searchShowByTerm
+	searchShowByTerm,
+	clearMovies
 }

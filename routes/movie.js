@@ -23,11 +23,11 @@ router.get('/:id', async (req, res) => {
 			}
 		}
 		
-		res.render('posts/movie', { title: "Movie Page", allData: searchMovie, comments: commentsList, reactions: reactions });
+		res.render('posts/movie', { allData: searchMovie, comments: commentsList, reactions: reactions });
 	}
 	catch (e) {
 		res.status(500);
-		res.render('posts/private', { title: "Film Foray", error: e })
+		res.render('posts/private', { error: e })
 		return;
 	}
 });
@@ -46,7 +46,7 @@ router.post('/:id/newcomment', async (req, res) => {
 	}
 	catch (e) {
 		res.status(500);
-		res.render('posts/private', { title: "Film Foray", error: e })
+		res.render('posts/private', { error: e })
 		return;
 	}	
 });
@@ -60,7 +60,7 @@ router.post('/:id/status', async (req, res) => {
 	} 
 	catch (e) {
 		res.status(500);
-		res.render('posts/private', { title: "Film Foray", error: e })
+		res.render('posts/private', { error: e })
 		return;
 	}
 });
@@ -74,7 +74,7 @@ router.post('/:id/rating', async (req, res) => {
 	} 
 	catch (e) {
 		res.status(500);
-		res.render('posts/private', { title: "Film Foray", error: e })
+		res.render('posts/private', { error: e })
 		return;
 	}
 });

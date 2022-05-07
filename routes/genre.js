@@ -5,15 +5,11 @@ const moviesData = data.movies;
 const {ObjectID} = require('mongodb');
 
 router.get('/:genre', async (req, res) => {
-
-  // TODO > Kwasi
   try {
-    if (!req.session.user) 
-    {
-      return res.status(403).render('posts/login', { title: "Login Screen"})
+    if (!req.session.user) {
+      return res.status(403).render('posts/login')
     }
-    else
-    {
+    else {
       let movieList = await moviesData.getMoviesByGenre(req.params.genre);
       movieList = await moviesData.sortMovies(movieList);
 
@@ -28,9 +24,7 @@ router.get('/:genre', async (req, res) => {
         });
       }
 
-      res.render('posts/genre', 
-      { 
-        title: "Genre", 
+      res.render('posts/genre', {
         allData: genreList, 
         givenGenre: req.params.genre 
       })

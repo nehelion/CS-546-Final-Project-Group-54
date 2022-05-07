@@ -7,7 +7,7 @@ const usersData = data.users;
 router.get('/', async (req, res) => {
   try {
     if (!req.session.user) {
-			return res.status(403).render('posts/login', { title: "Login Screen"})
+			return res.status(403).render('posts/login')
 		}
 		else {
 			let movies = await moviesData.getAllMovies();
@@ -38,7 +38,7 @@ router.get('/', async (req, res) => {
 			}
 			catch (e) {
 				res.status(500);
-				res.render('posts/private', { title: "Film Foray", error: e })
+				res.render('posts/private', { error: e })
 				return;
 			}
 
@@ -71,8 +71,7 @@ router.get('/', async (req, res) => {
 				});
 			}
 
-			res.render('posts/private', { 
-				title: "Logged In", 
+			res.render('posts/private', {
 				userDetails: req.session.user, 
 				movies: movieList, 
 				likedMovies: likedMovieListHtml, 

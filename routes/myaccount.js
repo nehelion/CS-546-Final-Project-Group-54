@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 router.get('/', async (req, res) => {
-  res.render('posts/myaccount', { title: "My Account", userDetails: req.session.user.theUser })
+  res.render('posts/myaccount', { userDetails: req.session.user.theUser })
 });
 
 module.exports = router;

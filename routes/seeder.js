@@ -8,13 +8,11 @@ const movieReactionsData = data.movieReactions;
 
 router.post('/', async (req, res) => {
 	try {
-
-		console.log("GOT HERE");
-
 		await moviesData.clearMovies();
-
-		// remove responses in all users
-
+		await usersData.clearUserReactions();
+		await commentsData.clearComments();
+		await movieReactionsData.clearReactions();
+		
 		await moviesData.addMovie(
 			"Avatar",
 			2009,
@@ -37,8 +35,7 @@ router.post('/', async (req, res) => {
 			["Christopher Nolan"],
 			["HBO Max", "TBS", "TNT"]
 		);
-
-
+		
 		await moviesData.addMovie(
 			"Inception",
 			2010,
@@ -289,7 +286,7 @@ router.post('/', async (req, res) => {
 	}
 	catch (e) {
 		res.status(500);
-		res.render('posts/private', { title: "Main Screen", error: e });
+		res.render('posts/private', { error: e });
 	}
 });
 

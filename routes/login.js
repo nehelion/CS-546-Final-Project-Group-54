@@ -9,7 +9,6 @@ router.post('/', async (req, res) => {
       res.status(400);
       res.render('posts/login', {
         error: "Username cannot be empty.",
-        title: "Login",
         notFound: false
       })
       return;
@@ -18,7 +17,6 @@ router.post('/', async (req, res) => {
       res.status(400);
       res.render('posts/login', {
         error: "Password cannot be empty.",
-        title: "Login",
         notFound: false
       })
       return;
@@ -27,7 +25,7 @@ router.post('/', async (req, res) => {
     let searchUser = await usersData.checkUser(username, password)
     if (!searchUser.authenticated || searchUser.authenticated != true) {
       res.status(400);
-      res.render('posts/login', { title: "Login", error: "Incorrect username and/or password." })
+      res.render('posts/login', { error: "Incorrect username and/or password." })
       return;
     }
 		else {
@@ -38,7 +36,7 @@ router.post('/', async (req, res) => {
   } 
 	catch (e) {
     res.status(500);
-    res.render('posts/login', { title: "Login", error: e })
+    res.render('posts/login', { error: e })
     return;
   }
 });

@@ -34,8 +34,7 @@ async function addComment(movie, username, comment) {
 	
 	const moviesCollection = await movies();
 	
-	let newComment = 
-	{
+	let newComment = {
 		movieId: movie._id,
 		username: username,
 		comment: comment
@@ -47,8 +46,7 @@ async function addComment(movie, username, comment) {
 		{ _id: movie._id },
 		{ $set: movie }
 	);
-	if (updatedInfo.modifiedCount === 0) 
-	{
+	if (updatedInfo.modifiedCount === 0) {
 		throw 'could not update movies successfully';
 	}
 	
@@ -116,8 +114,15 @@ async function getAllComments(movie) {
 	return movieList;
 }
 
+async function clearComments() {
+	const commentsCollection = await comments();
+	commentsCollection.deleteMany();
+	return true;
+}
+
 module.exports = {
 	addComment,
-	getAllComments
+	getAllComments,
+	clearComments
 }
 

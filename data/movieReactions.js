@@ -103,9 +103,16 @@ async function addRatingReaction(username, movieId, rating) {
 	return { commentInserted: true };
 }
 
+async function clearReactions() {
+	const movieReactionsCollection = await movieReactions();
+	movieReactionsCollection.deleteMany();
+	return true;
+}
+
 module.exports =
 {
 	addStatusReaction,
-	addRatingReaction
+	addRatingReaction,
+	clearReactions
 }
 
