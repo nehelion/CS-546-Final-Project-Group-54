@@ -1015,3 +1015,28 @@ div.comment_section {
 .genre_title {
   text-transform: uppercase;
 }
+
+div.genre_list {
+  text-align: center;
+  list-style: inside;
+}
+
+.genre-movie-thumbnail {
+  border-style: initial;
+  text-decoration: currentColor;
+  border-color: #2c383f;
+  letter-spacing: 1px;
+  color: #ffffff;
+  font-size: 22px;
+  font-family: "Times New Roman", Times, serif;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 550px;
+  max-width: 550px;
+  height: 55px;
+  max-height: 155px;
+  margin: 20px;
+  display: inline-block;
+	background-color: rgba(0, 31, 52, 0.782);
+}

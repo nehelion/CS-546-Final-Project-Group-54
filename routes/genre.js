@@ -18,8 +18,8 @@ router.get('/:genre', async (req, res) => {
       for (let i = 0; i < movieList.length; i++) {
         genreList.push({
           title:
-            "<div class='item'><a href='/movie/" + movieList[i]._id + "'>" +
-            "<button class='movie-thumbnail all-movies' type='submit'>" + movieList[i].movieTitle + "</button>" +
+            "<div class='genre-item'><a href='/movie/" + movieList[i]._id + "'>" +
+            "<button class='genre-movie-thumbnail all-movies' type='submit'>" + movieList[i].movieTitle + "</button>" +
             "</a></div>"
         });
       }

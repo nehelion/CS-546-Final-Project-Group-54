@@ -12,16 +12,10 @@
 </header>
 
 <main>
-    <h2 class="genre_title">{{{givenGenre}}}</h2>
-
-    <div class="container">
-
-        <h4 class="h4">All Movies Based on {{{givenGenre}}}</h4>
-
-        <ul class="hs">
-            {{#each allData}}
-            {{{title}}}
-            {{/each}}
-        </ul>
-    </div>
+  <h2 class="genre_title">{{{givenGenre}}}</h2>
+    <ul class="genre_list">
+      {{#each allData}}
+        {{{title}}}
+      {{/each}}
+    </ul>
 </main>
