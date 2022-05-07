@@ -131,9 +131,16 @@ async function getAllMovies() {
 async function getMoviesByGenre(genre)
 {
 	// error handling
-	
+	if (!genre) 
+	throw "You must provide an genre to search for";
+if (typeof genre !== 'string') 
+	throw "Genre must be a string";
+if (genre.trim().length === 0) 
+	throw "Genre cannot be an empty string or just spaces";
+	genre = genre.trim();
 	const moviesCollection = await movies();
 	const moviesList = await moviesCollection.find({}).toArray();
+	if (!moviesList) throw "Could not get all movies";
 	let genreList = [];
 
 	for(let i = 0; i < moviesList.length; i++)
@@ -147,7 +154,7 @@ async function getMoviesByGenre(genre)
 		}
 	}
 	
-	if (!genreList) throw "Could not get movies by the " + genre + " genre";
+	if (genreList == []) throw "Could not get movies by the " + genre + " genre";
 	return genreList;
 }
 
