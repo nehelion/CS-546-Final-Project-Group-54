@@ -1,5 +1,6 @@
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  min-height: 100%;
 }
 
 .div {
@@ -903,6 +904,8 @@ body {
 ul {
   padding: 0;
   margin: 0;
+  line-height: 2.5em;
+
 }
 
 .search-list {
@@ -970,7 +973,7 @@ button.seed-open-button {
   left: 55px;
   width: 150px;
   font-weight: bold;
-	margin-left: 180px;
+  margin-left: 180px;
 }
 
 li.main-error {
@@ -983,7 +986,7 @@ li.movie-list {
   font-weight: bold;
   font-family: "Times New Roman", Times, serif;
   color: #4ead67;
-	margin-left: 50px;
+  margin-left: 50px;
 }
 
 li.movie-label {
@@ -1009,7 +1012,6 @@ div.comment_section {
   margin: auto;
 }
 
-.genre_title
-{
+.genre_title {
   text-transform: uppercase;
 }

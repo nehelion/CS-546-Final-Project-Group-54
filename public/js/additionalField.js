@@ -14,7 +14,7 @@ function addGenre() {
 		'<option value="Comedy">Comedy</option>' + 
 		'<option value="Drama">Drama</option>' + 
 		'<option value="Horror">Horror</option>' + 
-		'<option value="Scifi">Sci/Fi</option>' + 
+		'<option value="Scifi">Sci-Fi</option>' + 
 		'<option value="Romance">Romance</option>' + 
 		'</select></label></li>';
 		

@@ -12,13 +12,13 @@ router.post('/', async (req, res) => {
 		console.log("GOT HERE");
 
 		await moviesData.clearMovies();
-		
+
 		// remove responses in all users
-		
+
 		await moviesData.addMovie(
 			"Avatar",
 			2009,
-			["Action", "Sci/Fi"],
+			["Action", "Sci-Fi"],
 			7.8,
 			"A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes " +
 			"torn between following his orders and protecting the world he feels is his home.",
@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
 		await moviesData.addMovie(
 			"Inception",
 			2010,
-			["Action", "Sci/Fi"],
+			["Action", "Sci-Fi"],
 			8.8,
 			"A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
 			["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"],
@@ -54,7 +54,7 @@ router.post('/', async (req, res) => {
 		await moviesData.addMovie(
 			"Terminator 2: Judgment Day",
 			2009,
-			["Action", "Sci/Fi"],
+			["Action", "Sci-Fi"],
 			7.8,
 			"A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten-year-old son John from a more advanced and powerful cyborg.",
 			["Arnold Schwarzenegger", "Linda Hamilton", "Edward Furlong"],
@@ -66,7 +66,7 @@ router.post('/', async (req, res) => {
 		await moviesData.addMovie(
 			"Spider-Man: No Way Home",
 			2009,
-			["Action", "Sci/Fi"],
+			["Action", "Sci-Fi"],
 			8.4,
 			"With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.",
 			["Tom Holland", "Zendaya", "Benedict Cumberbatch"],
@@ -88,7 +88,7 @@ router.post('/', async (req, res) => {
 		await moviesData.addMovie(
 			"Interstellar",
 			2014,
-			["Drama", "Sci/Fi"],
+			["Drama", "Sci-Fi"],
 			8.6,
 			"A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
 			["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
@@ -99,7 +99,7 @@ router.post('/', async (req, res) => {
 		await moviesData.addMovie(
 			"Jurassic Park",
 			1993,
-			["Action", "Sci/Fi"],
+			["Action", "Sci-Fi"],
 			7.8,
 			"A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids after a power failure causes the park's cloned dinosaurs to run loose.",
 			["Sam Neill", "Laura Dern", "Jeff Goldblum"],
@@ -187,7 +187,7 @@ router.post('/', async (req, res) => {
 		await moviesData.addMovie(
 			"A Quiet Place",
 			2018,
-			["Drama", "Sci/Fi", "Horror"],
+			["Drama", "Sci-Fi", "Horror"],
 			7.5,
 			"In a post-apocalyptic world, a family is forced to live in silence while hiding from monsters with ultra-sensitive hearing.",
 			["Emily Blunt", "John Krasinski", "Millicent Simmonds"],
@@ -231,13 +231,58 @@ router.post('/', async (req, res) => {
 		await moviesData.addMovie(
 			"Groundhog Day",
 			1993,
-			["Action", "Sci/Fi", "Comedy"],
+			["Action", "Sci-Fi", "Comedy"],
 			8.1,
 			"A self-centered Pittsburgh weatherman finds himself inexplicably trapped in a small town as he lives the same day over and over again.",
 			["Bill Murray", "Andie MacDowell", "Chris Elliott"],
 			["Harold Ramis"],
 			["Paramount+", "EPIX"]
 		);
+
+		await moviesData.addMovie(
+			"Zathura: A Space Adventure",
+			2005,
+			["Action", "Comedy"],
+			8.1,
+			"Two young brothers are drawn into an intergalactic adventure when their house is hurled through the depths of space by the magical board game they are playing.",
+			["Josh Hutcherson", "Jonah Bobo", "Dax Shepard"],
+			["Jon Favreau"],
+			["HBO Max", "Hulu"]
+		);
+
+		await moviesData.addMovie(
+			"Joker",
+			2019,
+			["Drama", "Horror"],
+			8.4,
+			"Two young brothers are drawn into an intergalactic adventure when their house is hurled through the depths of space by the magical board game they are playing.",
+			["Josh Hutcherson", "Jonah Bobo", "Dax Shepard"],
+			["Jon Favreau"],
+			["HBO Max", "TBS"]
+		);
+
+		await moviesData.addMovie(
+			"The Shawshank Redemption",
+			1994,
+			["Drama", "Action"],
+			8.4,
+			"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+			["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
+			["Jon Favreau"],
+			["HBO Max", "TBS"]
+		);
+
+		await moviesData.addMovie(
+			"Eternal Sunshine of the Spotless Mind",
+			1994,
+			["Drama", "Romance", "Sci-Fi"],
+			8.4,
+			"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+			["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
+			["Jon Favreau"],
+			["HBO Max", "TBS"]
+		);
+
 
 
 		res.redirect('/');

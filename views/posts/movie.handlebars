@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Film Foray - {{allData.movieTitle}}</title>
+	<title>Film Foray - {{allData.movieTitle}}</title>
 </head>
 
 <header>
@@ -39,32 +39,32 @@
 			<div class="column">
 				<div class="movie_info">
 					INFO:
-					<ul>
-						<li class="movie-label">Year Released:</li>
-						<li class="movie-list">{{allData.releaseYear}}</li>
-						<li class="movie-label">Genre:</li>
-						<li class="movie-list">
-							{{#each allData.genre}}
-							<li class="movie-list">{{{this}}} </li> {{/each}}
-						</li>
-						<li class="movie-label">IMDB Rating:</li>
-						<li class="movie-list">{{allData.rating}}</li>
-						<li class="movie-label">Actors</li>
-						<li class="movie-list">
-							{{#each allData.actors}}
-							<li class="movie-list">{{{this}}} </li> {{/each}}
-						</li>
-						<li class="movie-label">Directors</li>
-						<li class="movie-list">
-							{{#each allData.directors}}
-							<li class="movie-list">{{{this}}} </li> {{/each}}
-						</li>
-						<li class="movie-label">Where To Watch:</li>
-						<li class="movie-list">
-							{{#each allData.whereToWatch}}
-							<li class="movie-list">{{{this}}} </li> {{/each}}
-						</li>
-					</ul>
+
+					<li class="movie-label">Year Released:</li>
+					<li class="movie-list">{{allData.releaseYear}}</li>
+					<li class="movie-label">Genre:</li>
+					<li class="movie-list">
+						{{#each allData.genre}}
+					<li class="movie-list">{{{this}}} </li> {{/each}}
+					</li>
+					<li class="movie-label">IMDB Rating:</li>
+					<li class="movie-list">{{allData.rating}}</li>
+					<li class="movie-label">Actors</li>
+					<li class="movie-list">
+						{{#each allData.actors}}
+					<li class="movie-list">{{{this}}} </li> {{/each}}
+					</li>
+					<li class="movie-label">Directors</li>
+					<li class="movie-list">
+						{{#each allData.directors}}
+					<li class="movie-list">{{{this}}} </li> {{/each}}
+					</li>
+					<li class="movie-label">Where To Watch:</li>
+					<li class="movie-list">
+						{{#each allData.whereToWatch}}
+					<li class="movie-list">{{{this}}} </li> {{/each}}
+					</li>
+
 				</div>
 			</div>
 
@@ -79,14 +79,11 @@
 							{{/each}}
 						</li>
 					</ul>
-	
+
 					<form method="POST" action="/movie/{{allData._id}}/newcomment">
 						<p id="error" class="error">{{error}}</p>
 						<label for="comment_post">
-							<textarea 
-								class="post_comment"
-								id="comment_post" 
-								name="comment_post"
+							<textarea class="post_comment" id="comment_post" name="comment_post"
 								placeholder="Enter Comment Here..." required>
 							</textarea>
 						</label>
