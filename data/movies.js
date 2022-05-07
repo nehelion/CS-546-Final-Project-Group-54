@@ -144,7 +144,7 @@ async function getMoviesByGenre(genre)
 
 	for(let i = 0; i < moviesList.length; i++)
 	{
-		for(let j = 0; j < moviesList[i].genre.length; i++)
+		for(let j = 0; j < moviesList[i].genre.length; j++)
 		{
 			if(moviesList[i].genre[j] == genre)
 			{
