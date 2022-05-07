@@ -134,7 +134,7 @@ async function getMoviesByGenre(genre)
 	if (!genre) 
 	throw "You must provide a genre to search for";
 if (typeof genre !== 'string') 
-	throw "Given enre must be a string";
+	throw "Given genre must be a string";
 if (genre.trim().length === 0) 
 	throw "Given genre cannot be an empty string or just spaces";
 	genre = genre.trim();
