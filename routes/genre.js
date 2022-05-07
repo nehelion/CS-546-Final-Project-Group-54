@@ -14,7 +14,7 @@ router.get('/:genre', async (req, res) => {
     }
     else
     {
-      let movieList = moviesData.getMoviesByGenre(req.params.genre);
+      let movieList = await moviesData.getMoviesByGenre(req.params.genre);
       movieList = await moviesData.sortMovies(movieList);
 
       var genreList = []
@@ -31,7 +31,7 @@ router.get('/:genre', async (req, res) => {
       res.render('posts/genre', 
       { 
         title: "Genre", 
-        allData: movieList, 
+        allData: genreList, 
         givenGenre: req.params.genre 
       })
     }

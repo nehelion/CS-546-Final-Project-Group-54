@@ -8,22 +8,7 @@
             <h1>FILM FORAY</h1>
         </a>
   </header>
-<h2>Movies Based on the Selected Genre</h2>
-  <div class="topnav">
-    <div class="dropdown">
-      <button class="dropbtn">{{userDetails.userName}}
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-content">
-        <a href="/myaccount">My Account</a>
-        <a href="/logout">Logout</a>
-      </div>
-    </div>
-      <form class="search-form" action="/searchpage" method="post">
-          <input type="search" name="showSearchTerm" placeholder="search...">
-          <button class="search-button" type="submit">Search</button>
-      </form>
-  </div>
+<h2 class = "genre_title">{{{givenGenre}}}</h2>
 
   <div class="container">
         <div class="hs__wrapper">
@@ -40,7 +25,7 @@
             </div>
             <ul class="hs">
                 {{#each allData}}
-                {{{title}}}
+                {{{allData.title}}}
                 {{/each}}
             </ul>
         </div>

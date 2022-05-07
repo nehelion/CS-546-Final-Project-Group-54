@@ -1008,3 +1008,8 @@ div.comment_section {
   height: 50px;
   margin: auto;
 }
+
+.genre_title
+{
+  text-transform: uppercase;
+}

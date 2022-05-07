@@ -140,7 +140,19 @@ async function getMoviesByGenre(genre)
 	
 	const moviesCollection = await movies();
 	const moviesList = await moviesCollection.find({}).toArray();
-	let genreList = moviesList.filter(function(value,index,arr){return value.genre.includes(genre);})
+	let genreList = [];
+
+	for(let i = 0; i < moviesList.length; i++)
+	{
+		for(let j = 0; j < moviesList[i].genre.length; i++)
+		{
+			if(moviesList[i].genre[j] == genre)
+			{
+				genreList.push(moviesList[i]);
+			}
+		}
+	}
+	
 	if (!genreList) throw "Could not get movies by the " + genre + " genre";
 	return genreList;
 }
