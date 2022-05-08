@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Film Foray - Genre {{givenGenre}}</title>
+</head>
+
+<header>
+  <a href="/private">
+    <h1>FILM FORAY</h1>
+  </a>
+</header>
+
+<main>
+  <h2 class="genre_title">{{{givenGenre}}}</h2>
+    <ul class="genre_list">
+      {{#each allData}}
+        {{{title}}}
+      {{/each}}
+    </ul>
+</main>

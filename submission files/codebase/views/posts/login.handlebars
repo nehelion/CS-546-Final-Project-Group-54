@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Film Foray - Login</title>
+</head>
+
+<header>
+	<a href="/">
+    <h1>FILM FORAY</h1>
+	</a>
+</header>
+
+<div class="login-container">
+    <label class="login-label">Sign In</label>
+    <br />
+    <br />
+    <form method="POST" action="/login">
+        <p id="error" class="error">{{error}}</p>
+        <input type="text" id="username" name="username" placeholder="Enter Username" required>
+        <br />
+        <input type="password" id="password" name="password" placeholder="Enter Password" required>
+        <br />
+        <button class="submit-button" type="submit">LOGIN</button>
+        <br />
+        <label style="color:white"><input type="checkbox" checked="checked"> Remember me</label>
+        <br />
+        <br />
+        <br />
+        <a href="/signup"> Need to register? Click here to sign-up</a>
+    </form>
+
+
+</div>
+
+</html>

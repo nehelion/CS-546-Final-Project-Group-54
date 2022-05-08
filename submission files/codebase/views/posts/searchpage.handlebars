@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Film Foray - Search {{showSearchTerm}}</title>
+</head>
+
+<header>
+  <a href="/private">
+    <h1>FILM FORAY</h1>
+  </a>
+</header>
+<h2 class="h2search">Showing Results for: "{{showSearchTerm}}"</h2>
+<div class="signup-container">
+  <ul>
+    {{#each result}}
+    <li><a class="search-list" href="/movie/{{_id}}" target="_blank">{{movieTitle}}</a></li>
+    {{/each}}
+		<li class="main-error"> {{error}} </li>
+  </ul>
+</div>
+
+</html>

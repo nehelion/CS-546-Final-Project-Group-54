@@ -1,0 +1,89 @@
+const express = require('express');
+const router = express.Router();
+const data = require('../data');
+const moviesData = data.movies;
+const usersData = data.users;
+
+router.get('/', async (req, res) => {
+  try {
+    if (!req.session.user) {
+			return res.status(403).render('posts/login')
+		}
+		else {
+			let movies = await moviesData.getAllMovies();
+		
+			movies = await moviesData.sortMovies(movies);
+
+			var movieList = [];
+
+			for (let i = 0; i < movies.length; i++) {
+				movieList.push({
+					title:
+						"<div class='item'><a href='/movie/" + movies[i]._id + "'>" +
+						"<button class='movie-thumbnail all-movies' type='submit'>" + movies[i].movieTitle + "</button>" +
+						"</a></div>"
+				});
+			}
+
+			let likedMovies = await usersData.getAllLikedMovies(req.session.user.userName);
+
+			var likedMovieList = [];
+
+			try {
+				for (let i = 0; i < likedMovies.length; i++) {
+					let addingMovie = await moviesData.getMovie(likedMovies[i]);
+					likedMovieList.push(addingMovie);
+				}
+				likedMovieList = await moviesData.sortMovies(likedMovieList);
+			}
+			catch (e) {
+				res.status(500);
+				res.render('posts/private', { error: e })
+				return;
+			}
+
+			var likedMovieListHtml = [];
+			
+			if(likedMovieList.length == 0) {
+				likedMovieListHtml.push({
+					title: "<div class='item'><a class='no_liked_error'>You haven't liked any movie yet!</a></div>"
+				});
+			}
+			else {
+				for (let i = 0; i < likedMovieList.length; i++) {
+					likedMovieListHtml.push({
+						title: "<div class='item'><a href='/movie/" + likedMovieList[i]._id + "'>" +
+							"<button class='movie-thumbnail liked-movies' type='submit'>" + likedMovieList[i].movieTitle + "</button>" +
+							"</a></div>"
+					});
+				}
+			}
+			
+			var listofGenres = ["Action","Comedy","Drama","Horror","Sci-Fi","Romance"]
+
+			var listofGenresHtml = [];
+
+			for(let i = 0; i < listofGenres.length; i++) {
+				listofGenresHtml.push({
+					genre: "<div class = 'item'><a href='/genre/" + listofGenres[i] + "'>" +
+						"<button class='movie-thumbnail genre' type='submit'>" + listofGenres[i] + "</button>" +
+						"</a></div>"
+				});
+			}
+
+			res.render('posts/private', {
+				userDetails: req.session.user, 
+				movies: movieList, 
+				likedMovies: likedMovieListHtml, 
+				listofGenres: listofGenresHtml
+			})
+		}
+  } 
+	catch (e) {
+    res.status(404).json({
+      error: '404: Page Not found'
+    });
+  }
+});
+
+module.exports = router;
