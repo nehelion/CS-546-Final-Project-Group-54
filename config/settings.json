@@ -1,6 +1,6 @@
 {
   "mongoConfig": {
-    "serverUrl": "mongodb+srv://AnushaSuresh:546Web@cluster0.kvayh.mongodb.net/test?authSource=admin&replicaSet=atlas-13kbte-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true",
+    "serverUrl": "mongodb://localhost:27017/",
     "database": "Film_Foray"
   }
 }

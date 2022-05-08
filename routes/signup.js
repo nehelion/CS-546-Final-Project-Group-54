@@ -88,7 +88,8 @@ router.post('/', async (req, res) => {
     let addUser = await usersData.createUser(firstName, lastName, username, password, email);
     
 		if (addUser.userInserted) {
-      req.session.user = { userName: username }
+      let user = await usersData.getUser(username);
+      req.session.user = { userName: username, theUser: user }
       res.redirect('/private');
     } 
 		else {
